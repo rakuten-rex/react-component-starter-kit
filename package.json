@@ -1,0 +1,19 @@
+{
+  "name": "@rakuten-rex/react-component-starter-kit",
+  "version": "2.0.0",
+  "description": "ReX React UI Component",
+  "main": "src/MyComponent.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rakuten-rex/react-component-starter-kit.git"
+  },
+  "author": "ReX React UI Components Library Authors (https://github.com/rakuten-rex/react-component-starter-kit/graphs/contributors)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rakuten-rex/react-component-starter-kit/issues"
+  },
+  "homepage": "https://github.com/rakuten-rex/react-component-starter-kit#readme"
+}
