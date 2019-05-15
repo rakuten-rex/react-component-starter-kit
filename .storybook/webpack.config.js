@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = async ({ config, mode }) => {
   config.module.rules.push({
@@ -12,7 +13,10 @@ module.exports = async ({ config, mode }) => {
     include: path.resolve(__dirname, '../'),
   });
 
-  config.plugins.push(new MiniCssExtractPlugin());
-
+  if(mode === 'PRODUCTION') {
+    config.plugins.push(new CleanWebpackPlugin());
+    config.plugins.push(new MiniCssExtractPlugin());
+  }
+  
   return config;
 };
