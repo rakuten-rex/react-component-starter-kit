@@ -5,7 +5,7 @@
   "main": "src/MyComponent.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080",
+    "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080 --ci",
     "build": "NODE_ENV=production ./node_modules/.bin/npm-run-all build:storybook",
     "build:storybook": "NODE_ENV=production ./node_modules/.bin/build-storybook -c .storybook -o docs"
   },
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-knobs": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",

@@ -1,24 +1,38 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
-import { Button, Welcome } from '@storybook/react/demo';
-import MyComponent from '../src/MyComponent';
+const MyComponent =
+  process.env.NODE_ENV === 'production'
+    ? require('../build/node_modules/rex-react-component-starter-kit').default
+    : require('../src/MyComponent').default;
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+const stories = storiesOf('MyComponent', module);
+stories.addDecorator(withKnobs);
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ))
-  .add('with test', () => (
-    <MyComponent />
-  ));
+// Stories
+stories.add('default', () => <MyComponent />);
+stories.add('with text', () => <MyComponent text="Welcome to React example" />);
+stories.add('with className', () => (
+  <MyComponent className="color-black active" />
+));
+
+stories.add('with onClick', () => {
+  const onClickSample = action('clicked');
+
+  return <MyComponent onClick={onClickSample} />;
+});
+
+stories.add('with children', () => (
+  <MyComponent>
+    <p>Hello World</p>
+  </MyComponent>
+));
+
+stories.add('with dynamic props', () => {
+  const textWelcome = text('text', 'Welcome to Dynamic React');
+
+  return <MyComponent text={textWelcome} />;
+});
 
