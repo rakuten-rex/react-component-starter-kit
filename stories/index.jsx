@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import { withA11y } from '@storybook/addon-a11y';
 
 const MyComponent =
   process.env.NODE_ENV === 'production'
@@ -10,6 +11,7 @@ const MyComponent =
 
 const stories = storiesOf('MyComponent', module);
 stories.addDecorator(withKnobs);
+stories.addDecorator(withA11y);
 
 // Stories
 stories.add('default', () => <MyComponent />);
