@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 const pathResolve = require('path').resolve;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const ClosureCompiler = require('google-closure-compiler-js').webpack;
+const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const packageInfo = require('./package.json');
@@ -120,18 +120,18 @@ const cssExtractPlugin = new MiniCssExtractPlugin({
 });
 
 // Google Closure compiler instead of uglify
-// const googleClosureCompiler = new ClosureCompiler({
-//   options: {
-//     compilationLevel: 'SIMPLE',
-//     languageIn: 'ECMASCRIPT5_STRICT',
-//     languageOut: 'ECMASCRIPT5_STRICT',
-//     warningLevel: 'QUIET',
-//     applyInputSourceMaps: false,
-//     useTypesForOptimization: false,
-//     processCommonJsModules: false,
-//     rewritePolyfills: false,
-//   },
-// });
+const googleClosureCompiler = new ClosureCompiler({
+  options: {
+    compilationLevel: 'SIMPLE',
+    languageIn: 'ECMASCRIPT5_STRICT',
+    languageOut: 'ECMASCRIPT5_STRICT',
+    warningLevel: 'QUIET',
+    applyInputSourceMaps: false,
+    useTypesForOptimization: false,
+    processCommonJsModules: false,
+    rewritePolyfills: false,
+  },
+});
 
 // Optimize css output
 const optimizeCss = new OptimizeCSSAssetsPlugin({
@@ -257,7 +257,7 @@ const webpackConfig = {
   optimization: {
     concatenateModules: true,
     minimize: true,
-    minimizer: [optimizeCss],
+    minimizer: [googleClosureCompiler, optimizeCss],
   },
 };
 
