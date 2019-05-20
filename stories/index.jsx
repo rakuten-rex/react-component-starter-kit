@@ -5,10 +5,10 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 
-const MyComponent =
+const { default: MyComponent } =
   process.env.NODE_ENV === 'production'
-    ? require('../build/node_modules/@rakuten-rex/react-component-starter-kit').default
-    : require('../src/MyComponent').default;
+    ? require('../build/node_modules/@rakuten-rex/react-component-starter-kit')
+    : require('../src/MyComponent');
 
 const stories = storiesOf('MyComponent', module);
 stories.addDecorator(withKnobs);
