@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -6,7 +7,7 @@ import { withA11y } from '@storybook/addon-a11y';
 
 const MyComponent =
   process.env.NODE_ENV === 'production'
-    ? require('../build/node_modules/rex-react-component-starter-kit').default
+    ? require('../build/node_modules/@rakuten-rex/react-component-starter-kit').default
     : require('../src/MyComponent').default;
 
 const stories = storiesOf('MyComponent', module);
@@ -37,4 +38,3 @@ stories.add('with dynamic props', () => {
 
   return <MyComponent text={textWelcome} />;
 });
-
