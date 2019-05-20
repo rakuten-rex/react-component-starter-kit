@@ -8,7 +8,8 @@
     "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080 --ci",
     "build": "NODE_ENV=production ./node_modules/.bin/npm-run-all build:storybook",
     "build:storybook": "NODE_ENV=production ./node_modules/.bin/build-storybook -c .storybook -o docs",
-    "build:component": "NODE_ENV=production ./node_modules/.bin/webpack --mode=production --config webpack.config.js"
+    "build:component": "NODE_ENV=production ./node_modules/.bin/webpack --mode=production --config webpack.config.js",
+    "init:component": "node init.js"
   },
   "repository": {
     "type": "git",
