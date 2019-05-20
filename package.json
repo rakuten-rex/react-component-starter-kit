@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/rakuten-rex/react-component-starter-kit/issues"
   },
-  "homepage": "https://github.com/rakuten-rex/react-component-starter-kit#readme",
+  "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
