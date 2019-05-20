@@ -133,7 +133,7 @@ function setPackageJson(packageName, componentName, packageJSON) {
     scopePackageName
   );
   packageData.homepage = packageData.homepage.replace(
-    starterKitName,
+    packageName,
     scopePackageName
   );
 
