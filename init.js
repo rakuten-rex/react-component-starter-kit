@@ -118,9 +118,9 @@ function setPackageJson(packageName, componentName, packageJSON) {
   const componentFilename = `src/${componentName}.jsx`;
   const starterKitName = 'rakuten-rex/react-component-starter-kit';
   const file = './package.json';
-  const scopePackageName = `@rakuten-rex/${packageName}`;
+  const scopePackageName = `rakuten-rex/${packageName}`;
   const packageData = packageJSON;
-  packageData.name = scopePackageName;
+  packageData.name = `@${scopePackageName}`;
   packageData.version = '0.0.1';
   packageData.main = componentFilename;
   packageData.repository.url = packageData.repository.url.replace(
