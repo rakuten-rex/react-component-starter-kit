@@ -86,14 +86,6 @@ function setScssContent(packageName, componentName) {
   console.log(`Done`);
 }
 
-function setTestsContent(packageName, componentName) {
-  const filename = `src/__tests__/${componentName}.test.jsx`;
-  console.log(`- Updating content of ${filename}`);
-  setFileContent(filename, 'MyComponent', componentName);
-  setFileContent(filename, 'my-component', packageName);
-  console.log(`Done`);
-}
-
 function setStoriesContent(packageName, componentName) {
   const filename = `stories/index.jsx`;
   console.log(`- Updating content of ${filename}`);
@@ -118,17 +110,6 @@ function setJsxFilename(componentName) {
 function setScssFilename(componentName) {
   console.log(`- Changing src/MyComponent.scss to src/${componentName}.scss`);
   fs.renameSync('src/MyComponent.scss', `src/${componentName}.scss`);
-  console.log(`Done`);
-}
-
-function setTestsFilename(componentName) {
-  console.log(
-    `- Changing src/__tests__/MyComponent.test.jsx to src/__tests__/${componentName}.test.jsx`
-  );
-  fs.renameSync(
-    'src/__tests__/MyComponent.test.jsx',
-    `src/__tests__/${componentName}.test.jsx`
-  );
   console.log(`Done`);
 }
 
@@ -191,12 +172,10 @@ function init(packageName, componentName, packageJSON) {
   setPackageJson(packageName, componentName, packageJSON);
   setJsxFilename(componentName);
   setScssFilename(componentName);
-  setTestsFilename(componentName);
 
   // Set content
   setJsxContent(packageName, componentName);
   setScssContent(packageName, componentName);
-  setTestsContent(packageName, componentName);
   setStoriesContent(packageName, componentName);
   setWebpackContent(componentName);
 
