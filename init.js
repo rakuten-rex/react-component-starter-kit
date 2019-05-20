@@ -116,7 +116,8 @@ function setScssFilename(componentName) {
 function setPackageJson(packageName, componentName, packageJSON) {
   console.log('- Updating package.json information');
   const componentFilename = `src/${componentName}.jsx`;
-  const starterKitName = 'rakuten-rex/react-component-starter-kit';
+  const startedKitName = 'react-component-starter-kit';
+  const starterKitScope = `rakuten-rex/${startedKitName}`;
   const file = './package.json';
   const scopePackageName = `rakuten-rex/${packageName}`;
   const packageData = packageJSON;
@@ -124,17 +125,17 @@ function setPackageJson(packageName, componentName, packageJSON) {
   packageData.version = '0.0.1';
   packageData.main = componentFilename;
   packageData.repository.url = packageData.repository.url.replace(
-    starterKitName,
+    starterKitScope,
     scopePackageName
   );
-  packageData.author = packageData.author.replace(starterKitName, scopePackageName);
+  packageData.author = packageData.author.replace(starterKitScope, scopePackageName);
   packageData.bugs.url = packageData.bugs.url.replace(
-    starterKitName,
+    starterKitScope,
     scopePackageName
   );
   packageData.homepage = packageData.homepage.replace(
-    packageName,
-    scopePackageName
+    startedKitName,
+    packageName
   );
 
   const fileContent = JSON.stringify(packageData, null, 2);
