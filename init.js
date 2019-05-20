@@ -119,7 +119,7 @@ function setPackageJson(packageName, componentName, packageJSON) {
   const starterKitName = 'rakuten-rex/react-component-starter-kit';
   const file = './package.json';
   const packageData = packageJSON;
-  packageData.name = packageName;
+  packageData.name = `@rakuten-rex/${packageName}`;
   packageData.version = '0.0.1';
   packageData.main = componentFilename;
   packageData.repository.url = packageData.repository.url.replace(
