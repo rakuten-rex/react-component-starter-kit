@@ -14,7 +14,7 @@ Welcome to ReX React UI Component generator
 ===========================================
 `);
 
-rl.question('\nPackage name (ex: rex-text): ', packageName => {
+rl.question('\nPackage name (ex: text): ', packageName => {
   rl.question('Component name (ex: Text): ', componentName => {
     if (packageName.trim().length > 0 && componentName.trim().length > 0) {
       console.log(
@@ -22,7 +22,7 @@ rl.question('\nPackage name (ex: rex-text): ', packageName => {
       );
       console.log(`./package.json: \n
         {
-          name: "${packageName}"
+          name: "@rakuten-rex/${packageName}"
           ...
         }
       `);
@@ -135,7 +135,7 @@ function setTestsFilename(componentName) {
 function setPackageJson(packageName, componentName, packageJSON) {
   console.log('- Updating package.json information');
   const componentFilename = `src/${componentName}.jsx`;
-  const starterKitName = 'rex-react-component-starter-kit';
+  const starterKitName = 'rakuten-rex/react-component-starter-kit';
   const file = './package.json';
   const packageData = packageJSON;
   packageData.name = packageName;
