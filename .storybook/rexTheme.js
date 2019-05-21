@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import logo from './rex-logo.png';
+import logo from './rex-logo.svg';
 import { name, repository } from '../package.json';
 
 export default create({
