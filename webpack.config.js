@@ -148,9 +148,7 @@ const npmIndexJSPlugin = new CopyWebpackPlugin([
     from: './npm/index.tpl',
     to: `index.js`,
     transform(content) {
-      return content
-        .toString()
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly);
+      return content.toString().replace(/__COMPONENT_NAME__/g, packageNameOnly);
     },
   },
 ]);
@@ -163,11 +161,7 @@ const npmReadmePlugin = new CopyWebpackPlugin([
       return content
         .toString()
         .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version)
-        .replace(
-          /__REX_CORE_VERSION__/g,
-          '^1.4.0'
-        );
+        .replace(/__VERSION__/g, packageInfo.version);
     },
   },
 ]);
@@ -196,9 +190,7 @@ const npmCssIndexJSPlugin = new CopyWebpackPlugin([
     from: './npm/css/index.tpl',
     to: `css/index.js`,
     transform(content) {
-      return content
-        .toString()
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly);
+      return content.toString().replace(/__COMPONENT_NAME__/g, packageNameOnly);
     },
   },
 ]);
@@ -212,11 +204,7 @@ const mdReadmePlugin = new CopyWebpackPlugin([
       return content
         .toString()
         .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version)
-        .replace(
-          /__REX_CORE_VERSION__/g,
-          '^1.4.0'
-        );
+        .replace(/__VERSION__/g, packageInfo.version);
     },
   },
 ]);
