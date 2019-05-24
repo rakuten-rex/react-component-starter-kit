@@ -77,7 +77,7 @@ For development mode:
 
 ```markdown
 <!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/^1.4.0/rex-core.development.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.development.css" rel="stylesheet">
 <!-- react-component-starter-kit -->
 <link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.0.0/react-component-starter-kit.development.css" rel="stylesheet">
 ```
@@ -86,7 +86,7 @@ For production mode:
 
 ```markdown
 <!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/^1.4.0/rex-core.production.min.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.production.min.css" rel="stylesheet">
 <!-- react-component-starter-kit -->
 <link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.0.0/react-component-starter-kit.production.min.css" rel="stylesheet">
 ```

@@ -7,7 +7,7 @@ import { withA11y } from '@storybook/addon-a11y';
 
 const { default: MyComponent } =
   process.env.NODE_ENV === 'production'
-    ? require('../build/node_modules/@rakuten-rex/react-component-starter-kit')
+    ? require('@rakuten-rex/react-component-starter-kit')
     : require('../src/MyComponent');
 
 const stories = storiesOf('MyComponent', module);

@@ -29,7 +29,7 @@ const filenameJS = `${filename}.js`;
 const filenameCSS = `${filename}.css`;
 
 const output = {
-  path: pathResolve(__dirname, `build/node_modules/${packageInfo.name}`),
+  path: pathResolve(__dirname, `node_modules/${packageInfo.name}`),
   publicPath: '/',
   filename: filenameJS,
   chunkFilename: filenameJS,
