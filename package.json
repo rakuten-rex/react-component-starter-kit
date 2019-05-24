@@ -17,7 +17,7 @@
     "commit": "npm run commit:docs && npm run commit:package",
     "commit:docs": "git add docs README.md && git commit -m 'Added - Docs for github pages and README file'",
     "commit:package": "git add package.json package-lock.json && git commit -m 'New version - v'$npm_package_version",
-    "serve": "NODE_ENV=production ./node_modules/.bin/serve -l 8081 docs"
+    "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs"
   },
   "repository": {
     "type": "git",
@@ -53,12 +53,13 @@
     "eslint-loader": "^2.1.2",
     "eslint-plugin-prettier": "^3.1.0",
     "google-closure-compiler-js": "^20180610.0.0",
+    "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prettier": "^1.17.1",
+    "puppeteer": "^1.17.0",
     "sass-loader": "^7.1.0",
-    "serve": "^11.0.0",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2",
     "webpack-merge": "^4.2.1"
