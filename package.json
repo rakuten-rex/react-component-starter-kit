@@ -58,7 +58,6 @@
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prettier": "^1.17.1",
-    "puppeteer": "^1.17.0",
     "sass-loader": "^7.1.0",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2",
