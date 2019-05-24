@@ -1,6 +1,6 @@
 {
   "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "ReX React UI Component",
   "main": "src/MyComponent.jsx",
   "scripts": {
