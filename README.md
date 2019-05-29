@@ -20,7 +20,7 @@ https://www.npmjs.com/org/rakuten-rex
 # How to install
 
 ```
-npm install react-component-starter-kit@2.0.1 --save
+npm install @rakuten-rex/react-component-starter-kit@2.0.1 --save
 ```
 
 ## What you can do
@@ -46,8 +46,8 @@ For plug and play components integration.
 Example: 
 
 ```js
-import 'rex-core'; // ReX Core dependency
-import RexComponent from 'react-component-starter-kit';
+import '@rakuten-rex/core'; // ReX Core dependency
+import RexComponent from '@rakuten-rex/react-component-starter-kit';
 
 function MyComponent() {
   return <RexComponent>Hello World</RexComponent>;
@@ -61,8 +61,8 @@ For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 Example: 
 
 ```js
-import 'rex-core/css'; // ReX Core dependency
-import 'react-component-starter-kit/css';
+import '@rakuten-rex/core/css'; // ReX Core dependency
+import '@rakuten-rex/react-component-starter-kit/css';
 
 function MyComponent() {
   return <div className="rex-css-style my-component">Hello World</div>;
@@ -77,7 +77,7 @@ For development mode:
 
 ```markdown
 <!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.development.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/core/__REX_CORE_VERSION__/core.development.css" rel="stylesheet">
 <!-- react-component-starter-kit -->
 <link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.0.1/react-component-starter-kit.development.css" rel="stylesheet">
 ```
@@ -86,7 +86,7 @@ For production mode:
 
 ```markdown
 <!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.production.min.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/core/__REX_CORE_VERSION__/core.production.min.css" rel="stylesheet">
 <!-- react-component-starter-kit -->
 <link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.0.1/react-component-starter-kit.production.min.css" rel="stylesheet">
 ```
@@ -109,7 +109,7 @@ npm start
 
 ## How to build
 
-The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./build/node_modules/react-component-starter-kit` and other one for Github pages `./docs`.   
+The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./node_modules/@rakuten-rex/react-component-starter-kit` and other one for Github pages `./docs`.   
 
 ```
 npm run build
@@ -136,40 +136,15 @@ Build the project first.
 After that run the following commands:
 
 ```
-cd build/node_modules/react-component-starter-kit
+cd ./node_modules/@rakuten-rex/react-component-starter-kit
 npm login
 npm publish
 ```
 
 Once the process finish, take a look to the NPM site:   
 
-https://www.npmjs.com/package/react-component-starter-kit
+https://www.npmjs.com/package/@rakuten-rex/react-component-starter-kit
 
-## How to test
-
-This starter kit includes `jest` and `enzyme` for unit testing.
-
-```
-# Run test once
-npm test
-
-# Watch mode
-npm test -- -watch
-```
-
-### How to update snapshots
-
-```
-npm test -- -u
-```
-
-### How to report code coverage
-
-```
-npm test -- -coverage
-```
-
-and coverage report will be generated under `./coverage/` directory.
 
 ## Javascript and React related documents
 
