@@ -90,7 +90,7 @@ function setStoriesContent(packageName, componentName) {
   const filename = `stories/index.jsx`;
   console.log(`- Updating content of ${filename}`);
   setFileContent(filename, 'MyComponent', componentName);
-  setFileContent(filename, 'rex-react-component-starter-kit', packageName);
+  setFileContent(filename, 'react-component-starter-kit', packageName);
   console.log(`Done`);
 }
 
