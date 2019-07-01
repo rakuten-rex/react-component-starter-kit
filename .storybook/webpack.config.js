@@ -1,20 +1,24 @@
 const path = require('path');
 
+// Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
+  // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'
+  // You can change the configuration based on that.
+  // 'PRODUCTION' is used when building the static version of storybook.
+
+  // Make whatever fine-grained changes you need
   config.module.rules.push({
-    test: /\.scss$/,
-    use: [
-      'style-loader',
-      'css-loader',
-      'sass-loader',
-    ],
-    include: path.resolve(__dirname, '../'),
+    test: /\.(svg)$/,
+    use: [{
+      loader: 'file-loader',
+      options: {
+        name: `service/[name].[ext]`,
+        publicPath: `http://localhost:8080/`,
+      },
+    }],
+    include: path.resolve(__dirname, '../node_modules/rgm-global-header'),
   });
 
-  config.devtool = (mode === 'DEVELOPMENT') ? 'inline-source-map' : false;
-  config.performance = {
-    hints: false
-  };
-
+  // Return the altered config
   return config;
 };
