@@ -1,4 +1,12 @@
-import { configure } from '@storybook/react';
+import { configure, addParameters } from '@storybook/react';
+import rexTheme from './rexTheme';
+
+// Option defaults.
+addParameters({
+  options: {
+    theme: rexTheme,
+  },
+});
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../stories', true, /\.stories\.js$/);
