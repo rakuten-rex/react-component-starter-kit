@@ -5,8 +5,19 @@
   "main": "src/MyComponent.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 8080 --ci",
-    "build-storybook": "build-storybook"
+    "init:component": "node init.js && npm i && npm start",
+    "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080 --ci",
+    "build": "npm run build:component && npm run build:storybook",
+    "build:patch": "npm --no-git-tag-version version patch && npm run build:commit",
+    "build:minor": "npm --no-git-tag-version version minor && npm run build:commit",
+    "build:major": "npm --no-git-tag-version version major && npm run build:commit",
+    "build:storybook": "NODE_ENV=production ./node_modules/.bin/build-storybook -c .storybook -o docs",
+    "build:component": "NODE_ENV=production ./node_modules/.bin/webpack --mode=production --progress=true --config webpack.config.js",
+    "build:commit": "npm run build && npm run commit",
+    "commit": "npm run commit:docs && npm run commit:package",
+    "commit:docs": "git add docs README.md && git commit -m 'Added - Docs for github pages and README file'",
+    "commit:package": "git add package.json package-lock.json && git commit -m 'New version - v'$npm_package_version",
+    "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs"
   },
   "repository": {
     "type": "git",
@@ -36,13 +47,21 @@
     "@storybook/react": "^5.1.9",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-prettier": "^3.1.0",
+    "google-closure-compiler-js": "^20180610.0.0",
+    "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.2",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-merge": "^4.2.1"
   }
 }
