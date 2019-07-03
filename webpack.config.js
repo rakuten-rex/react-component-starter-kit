@@ -112,7 +112,7 @@ const externals = {
 // Webpack Plugins:
 // Clean build folder
 const cleanBuildPlugin = new CleanWebpackPlugin({
-    cleanOnceBeforeBuildPatterns: [], // disable initial clean
+  cleanOnceBeforeBuildPatterns: [], // disable initial clean
 });
 
 // Extract CSS from javascript bundle
