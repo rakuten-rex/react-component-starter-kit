@@ -39,7 +39,7 @@ rl.question('\nPackage name (ex: text): ', packageName => {
 
       console.log(`./webpack.config.js: \n
         const entry = {};
-        entry[package.name] = './src/${componentName}.jsx';
+        entry[packageNameOnly] = './src/${componentName}.jsx';
       `);
 
       rl.question('Are you sure you want to proceed? (y/n) ', answer => {
@@ -128,7 +128,10 @@ function setPackageJson(packageName, componentName, packageJSON) {
     starterKitScope,
     scopePackageName
   );
-  packageData.author = packageData.author.replace(starterKitScope, scopePackageName);
+  packageData.author = packageData.author.replace(
+    starterKitScope,
+    scopePackageName
+  );
   packageData.bugs.url = packageData.bugs.url.replace(
     starterKitScope,
     scopePackageName
