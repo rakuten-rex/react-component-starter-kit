@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const pathResolve = require('path').resolve;
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -111,7 +111,9 @@ const externals = {
 
 // Webpack Plugins:
 // Clean build folder
-const cleanBuildPlugin = new CleanWebpackPlugin();
+const cleanBuildPlugin = new CleanWebpackPlugin({
+  cleanOnceBeforeBuildPatterns: [], // disable initial clean
+});
 
 // Extract CSS from javascript bundle
 const cssExtractPlugin = new MiniCssExtractPlugin({

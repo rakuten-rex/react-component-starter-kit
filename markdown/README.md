@@ -12,15 +12,15 @@ https://www.npmjs.com/org/rakuten-rex
 
 ## How it was built 
 
-1. Build tool: webpack 4
-1. Codebase: Fork of Bootstrap project + ReX custom styles
-1. Css engine: Sass
-1. JavaScript component: React
+1. webpack 4 (static module bundler)
+1. HTML5
+1. CSS3 & Sass (Normalize.css + Fork of Bootstrap project + ReX custom styles)
+1. JavaScript ES6 Modules & Components based on React
 
 # How to install
 
 ```
-npm install __COMPONENT_NAME__@__VERSION__ --save
+npm install @rakuten-rex/__COMPONENT_NAME__@__VERSION__ --save
 ```
 
 ## What you can do
@@ -46,8 +46,7 @@ For plug and play components integration.
 Example: 
 
 ```js
-import 'rex-core'; // ReX Core dependency
-import RexComponent from '__COMPONENT_NAME__';
+import RexComponent from '@rakuten-rex/__COMPONENT_NAME__';
 
 function MyComponent() {
   return <RexComponent>Hello World</RexComponent>;
@@ -61,8 +60,7 @@ For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 Example: 
 
 ```js
-import 'rex-core/css'; // ReX Core dependency
-import '__COMPONENT_NAME__/css';
+import '@rakuten-rex/__COMPONENT_NAME__/css';
 
 function MyComponent() {
   return <div className="rex-css-style my-component">Hello World</div>;
@@ -76,8 +74,6 @@ Add it from our CDN into your HTML template or HTML static page.
 For development mode:
 
 ```markdown
-<!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.development.css" rel="stylesheet">
 <!-- __COMPONENT_NAME__ -->
 <link href="https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__.development.css" rel="stylesheet">
 ```
@@ -85,8 +81,6 @@ For development mode:
 For production mode:
 
 ```markdown
-<!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.production.min.css" rel="stylesheet">
 <!-- __COMPONENT_NAME__ -->
 <link href="https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__.production.min.css" rel="stylesheet">
 ```
@@ -109,7 +103,7 @@ npm start
 
 ## How to build
 
-The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./build/node_modules/__COMPONENT_NAME__` and other one for Github pages `./docs`.   
+The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./node_modules/@rakuten-rex/__COMPONENT_NAME__` and other one for Github pages `./docs`.   
 
 ```
 npm run build
@@ -136,40 +130,15 @@ Build the project first.
 After that run the following commands:
 
 ```
-cd build/node_modules/__COMPONENT_NAME__
+cd ./node_modules/@rakuten-rex/__COMPONENT_NAME__
 npm login
 npm publish
 ```
 
 Once the process finish, take a look to the NPM site:   
 
-https://www.npmjs.com/package/__COMPONENT_NAME__
+https://www.npmjs.com/package/@rakuten-rex/__COMPONENT_NAME__
 
-## How to test
-
-This starter kit includes `jest` and `enzyme` for unit testing.
-
-```
-# Run test once
-npm test
-
-# Watch mode
-npm test -- -watch
-```
-
-### How to update snapshots
-
-```
-npm test -- -u
-```
-
-### How to report code coverage
-
-```
-npm test -- -coverage
-```
-
-and coverage report will be generated under `./coverage/` directory.
 
 ## Javascript and React related documents
 

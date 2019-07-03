@@ -36,7 +36,7 @@
     "android >= 4.1"
   ],
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "peerDependencies": {
     "react": "__REACT_VERSION__",

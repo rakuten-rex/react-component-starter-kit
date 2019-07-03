@@ -12,16 +12,15 @@ https://www.npmjs.com/org/rakuten-rex
 
 ## How it was built 
 
-1. Build tool: webpack 4
-1. Codebase: Fork of Bootstrap project + ReX custom styles
-1. Css engine: Sass
-1. JavaScript component: React
-1. Development environment: Storybook v5 + custom addons
+1. webpack 4 (static module bundler)
+1. HTML5
+1. CSS3 & Sass (Normalize.css + Fork of Bootstrap project + ReX custom styles)
+1. JavaScript ES6 Modules & Components based on React
 
 # How to install
 
 ```
-npm install __COMPONENT_NAME__@__VERSION__ --save
+npm install @rakuten-rex/__COMPONENT_NAME__@__VERSION__ --save
 ```
 
 ## What you can do
@@ -47,7 +46,6 @@ For plug and play components integration.
 Example: 
 
 ```js
-import '@rakuten-rex/rex-core'; // ReX Core dependency
 import RexComponent from '@rakuten-rex/__COMPONENT_NAME__';
 
 function MyComponent() {
@@ -62,7 +60,6 @@ For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 Example: 
 
 ```js
-import '@rakuten-rex/rex-core/css'; // ReX Core dependency
 import '@rakuten-rex/__COMPONENT_NAME__/css';
 
 function MyComponent() {
@@ -77,8 +74,6 @@ Add it from our CDN into your HTML template or HTML static page.
 For development mode:
 
 ```markdown
-<!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.development.css" rel="stylesheet">
 <!-- __COMPONENT_NAME__ -->
 <link href="https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__.development.css" rel="stylesheet">
 ```
@@ -86,8 +81,6 @@ For development mode:
 For production mode:
 
 ```markdown
-<!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/rex-core/__REX_CORE_VERSION__/rex-core.production.min.css" rel="stylesheet">
 <!-- __COMPONENT_NAME__ -->
 <link href="https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__.production.min.css" rel="stylesheet">
 ```
@@ -99,29 +92,3 @@ Example:
   <h1>Welcome to React</h1>
 </div>
 ```
-
-## Javascript and React related documents
-
-Take a look to this nice documentation pages to be more familiar with React and modern Javascript:
-
-### Official site
-https://reactjs.org/docs/getting-started.html   
-
-### Google Web Fundamentals (the whole site is a must to read)
-https://developers.google.com/web/fundamentals/
-
-### Webpack as magic bundler
-https://webpack.js.org/
-
-### Composing Software series (how to understand Funcional Programming)
-https://medium.com/javascript-scene/composing-software-an-introduction-27b72500d6ea   
-
-### Common React patterns
-https://reactpatterns.com   
-
-### Understanding Storybook with nice images
-https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07   
-
-### Some guidelines for clean code
-https://americanexpress.io/clean-code-dirty-code/
-
