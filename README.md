@@ -20,7 +20,7 @@ https://www.npmjs.com/org/rakuten-rex
 # How to install
 
 ```
-npm install @rakuten-rex/react-component-starter-kit@2.1.0 --save
+npm install @rakuten-rex/react-component-starter-kit@2.2.0 --save
 ```
 
 ## What you can do
@@ -75,14 +75,14 @@ For development mode:
 
 ```markdown
 <!-- react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.1.0/react-component-starter-kit.development.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.2.0/react-component-starter-kit.development.css" rel="stylesheet">
 ```
 
 For production mode:
 
 ```markdown
 <!-- react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.1.0/react-component-starter-kit.production.min.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.2.0/react-component-starter-kit.production.min.css" rel="stylesheet">
 ```
 
 Example: 
