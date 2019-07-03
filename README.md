@@ -12,10 +12,10 @@ https://www.npmjs.com/org/rakuten-rex
 
 ## How it was built 
 
-1. Build tool: webpack 4
-1. Codebase: Fork of Bootstrap project + ReX custom styles
-1. Css engine: Sass
-1. JavaScript component: React
+1. webpack 4 (static module bundler)
+1. HTML5
+1. CSS3 & Sass (Normalize.css + Fork of Bootstrap project + ReX custom styles)
+1. JavaScript ES6 Modules & Components based on React
 
 # How to install
 
@@ -46,7 +46,6 @@ For plug and play components integration.
 Example: 
 
 ```js
-import '@rakuten-rex/core'; // ReX Core dependency
 import RexComponent from '@rakuten-rex/react-component-starter-kit';
 
 function MyComponent() {
@@ -61,7 +60,6 @@ For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 Example: 
 
 ```js
-import '@rakuten-rex/core/css'; // ReX Core dependency
 import '@rakuten-rex/react-component-starter-kit/css';
 
 function MyComponent() {
@@ -76,8 +74,6 @@ Add it from our CDN into your HTML template or HTML static page.
 For development mode:
 
 ```markdown
-<!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/core/__REX_CORE_VERSION__/core.development.css" rel="stylesheet">
 <!-- react-component-starter-kit -->
 <link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.1.0/react-component-starter-kit.development.css" rel="stylesheet">
 ```
@@ -85,8 +81,6 @@ For development mode:
 For production mode:
 
 ```markdown
-<!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/core/__REX_CORE_VERSION__/core.production.min.css" rel="stylesheet">
 <!-- react-component-starter-kit -->
 <link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.1.0/react-component-starter-kit.production.min.css" rel="stylesheet">
 ```
