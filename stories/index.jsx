@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
+import { withInspectHtml } from '@rakuten-rex/storybook-inspecthtml';
 
 const { default: MyComponent } =
   process.env.NODE_ENV === 'production'
@@ -11,6 +12,7 @@ const { default: MyComponent } =
     : require('../src/MyComponent');
 
 const stories = storiesOf('MyComponent', module);
+stories.addDecorator(withInspectHtml);
 stories.addDecorator(withKnobs);
 stories.addDecorator(withA11y);
 
