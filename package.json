@@ -1,6 +1,6 @@
 {
   "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "ReX React UI Component",
   "main": "src/MyComponent.jsx",
   "scripts": {
@@ -30,6 +30,7 @@
   },
   "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
   "dependencies": {
+    "@rakuten-rex/core": "^2.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
