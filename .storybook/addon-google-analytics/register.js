@@ -7,7 +7,8 @@ addons.register('@rakuten-rex/addon-google-analytics', api => {
   initialize('UA-139696530-1');
 
   api.on(STORY_RENDERED, () => {
-    const url = window.location.pathname + api.getUrlState().path;
+    const pathname = window.location.pathname.split('/')[1];
+    const url = pathname + api.getUrlState().path;
 
     if(window.location.hostname !== 'localhost') {
       pageview(url);
