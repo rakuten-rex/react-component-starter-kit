@@ -33,7 +33,7 @@ rl.question('\nPackage name (ex: text): ', packageName => {
       `);
 
       console.log(`./stories/index.jsx: \n
-        const stories = storiesOf('MyComponent', module); -> const stories = storiesOf('${componentName}', module);
+        const stories = ReXStories('MyComponent'); -> const stories = ReXStories('${componentName}');
         ...
       `);
 

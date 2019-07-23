@@ -1,19 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text } from '@storybook/addon-knobs';
-import { withA11y } from '@storybook/addon-a11y';
-import { withInspectHtml } from '@rakuten-rex/storybook-inspecthtml';
-import { withInspectJsx } from '@rakuten-rex/storybook-inspectjsx';
+import { text } from '@storybook/addon-knobs';
 import Text from '@rakuten-rex/core/text';
+import ReXStories from './rex/stories';
 import MyComponent from '../src/MyComponent';
 
-const stories = storiesOf('MyComponent', module);
-stories.addDecorator(withInspectHtml);
-stories.addDecorator(withInspectJsx);
-stories.addDecorator(withKnobs);
-stories.addDecorator(withA11y);
+const stories = ReXStories('MyComponent');
 
 // Stories
 stories.add('default', () => <MyComponent />);
