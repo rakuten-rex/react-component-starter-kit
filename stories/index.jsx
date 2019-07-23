@@ -5,11 +5,13 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 import { withInspectHtml } from '@rakuten-rex/storybook-inspecthtml';
+import { withInspectJsx } from '@rakuten-rex/storybook-inspectjsx';
 import Text from '@rakuten-rex/core/text';
 import MyComponent from '../src/MyComponent';
 
 const stories = storiesOf('MyComponent', module);
 stories.addDecorator(withInspectHtml);
+stories.addDecorator(withInspectJsx);
 stories.addDecorator(withKnobs);
 stories.addDecorator(withA11y);
 
@@ -17,7 +19,9 @@ stories.addDecorator(withA11y);
 stories.add('default', () => <MyComponent />);
 stories.add('with text', () => <MyComponent text="Welcome to React example" />);
 stories.add('with className', () => (
-  <MyComponent className="color-black active" />
+  <React.Fragment>
+    <MyComponent className="color-black active" />
+  </React.Fragment>
 ));
 
 stories.add('with onClick', () => {
