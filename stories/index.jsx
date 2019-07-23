@@ -2,9 +2,9 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
-import Text from '@rakuten-rex/core/text';
+import ReXText from '@rakuten-rex/core/text';
 import ReXStories from './rex/stories';
-import MyComponent from '../src/MyComponent';
+import MyComponent from '../src/index';
 
 const stories = ReXStories('MyComponent');
 
@@ -25,7 +25,7 @@ stories.add('with onClick', () => {
 
 stories.add('with children', () => (
   <MyComponent>
-    <Text>Hello World</Text>
+    <ReXText>Hello World</ReXText>
   </MyComponent>
 ));
 

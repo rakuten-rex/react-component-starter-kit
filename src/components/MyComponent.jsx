@@ -1,6 +1,5 @@
 import React from 'react';
 import { string, func, element, oneOfType, arrayOf } from 'prop-types';
-import '@rakuten-rex/core/css';
 import H1 from '@rakuten-rex/core/h1';
 import './MyComponent.scss';
 

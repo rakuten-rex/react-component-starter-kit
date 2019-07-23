@@ -19,7 +19,11 @@ const pathRoot = pathResolve('./');
 
 // Webpack entry and output settings
 const entry = {};
-entry[packageNameOnly] = './src/MyComponent.jsx';
+// Default outputs
+entry.index = './src/index.jsx';
+entry['without-fonts'] = './src/without-fonts.jsx';
+entry['without-core'] = './src/without-core.jsx';
+// Custom outputs
 
 // Webpack config
 const mode = 'production';
@@ -143,15 +147,17 @@ const optimizeCss = new OptimizeCSSAssetsPlugin({
 });
 
 // NPM settings
-const npmIndexJSPlugin = new CopyWebpackPlugin([
-  {
+const npmIndexList = Object.keys(entry).map(item => {
+  return {
     from: './npm/index.tpl',
-    to: `index.js`,
+    to: `${item}.js`,
     transform(content) {
-      return content.toString().replace(/__COMPONENT_NAME__/g, packageNameOnly);
+      return content.toString().replace(/__COMPONENT_NAME__/g, item);
     },
-  },
-]);
+  };
+});
+
+const npmIndexJSPlugin = new CopyWebpackPlugin(npmIndexList);
 
 const npmReadmePlugin = new CopyWebpackPlugin([
   {
@@ -185,15 +191,17 @@ const npmPackagePlugin = new CopyWebpackPlugin([
   },
 ]);
 
-const npmCssIndexJSPlugin = new CopyWebpackPlugin([
-  {
+const npmCssIndexList = Object.keys(entry).map(item => {
+  return {
     from: './npm/css/index.tpl',
-    to: `css/index.js`,
+    to: `css/${item}.js`,
     transform(content) {
-      return content.toString().replace(/__COMPONENT_NAME__/g, packageNameOnly);
+      return content.toString().replace(/__COMPONENT_NAME__/g, item);
     },
-  },
-]);
+  };
+});
+
+const npmCssIndexJSPlugin = new CopyWebpackPlugin(npmCssIndexList);
 
 // Current project README file
 const mdReadmePlugin = new CopyWebpackPlugin([
