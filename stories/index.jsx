@@ -5,11 +5,8 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 import { withInspectHtml } from '@rakuten-rex/storybook-inspecthtml';
-
-const { default: MyComponent } =
-  process.env.NODE_ENV === 'production'
-    ? require('@rakuten-rex/react-component-starter-kit')
-    : require('../src/MyComponent');
+import Text from '@rakuten-rex/core/text';
+import MyComponent from '../src/MyComponent';
 
 const stories = storiesOf('MyComponent', module);
 stories.addDecorator(withInspectHtml);
@@ -31,7 +28,7 @@ stories.add('with onClick', () => {
 
 stories.add('with children', () => (
   <MyComponent>
-    <p>Hello World</p>
+    <Text>Hello World</Text>
   </MyComponent>
 ));
 

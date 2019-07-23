@@ -1,11 +1,13 @@
 import React from 'react';
 import { string, func, element, oneOfType, arrayOf } from 'prop-types';
+import '@rakuten-rex/core/css';
+import H1 from '@rakuten-rex/core/h1';
 import './MyComponent.scss';
 
 export default function MyComponent({ children, onClick, text, className }) {
   return (
     <div className={className} onClick={onClick} role="presentation">
-      <h1>{text}</h1>
+      <H1>{text}</H1>
       {children}
     </div>
   );
