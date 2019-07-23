@@ -17,7 +17,8 @@
     "commit": "npm run commit:docs && npm run commit:package",
     "commit:docs": "git add docs README.md && git commit -m 'Added - Docs for github pages and README file'",
     "commit:package": "git add package.json package-lock.json && git commit -m 'New version - v'$npm_package_version",
-    "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs"
+    "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs",
+    "publish:component": "cd ./node_modules/$npm_package_name && npm publish"
   },
   "repository": {
     "type": "git",
