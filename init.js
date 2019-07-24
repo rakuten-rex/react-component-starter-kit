@@ -27,19 +27,26 @@ rl.question('\nPackage name (ex: text): ', packageName => {
         }
       `);
 
-      console.log(`./src: \n
+      console.log(`./src/components: \n
         MyComponent.jsx -> ${componentName}.jsx
         MyComponent.scss -> ${componentName}.scss
       `);
 
-      console.log(`./stories/index.jsx: \n
-        const stories = storiesOf('MyComponent', module); -> const stories = storiesOf('${componentName}', module);
-        ...
+      console.log(`./src/index.jsx: \n
+        export { default } from './components/${componentName}';
       `);
 
-      console.log(`./webpack.config.js: \n
-        const entry = {};
-        entry[packageNameOnly] = './src/${componentName}.jsx';
+      console.log(`./src/without-core.jsx: \n
+        export { default } from './components/${componentName}';
+      `);
+
+      console.log(`./src/without-fonts.jsx: \n
+        export { default } from './components/${componentName}';
+      `);
+
+      console.log(`./stories/index.jsx: \n
+        const stories = ReXStories('MyComponent'); -> const stories = ReXStories('${componentName}');
+        ...
       `);
 
       rl.question('Are you sure you want to proceed? (y/n) ', answer => {
@@ -71,8 +78,29 @@ function setFileContent(componentFilename, pattern, text) {
   fs.writeFileSync(componentFilename, componenContent);
 }
 
+function setIndexContent(packageName, componentName) {
+  const filename = `src/index.jsx`;
+  console.log(`- Updating content of ${filename}`);
+  setFileContent(filename, 'MyComponent', componentName);
+  console.log(`Done`);
+}
+
+function setWithoutCoreContent(packageName, componentName) {
+  const filename = `src/without-core.jsx`;
+  console.log(`- Updating content of ${filename}`);
+  setFileContent(filename, 'MyComponent', componentName);
+  console.log(`Done`);
+}
+
+function setWithoutFontsContent(packageName, componentName) {
+  const filename = `src/without-fonts.jsx`;
+  console.log(`- Updating content of ${filename}`);
+  setFileContent(filename, 'MyComponent', componentName);
+  console.log(`Done`);
+}
+
 function setJsxContent(packageName, componentName) {
-  const filename = `src/${componentName}.jsx`;
+  const filename = `src/components/${componentName}.jsx`;
   console.log(`- Updating content of ${filename}`);
   setFileContent(filename, 'MyComponent', componentName);
   setFileContent(filename, 'my-component', packageName);
@@ -80,7 +108,7 @@ function setJsxContent(packageName, componentName) {
 }
 
 function setScssContent(packageName, componentName) {
-  const filename = `src/${componentName}.scss`;
+  const filename = `src/components/${componentName}.scss`;
   console.log(`- Updating content of ${filename}`);
   setFileContent(filename, 'my-component', packageName);
   console.log(`Done`);
@@ -94,28 +122,30 @@ function setStoriesContent(packageName, componentName) {
   console.log(`Done`);
 }
 
-function setWebpackContent(componentName) {
-  const filename = `webpack.config.js`;
-  console.log(`- Updating content of ${filename}`);
-  setFileContent(filename, 'MyComponent', componentName);
-  console.log(`Done`);
-}
-
 function setJsxFilename(componentName) {
-  console.log(`- Changing src/MyComponent.jsx to src/${componentName}.jsx`);
-  fs.renameSync('src/MyComponent.jsx', `src/${componentName}.jsx`);
+  console.log(
+    `- Changing src/components/MyComponent.jsx to src/components/${componentName}.jsx`
+  );
+  fs.renameSync(
+    'src/components/MyComponent.jsx',
+    `src/components/${componentName}.jsx`
+  );
   console.log(`Done`);
 }
 
 function setScssFilename(componentName) {
-  console.log(`- Changing src/MyComponent.scss to src/${componentName}.scss`);
-  fs.renameSync('src/MyComponent.scss', `src/${componentName}.scss`);
+  console.log(
+    `- Changing src/components/MyComponent.scss to src/components/${componentName}.scss`
+  );
+  fs.renameSync(
+    'src/components/MyComponent.scss',
+    `src/components/${componentName}.scss`
+  );
   console.log(`Done`);
 }
 
 function setPackageJson(packageName, componentName, packageJSON) {
   console.log('- Updating package.json information');
-  const componentFilename = `src/${componentName}.jsx`;
   const startedKitName = 'react-component-starter-kit';
   const starterKitScope = `rakuten-rex/${startedKitName}`;
   const file = './package.json';
@@ -123,7 +153,6 @@ function setPackageJson(packageName, componentName, packageJSON) {
   const packageData = packageJSON;
   packageData.name = `@${scopePackageName}`;
   packageData.version = '0.0.1';
-  packageData.main = componentFilename;
   packageData.repository.url = packageData.repository.url.replace(
     starterKitScope,
     scopePackageName
@@ -182,7 +211,9 @@ function init(packageName, componentName, packageJSON) {
   setJsxContent(packageName, componentName);
   setScssContent(packageName, componentName);
   setStoriesContent(packageName, componentName);
-  setWebpackContent(componentName);
+  setIndexContent(packageName, componentName);
+  setWithoutCoreContent(packageName, componentName);
+  setWithoutFontsContent(packageName, componentName);
 
   console.log(`
 ===========================================

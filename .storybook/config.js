@@ -1,5 +1,5 @@
 import { configure, addParameters } from '@storybook/react';
-import rexTheme from './rexTheme';
+import rexTheme from './theme/rexTheme';
 
 // Option defaults.
 addParameters({

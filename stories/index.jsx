@@ -1,26 +1,20 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text } from '@storybook/addon-knobs';
-import { withA11y } from '@storybook/addon-a11y';
-import { withInspectHtml } from '@rakuten-rex/storybook-inspecthtml';
+import { text } from '@storybook/addon-knobs';
+import ReXText from '@rakuten-rex/core/text';
+import ReXStories from './rex/stories';
+import MyComponent from '../src/index';
 
-const { default: MyComponent } =
-  process.env.NODE_ENV === 'production'
-    ? require('@rakuten-rex/react-component-starter-kit')
-    : require('../src/MyComponent');
-
-const stories = storiesOf('MyComponent', module);
-stories.addDecorator(withInspectHtml);
-stories.addDecorator(withKnobs);
-stories.addDecorator(withA11y);
+const stories = ReXStories('MyComponent');
 
 // Stories
 stories.add('default', () => <MyComponent />);
 stories.add('with text', () => <MyComponent text="Welcome to React example" />);
 stories.add('with className', () => (
-  <MyComponent className="color-black active" />
+  <React.Fragment>
+    <MyComponent className="color-black active" />
+  </React.Fragment>
 ));
 
 stories.add('with onClick', () => {
@@ -31,7 +25,7 @@ stories.add('with onClick', () => {
 
 stories.add('with children', () => (
   <MyComponent>
-    <p>Hello World</p>
+    <ReXText>Hello World</ReXText>
   </MyComponent>
 ));
 

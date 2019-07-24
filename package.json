@@ -1,8 +1,8 @@
 {
   "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "ReX React UI Component",
-  "main": "src/MyComponent.jsx",
+  "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init:component": "node init.js && npm i && npm start",
@@ -17,7 +17,8 @@
     "commit": "npm run commit:docs && npm run commit:package",
     "commit:docs": "git add docs README.md && git commit -m 'Added - Docs for github pages and README file'",
     "commit:package": "git add package.json package-lock.json && git commit -m 'New version - v'$npm_package_version",
-    "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs"
+    "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs",
+    "publish:component": "cd ./node_modules/$npm_package_name && npm publish"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   },
   "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
   "dependencies": {
+    "@rakuten-rex/core": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
@@ -37,7 +39,8 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@rakuten-rex/eslint-config-rex-react-component": "^1.3.2",
-    "@rakuten-rex/storybook-inspecthtml": "^1.0.3",
+    "@rakuten-rex/storybook-inspecthtml": "^1.1.1",
+    "@rakuten-rex/storybook-inspectjsx": "^1.2.1",
     "@storybook/addon-a11y": "^5.1.9",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-google-analytics": "^5.1.9",
@@ -48,7 +51,7 @@
     "@storybook/react": "^5.1.9",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
+    "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.0.3",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^6.0.0",

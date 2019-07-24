@@ -1,46 +1,19 @@
-"use strict";
+/* eslint-disable import/no-extraneous-dependencies */
+import { STORY_RENDERED } from '@storybook/core-events';
+import addons from '@storybook/addons';
+import { initialize, pageview } from 'react-ga';
 
-require("core-js/modules/es.symbol");
+addons.register('@rakuten-rex/addon-google-analytics', api => {
+  initialize('UA-139696530-1');
 
-require("core-js/modules/es.symbol.description");
+  api.on(STORY_RENDERED, () => {
+    const pathname = window.location.pathname.split('/')[1];
+    const url = pathname + api.getUrlState().path;
 
-var _global = require("global");
-
-var _addons = require("@storybook/addons");
-
-var _coreEvents = require("@storybook/core-events");
-
-var _reactGa = _interopRequireDefault(require("react-ga"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-_addons.addons.register('storybook/google-analytics', function (api) {
-  _reactGa["default"].initialize(_global.window.STORYBOOK_GA_ID);
-
-  api.on(_coreEvents.STORY_CHANGED, function () {
-    var _api$getUrlState = api.getUrlState(),
-        url = _api$getUrlState.url;
-
-    _reactGa["default"].pageview(url);
-  });
-  api.on(_coreEvents.STORY_ERRORED, function (_ref) {
-    var description = _ref.description;
-    
-    _reactGa["default"].exception({
-      description: description,
-      fatal: true
-    });
-  });
-  api.on(_coreEvents.STORY_MISSING, function (_ref2) {
-    
-    var id = '"undefined"';
-    if(typeof _ref2 !== 'undefined') {
-      id = _ref2.id;
+    if(window.location.hostname !== 'localhost') {
+      pageview(url);
+    } else {
+      console.log('addon-google-analytics: Not tracking in localhost ' + url);
     }
-    
-    _reactGa["default"].exception({
-      description: "attempted to render ".concat(id, ", but it is missing"),
-      fatal: false
-    });
   });
 });
