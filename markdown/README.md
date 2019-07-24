@@ -38,7 +38,7 @@ https://rakuten-rex.github.io/__COMPONENT_NAME__/
 For projects with full ReX implementation.
 
 ```js
-import RexComponent from '@rakuten-rex/__COMPONENT_NAME';
+import RexComponent from '@rakuten-rex/__COMPONENT_NAME__';
 ```
 
 ### ReX Component + ReX Core (without ReX Fonts)
@@ -46,7 +46,7 @@ import RexComponent from '@rakuten-rex/__COMPONENT_NAME';
 For integration projects.   
 
 ```js
-import RexComponent from '@rakuten-rex/__COMPONENT_NAME/without-fonts.js';
+import RexComponent from '@rakuten-rex/__COMPONENT_NAME__/without-fonts.js';
 ```
 
 ### ReX Component Only (without ReX Core)
@@ -56,7 +56,7 @@ For integration projects using Static HTML or if you use a build tools without d
 Note: Requires global import of ReX Core.   
 
 ```js
-import RexComponent from '@rakuten-rex/__COMPONENT_NAME/without-core.js';
+import RexComponent from '@rakuten-rex/__COMPONENT_NAME__/without-core.js';
 ```
 
 # How to integrate ReX in your project
@@ -92,33 +92,43 @@ function MyComponent() {
 
 ## B) Static HTML
 
-Copy-paste the stylesheet <link> into your <head> before all other stylesheets to load our CSS.
+Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
+
+You can choose between `development` (dev comments and unminified) or `production` (without dev comments and minified) mode.   
+
+We recommend to use `production` mode if your build process doesn't support to switch between both.
+
+Development mode URL:  
+`https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__.development.css`
+
+Production mode URL:  
+`https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__.production.min.css`
 
 ### Single component integration
 Add it from our CDN into your HTML template or HTML static page.
 
 ```markdown
-<!-- __COMPONENT_NAME__ -->
+<!-- ReX __COMPONENT_NAME__ -->
 <link href="https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__.production.min.css" rel="stylesheet">
 ```
 
 ### Multiple component integration
 
-Note: use __COMPONENT_NAME__without-core version to avoid duplicated code from ReX Core.
+Note: use `__COMPONENT_NAME__-without-core.min.css` version to avoid duplicated code from ReX Core.
 
 ```markdown
 <!-- ReX Core -->
 <link href="https://r.r10s.jp/com/rex/__REX_CORE_NAME__/__REX_CORE_VERSION__/full-version.production.min.css" rel="stylesheet">
 
-<!-- __COMPONENT_NAME__ -->
+<!-- ReX __COMPONENT_NAME__ -->
 <link href="https://r.r10s.jp/com/rex/__COMPONENT_NAME__/__VERSION__/__COMPONENT_NAME__-without-core.production.min.css" rel="stylesheet">
 ```
 
 Example: 
 
 ```markdown
-<div class="rex-css-style my-component">
-  <h1>Welcome to React</h1>
+<div class="rex-__COMPONENT_NAME__">
+  <h1 class="rex-core-h1 rex-h1">Welcome to React</h1>
 </div>
 ```
 
