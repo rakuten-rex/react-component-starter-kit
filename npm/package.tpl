@@ -2,7 +2,7 @@
   "name": "@rakuten-rex/__COMPONENT_NAME__",
   "version": "__VERSION__",
   "description": "__DESCRIPTION__",
-  "main": "index.js",
+  "main": "src/index.jsx",
   "repository": {
     "type": "git",
     "url": "https://github.com/rakuten-rex/__COMPONENT_NAME__.git"

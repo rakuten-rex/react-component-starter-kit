@@ -2,7 +2,7 @@
   "name": "@rakuten-rex/react-component-starter-kit",
   "version": "2.3.1",
   "description": "ReX React UI Component",
-  "main": "src/MyComponent.jsx",
+  "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init:component": "node init.js && npm i && npm start",
