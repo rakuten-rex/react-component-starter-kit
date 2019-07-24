@@ -218,6 +218,7 @@ const mdReadmePlugin = new CopyWebpackPlugin([
     to: `${pathRoot}/README.md`,
     transform(content) {
       return content
+        .toString()
         .replace(/__INFO_HOW_TO__/g, readmeHowTo)
         .replace(/__REX_CORE_NAME__/g, 'core')
         .replace(
