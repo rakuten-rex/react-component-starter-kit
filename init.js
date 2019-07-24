@@ -27,7 +27,7 @@ rl.question('\nPackage name (ex: text): ', packageName => {
         }
       `);
 
-      console.log(`./src: \n
+      console.log(`./src/components: \n
         MyComponent.jsx -> ${componentName}.jsx
         MyComponent.scss -> ${componentName}.scss
       `);
@@ -35,11 +35,6 @@ rl.question('\nPackage name (ex: text): ', packageName => {
       console.log(`./stories/index.jsx: \n
         const stories = ReXStories('MyComponent'); -> const stories = ReXStories('${componentName}');
         ...
-      `);
-
-      console.log(`./webpack.config.js: \n
-        const entry = {};
-        entry[packageNameOnly] = './src/${componentName}.jsx';
       `);
 
       rl.question('Are you sure you want to proceed? (y/n) ', answer => {
@@ -72,7 +67,7 @@ function setFileContent(componentFilename, pattern, text) {
 }
 
 function setJsxContent(packageName, componentName) {
-  const filename = `src/${componentName}.jsx`;
+  const filename = `src/components/${componentName}.jsx`;
   console.log(`- Updating content of ${filename}`);
   setFileContent(filename, 'MyComponent', componentName);
   setFileContent(filename, 'my-component', packageName);
@@ -80,7 +75,7 @@ function setJsxContent(packageName, componentName) {
 }
 
 function setScssContent(packageName, componentName) {
-  const filename = `src/${componentName}.scss`;
+  const filename = `src/components/${componentName}.scss`;
   console.log(`- Updating content of ${filename}`);
   setFileContent(filename, 'my-component', packageName);
   console.log(`Done`);
@@ -94,28 +89,31 @@ function setStoriesContent(packageName, componentName) {
   console.log(`Done`);
 }
 
-function setWebpackContent(componentName) {
-  const filename = `webpack.config.js`;
-  console.log(`- Updating content of ${filename}`);
-  setFileContent(filename, 'MyComponent', componentName);
-  console.log(`Done`);
-}
-
 function setJsxFilename(componentName) {
-  console.log(`- Changing src/MyComponent.jsx to src/${componentName}.jsx`);
-  fs.renameSync('src/MyComponent.jsx', `src/${componentName}.jsx`);
+  console.log(
+    `- Changing src/components/MyComponent.jsx to src/components/${componentName}.jsx`
+  );
+  fs.renameSync(
+    'src/components/MyComponent.jsx',
+    `src/components/${componentName}.jsx`
+  );
   console.log(`Done`);
 }
 
 function setScssFilename(componentName) {
-  console.log(`- Changing src/MyComponent.scss to src/${componentName}.scss`);
-  fs.renameSync('src/MyComponent.scss', `src/${componentName}.scss`);
+  console.log(
+    `- Changing src/components/MyComponent.scss to src/components/${componentName}.scss`
+  );
+  fs.renameSync(
+    'src/components/MyComponent.scss',
+    `src/components/${componentName}.scss`
+  );
   console.log(`Done`);
 }
 
 function setPackageJson(packageName, componentName, packageJSON) {
   console.log('- Updating package.json information');
-  const componentFilename = `src/${componentName}.jsx`;
+  const componentFilename = `src/components/${componentName}.jsx`;
   const startedKitName = 'react-component-starter-kit';
   const starterKitScope = `rakuten-rex/${startedKitName}`;
   const file = './package.json';
@@ -182,7 +180,6 @@ function init(packageName, componentName, packageJSON) {
   setJsxContent(packageName, componentName);
   setScssContent(packageName, componentName);
   setStoriesContent(packageName, componentName);
-  setWebpackContent(componentName);
 
   console.log(`
 ===========================================
