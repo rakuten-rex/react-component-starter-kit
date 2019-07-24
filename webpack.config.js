@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { readFileSync } = require('fs');
 const packageInfo = require('./package.json');
 
 const libraryName = packageInfo.name
@@ -161,11 +162,17 @@ const npmIndexJSPlugin = new CopyWebpackPlugin(npmIndexList);
 
 const npmReadmePlugin = new CopyWebpackPlugin([
   {
-    from: './npm/README.tpl',
+    from: './markdown/README.md',
     to: `README.md`,
     transform(content) {
       return content
         .toString()
+        .replace(/__INFO_HOW_TO__/g, '')
+        .replace(/__REX_CORE_NAME__/g, 'core')
+        .replace(
+          /__REX_CORE_VERSION__/g,
+          packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
+        )
         .replace(/__COMPONENT_NAME__/g, packageNameOnly)
         .replace(/__VERSION__/g, packageInfo.version);
     },
@@ -204,13 +211,19 @@ const npmCssIndexList = Object.keys(entry).map(item => {
 const npmCssIndexJSPlugin = new CopyWebpackPlugin(npmCssIndexList);
 
 // Current project README file
+const readmeHowTo = readFileSync('markdown/INFO_HOW_TO.md', 'utf8');
 const mdReadmePlugin = new CopyWebpackPlugin([
   {
     from: './markdown/README.md',
     to: `${pathRoot}/README.md`,
     transform(content) {
       return content
-        .toString()
+        .replace(/__INFO_HOW_TO__/g, readmeHowTo)
+        .replace(/__REX_CORE_NAME__/g, 'core')
+        .replace(
+          /__REX_CORE_VERSION__/g,
+          packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
+        )
         .replace(/__COMPONENT_NAME__/g, packageNameOnly)
         .replace(/__VERSION__/g, packageInfo.version);
     },
