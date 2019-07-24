@@ -32,6 +32,18 @@ rl.question('\nPackage name (ex: text): ', packageName => {
         MyComponent.scss -> ${componentName}.scss
       `);
 
+      console.log(`./src/index.jsx: \n
+        export { default } from './components/${componentName}';
+      `);
+
+      console.log(`./src/without-core.jsx: \n
+        export { default } from './components/${componentName}';
+      `);
+
+      console.log(`./src/without-fonts.jsx: \n
+        export { default } from './components/${componentName}';
+      `);
+
       console.log(`./stories/index.jsx: \n
         const stories = ReXStories('MyComponent'); -> const stories = ReXStories('${componentName}');
         ...
@@ -64,6 +76,27 @@ function setFileContent(componentFilename, pattern, text) {
   const componenContent = original.replace(new RegExp(pattern, 'g'), text);
 
   fs.writeFileSync(componentFilename, componenContent);
+}
+
+function setIndexContent(packageName, componentName) {
+  const filename = `src/index.jsx`;
+  console.log(`- Updating content of ${filename}`);
+  setFileContent(filename, 'MyComponent', componentName);
+  console.log(`Done`);
+}
+
+function setWithoutCoreContent(packageName, componentName) {
+  const filename = `src/without-core.jsx`;
+  console.log(`- Updating content of ${filename}`);
+  setFileContent(filename, 'MyComponent', componentName);
+  console.log(`Done`);
+}
+
+function setWithoutFontsContent(packageName, componentName) {
+  const filename = `src/without-fonts.jsx`;
+  console.log(`- Updating content of ${filename}`);
+  setFileContent(filename, 'MyComponent', componentName);
+  console.log(`Done`);
 }
 
 function setJsxContent(packageName, componentName) {
@@ -180,6 +213,9 @@ function init(packageName, componentName, packageJSON) {
   setJsxContent(packageName, componentName);
   setScssContent(packageName, componentName);
   setStoriesContent(packageName, componentName);
+  setIndexContent(packageName, componentName);
+  setWithoutCoreContent(packageName, componentName);
+  setWithoutFontsContent(packageName, componentName);
 
   console.log(`
 ===========================================
