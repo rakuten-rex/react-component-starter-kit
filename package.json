@@ -31,7 +31,7 @@
   },
   "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
   "dependencies": {
-    "@rakuten-rex/core": "^2.1.1",
+    "@rakuten-rex/core": "^2.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
