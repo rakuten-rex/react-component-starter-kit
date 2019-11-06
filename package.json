@@ -1,6 +1,6 @@
 {
-  "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "2.5.1",
+  "name": "@rakuten-rex/form-input-label",
+  "version": "0.0.1",
   "description": "ReX React UI Component",
   "main": "src/index.jsx",
   "scripts": {
@@ -22,19 +22,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rakuten-rex/react-component-starter-kit.git"
+    "url": "https://github.com/rakuten-rex/form-input-label.git"
   },
-  "author": "ReX React UI Components Library Authors (https://github.com/rakuten-rex/react-component-starter-kit/graphs/contributors)",
+  "author": "ReX React UI Components Library Authors (https://github.com/rakuten-rex/form-input-label/graphs/contributors)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rakuten-rex/react-component-starter-kit/issues"
+    "url": "https://github.com/rakuten-rex/form-input-label/issues"
   },
-  "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
+  "homepage": "https://rakuten-rex.github.io/form-input-label/",
   "dependencies": {
     "@rakuten-rex/core": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3"
+    "react-dom": "^16.8.3",
+    "rex-react-utils": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
