@@ -1,5 +1,5 @@
 # ReX React UI Components Library
-## ReX React UI Component: react-component-starter-kit
+## ReX React UI Component: form-input-label
 
 This project is part of ReX Design Language and it can be used to create React UI Components.   
 For more information visit:   
@@ -20,7 +20,7 @@ How it was built:
 # How to install
 
 ```
-npm install @rakuten-rex/react-component-starter-kit@2.5.1 --save
+npm install @rakuten-rex/form-input-label@0.0.2 --save
 ```
 
 # Getting started
@@ -29,7 +29,7 @@ npm install @rakuten-rex/react-component-starter-kit@2.5.1 --save
 
 For a complete guide of properties for React and HTML classes please visit the Storybook site:  
 
-https://rakuten-rex.github.io/react-component-starter-kit/
+https://rakuten-rex.github.io/form-input-label/
 
 ## 2) Choose the distribution builds
 
@@ -38,7 +38,7 @@ https://rakuten-rex.github.io/react-component-starter-kit/
 For projects with full ReX implementation.
 
 ```js
-import RexComponent from '@rakuten-rex/react-component-starter-kit';
+import RexComponent from '@rakuten-rex/form-input-label';
 ```
 
 ### ReX Component + ReX Core (without ReX Fonts)
@@ -46,7 +46,7 @@ import RexComponent from '@rakuten-rex/react-component-starter-kit';
 For integration projects.   
 
 ```js
-import RexComponent from '@rakuten-rex/react-component-starter-kit/without-fonts.js';
+import RexComponent from '@rakuten-rex/form-input-label/without-fonts.js';
 ```
 
 ### ReX Component Only (without ReX Core)
@@ -56,7 +56,7 @@ For integration projects using Static HTML or if you use a build tools without d
 Note: Requires global import of ReX Core.   
 
 ```js
-import RexComponent from '@rakuten-rex/react-component-starter-kit/without-core.js';
+import RexComponent from '@rakuten-rex/form-input-label/without-core.js';
 ```
 
 # How to integrate ReX in your project
@@ -69,7 +69,7 @@ For plug and play components integration.
 Example: 
 
 ```js
-import RexComponent from '@rakuten-rex/react-component-starter-kit';
+import RexComponent from '@rakuten-rex/form-input-label';
 
 function MyComponent() {
   return <RexComponent>Hello World</RexComponent>;
@@ -83,7 +83,7 @@ For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 Example: 
 
 ```js
-import '@rakuten-rex/react-component-starter-kit/css';
+import '@rakuten-rex/form-input-label/css';
 
 function MyComponent() {
   return <h1 className="rex-core-h1 rex-h1">Hello World</h1>;
@@ -99,35 +99,35 @@ You can choose between `development` (dev comments and unminified) or `productio
 We recommend to use `production` mode if your build process doesn't support to switch between both.
 
 Development mode URL:  
-`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit.development.css`
+`https://r.r10s.jp/com/rex/form-input-label/0.0.2/form-input-label.development.css`
 
 Production mode URL:  
-`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit.production.min.css`
+`https://r.r10s.jp/com/rex/form-input-label/0.0.2/form-input-label.production.min.css`
 
 ### Single component integration
 Add it from our CDN into your HTML template or HTML static page.
 
 ```markdown
-<!-- ReX react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit.production.min.css" rel="stylesheet">
+<!-- ReX form-input-label -->
+<link href="https://r.r10s.jp/com/rex/form-input-label/0.0.2/form-input-label.production.min.css" rel="stylesheet">
 ```
 
 ### Multiple component integration
 
-Note: use `react-component-starter-kit-without-core.min.css` version to avoid duplicated code from ReX Core.
+Note: use `form-input-label-without-core.min.css` version to avoid duplicated code from ReX Core.
 
 ```markdown
 <!-- ReX Core -->
 <link href="https://r.r10s.jp/com/rex/core/2.3.1/full-version.production.min.css" rel="stylesheet">
 
-<!-- ReX react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit-without-core.production.min.css" rel="stylesheet">
+<!-- ReX form-input-label -->
+<link href="https://r.r10s.jp/com/rex/form-input-label/0.0.2/form-input-label-without-core.production.min.css" rel="stylesheet">
 ```
 
 Example: 
 
 ```markdown
-<div class="rex-react-component-starter-kit">
+<div class="rex-form-input-label">
   <h1 class="rex-core-h1 rex-h1">Welcome to React</h1>
 </div>
 ```
@@ -143,7 +143,7 @@ npm start
 
 ## How to build
 
-The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./node_modules/@rakuten-rex/react-component-starter-kit` and other one for Github pages `./docs`.   
+The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./node_modules/@rakuten-rex/form-input-label` and other one for Github pages `./docs`.   
 
 ```
 npm run build
@@ -174,7 +174,7 @@ npm run publish:component
 
 Once the process finish, take a look to the NPM site:   
 
-https://www.npmjs.com/package/@rakuten-rex/react-component-starter-kit
+https://www.npmjs.com/package/@rakuten-rex/form-input-label
 
 
 # Javascript and React related documents
