@@ -1,1 +1,1 @@
-export { default } from './components/MyComponent';
+export { default } from './components/FormInputLabel';
