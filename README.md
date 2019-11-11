@@ -20,7 +20,7 @@ How it was built:
 # How to install
 
 ```
-npm install @rakuten-rex/react-component-starter-kit@2.5.1 --save
+npm install @rakuten-rex/react-component-starter-kit@2.5.2 --save
 ```
 
 # Getting started
@@ -99,17 +99,17 @@ You can choose between `development` (dev comments and unminified) or `productio
 We recommend to use `production` mode if your build process doesn't support to switch between both.
 
 Development mode URL:  
-`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit.development.css`
+`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit.development.css`
 
 Production mode URL:  
-`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit.production.min.css`
+`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit.production.min.css`
 
 ### Single component integration
 Add it from our CDN into your HTML template or HTML static page.
 
 ```markdown
 <!-- ReX react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit.production.min.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit.production.min.css" rel="stylesheet">
 ```
 
 ### Multiple component integration
@@ -121,7 +121,7 @@ Note: use `react-component-starter-kit-without-core.min.css` version to avoid du
 <link href="https://r.r10s.jp/com/rex/core/2.3.1/full-version.production.min.css" rel="stylesheet">
 
 <!-- ReX react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.1/react-component-starter-kit-without-core.production.min.css" rel="stylesheet">
+<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit-without-core.production.min.css" rel="stylesheet">
 ```
 
 Example: 
