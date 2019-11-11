@@ -5,7 +5,7 @@
   "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 8080 --ci",
     "build-storybook": "build-storybook"
   },
   "repository": {
@@ -21,7 +21,11 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.7.2",
+    "@rakuten-rex/storybook-inspecthtml": "^1.1.1",
+    "@rakuten-rex/storybook-inspectjsx": "^1.2.1",
+    "@storybook/addon-a11y": "^5.2.6",
     "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-knobs": "^5.2.6",
     "@storybook/addon-links": "^5.2.6",
     "@storybook/addons": "^5.2.6",
     "@storybook/react": "^5.2.6",
