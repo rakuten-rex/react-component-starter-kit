@@ -10,6 +10,11 @@ addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
+  backgrounds: [
+    { name: 'grey', value: '#f8f8f8', default: true },
+    { name: 'light-grey', value: '#fafafa' },
+    { name: 'white', value: '#fff' },
+  ],
 });
 
 // automatically import all files ending in *.stories.js
