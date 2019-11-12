@@ -1,9 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
+const del = require('del');
 // Webpack Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // Package Information and filenames
 const { name, version } = require('./package.json');
 
@@ -72,6 +74,10 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.(svg)$/,
+        use: ['@svgr/webpack'],
+      },
       // Load Files like WebFonts, SVG, PNG, etc.
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -117,6 +123,8 @@ This source code is licensed under the MIT license found in the LICENSE file in 
       filename: '[name].production.min.css',
       chunkFilename: '[name].production.min.css',
     }),
+    // Licence
+    new CopyWebpackPlugin([{ from: './LICENSE' }]),
   ],
   // Build optimizations
   optimization: {
@@ -179,4 +187,8 @@ This source code is licensed under the MIT license found in the LICENSE file in 
   ],
 };
 
+// Clean build folder for multiple webpack configs (dev, prod) instead of CleanWebpackPlugin
+del.sync([path.resolve(config.output.path, '**/*')]);
+
+// Export webpack config (prod, dev)
 module.exports = [config, configDev];
