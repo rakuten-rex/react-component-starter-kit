@@ -39,14 +39,6 @@ const config = {
   // Loaders for Babel, CSS, SASS, Files (SVG, PNG, etc.)
   module: {
     rules: [
-      // Babel support for ES6+
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
       // ESlint
       {
         enforce: 'pre',
@@ -166,6 +158,34 @@ This source code is licensed under the MIT license found in the LICENSE file in 
   },
 };
 
+const configProd = {
+  ...config,
+  module: {
+    rules: [
+      // Babel support for ES6+
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: [
+              [
+                'transform-react-remove-prop-types',
+                {
+                  mode: 'remove',
+                  removeImport: true,
+                },
+              ],
+            ],
+          },
+        },
+      },
+      ...config.module.rules,
+    ],
+  },
+};
+
 const configDev = {
   ...config,
   mode: 'development',
@@ -174,6 +194,19 @@ const configDev = {
     ...config.output,
     filename: '[name].development.js',
     chunkFilename: '[name].development.js',
+  },
+  module: {
+    rules: [
+      // Babel support for ES6+
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      ...config.module.rules,
+    ],
   },
   optimization: {
     minimize: false,
@@ -215,4 +248,4 @@ This source code is licensed under the MIT license found in the LICENSE file in 
 del.sync([path.resolve(config.output.path, '**/*')]);
 
 // Export webpack config (prod, dev)
-module.exports = [config, configDev];
+module.exports = [configProd, configDev];
