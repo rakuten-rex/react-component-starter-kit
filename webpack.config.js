@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const del = require('del');
+const cssnano = require('cssnano');
 // Webpack Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
@@ -146,10 +147,19 @@ This source code is licensed under the MIT license found in the LICENSE file in 
       }),
       // Optimize css output
       new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          discardComments: {
-            removeAll: false,
-          },
+        cssProcessor: cssnano,
+        cssProcessorPluginOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: {
+                removeAllButFirst: true,
+              },
+              cssDeclarationSorter: {
+                order: 'alphabetically',
+              },
+            },
+          ],
         },
       }),
     ],
@@ -183,6 +193,20 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     new MiniCssExtractPlugin({
       filename: '[name].development.css',
       chunkFilename: '[name].development.css',
+    }),
+    // Optimize css output
+    new OptimizeCSSAssetsPlugin({
+      cssProcessor: cssnano,
+      cssProcessorPluginOptions: {
+        preset: [
+          'default',
+          {
+            cssDeclarationSorter: {
+              order: 'alphabetically',
+            },
+          },
+        ],
+      },
     }),
   ],
 };
