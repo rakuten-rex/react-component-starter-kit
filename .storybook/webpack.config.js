@@ -1,4 +1,16 @@
-module.exports = function({ config }) {
+const path = require('path');
+
+module.exports = function({ config, mode }) {
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: [
+      'style-loader',
+      'css-loader',
+      'sass-loader',
+    ],
+    include: path.resolve(__dirname, '../'),
+  });
+
   config.module.rules.push({
     test: /\.stories\.jsx?$/,
     loaders: [
@@ -9,6 +21,11 @@ module.exports = function({ config }) {
     ],
     enforce: 'pre',
   });
+
+  config.devtool = (mode === 'DEVELOPMENT') ? 'inline-source-map' : false;
+  config.performance = {
+    hints: false
+  };
 
   return config;
 };

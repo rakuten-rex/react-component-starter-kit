@@ -16,7 +16,7 @@ export const withText = () => (
 );
 
 export const withCustomClassname = () => (
-  <MyComponent className="color-crimson active">Hello World</MyComponent>
+  <MyComponent className="rex-my-component color-crimson active">Hello World</MyComponent>
 );
 
 export const withClickEvent = () => {
