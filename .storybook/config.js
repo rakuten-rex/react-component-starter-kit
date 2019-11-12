@@ -11,7 +11,8 @@ addParameters({
     viewports: INITIAL_VIEWPORTS,
   },
   backgrounds: [
-    { name: 'grey', value: '#f8f8f8', default: true },
+    { name: 'dark-grey', value: '#686868' },
+    { name: 'grey (default)', value: '#f8f8f8', default: true },
     { name: 'light-grey', value: '#fafafa' },
     { name: 'white', value: '#fff' },
   ],
