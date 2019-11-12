@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const DiscardOverriddenCssPropsPlugin = require('./webpack-scripts/discard-overridden-css-props');
 // Package Information and filenames
 const { name, version } = require('./package.json');
 
@@ -116,6 +117,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
       filename: '[name].production.min.css',
       chunkFilename: '[name].production.min.css',
     }),
+    new DiscardOverriddenCssPropsPlugin(),
     // Licence
     new CopyWebpackPlugin([{ from: './LICENSE' }]),
   ],
@@ -227,6 +229,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
       filename: '[name].development.css',
       chunkFilename: '[name].development.css',
     }),
+    new DiscardOverriddenCssPropsPlugin(),
     // Optimize css output
     new OptimizeCSSAssetsPlugin({
       cssProcessor: cssnano,
