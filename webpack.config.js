@@ -12,14 +12,12 @@ const libraryName = name
   .replace('@rakuten-rex/', 'rakuten-rex-')
   .replace(/(-)\w/g, m => m.toUpperCase().replace(/-/, ''));
 // const packageName = name.replace('@rakuten-rex/', '');
-const filename = `[name].production.min`;
-const filenameJS = `${filename}.js`;
-const filenameCSS = `${filename}.css`;
 
 // Webpack Config for Production mode
 const config = {
   // Build mode
   mode: 'production',
+  name: 'production.config',
   // Entry for component under ./src folder
   entry: {
     index: './src/MyComponent/index.jsx',
@@ -28,8 +26,8 @@ const config = {
   output: {
     path: path.resolve(__dirname, `node_modules/${name}`),
     publicPath: '/',
-    filename: filenameJS,
-    chunkFilename: filenameJS,
+    filename: '[name].production.min.js',
+    chunkFilename: '[name].production.min.js',
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -116,8 +114,8 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     }),
     // Extract CSS from javascript bundle
     new MiniCssExtractPlugin({
-      filename: filenameCSS,
-      chunkFilename: filenameCSS,
+      filename: '[name].production.min.css',
+      chunkFilename: '[name].production.min.css',
     }),
   ],
   // Build optimizations
@@ -150,4 +148,35 @@ This source code is licensed under the MIT license found in the LICENSE file in 
   },
 };
 
-module.exports = config;
+const configDev = {
+  ...config,
+  mode: 'development',
+  name: 'development.config',
+  output: {
+    ...config.output,
+    filename: '[name].development.js',
+    chunkFilename: '[name].development.js',
+  },
+  optimization: {
+    minimize: false,
+  },
+  plugins: [
+    // Copyright
+    new webpack.BannerPlugin({
+      banner: `
+@license ${name} v${version} ${new Date().toISOString().split('T')[0]}
+[file]
+
+Copyright (c) 2018-present, Rakuten, Inc.
+
+This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.`,
+    }),
+    // Extract CSS from javascript bundle
+    new MiniCssExtractPlugin({
+      filename: '[name].development.css',
+      chunkFilename: '[name].development.css',
+    }),
+  ],
+};
+
+module.exports = [config, configDev];
