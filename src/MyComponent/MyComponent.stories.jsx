@@ -1,38 +1,103 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { text } from '@storybook/addon-knobs';
+import { text, color, select } from '@storybook/addon-knobs';
 import withKnobs from '../../.storybook/withKnobs';
 import MyComponent from './MyComponent';
 
 export default {
   title: 'My Component',
-  decorators: withKnobs
+  decorators: withKnobs,
 };
 
-export const withoutParams = () => <MyComponent />;
+export const defaultView = () => <MyComponent />;
 
-export const withText = () => (
-  <MyComponent>Hello World</MyComponent>
+export const withLink = () => (
+  <MyComponent>
+    <a href="/" target="_blank">
+      Link
+    </a>
+  </MyComponent>
 );
 
 export const withCustomClassname = () => (
-  <MyComponent className="rex-my-component color-crimson active">Hello World</MyComponent>
+  <MyComponent className="rex-my-component elevation" />
 );
 
 export const withClickEvent = () => {
   const onClickSample = action('clicked');
 
-  return <MyComponent onClick={onClickSample}>Hello World</MyComponent>
+  return <MyComponent onClick={onClickSample} />;
 };
 
-export const withChildrenHTML = () => (
-  <MyComponent>
-    <h2>Hello World</h2>
-  </MyComponent>
-);
-
 export const withDynamicProps = () => {
-  const textWelcome = text('text', 'Welcome to Dynamic React');
+  const sampleTitle = text('title', 'Dynamic Title');
+  const sampleText = text('text', 'Dynamic Text');
 
-  return <MyComponent text={textWelcome} />;
+  return <MyComponent title={sampleTitle} text={sampleText} />;
+};
+
+export const withThemeReact = () => {
+  const themeText = color('Text', '#232361', 'Theme Colors');
+  const themeLink = color('Link', '#CC0070', 'Theme Colors');
+  const themeTitleWeight = select(
+    'Title Weight',
+    {
+      Weight300: 300,
+      WeightNormal: 'normal',
+      Weight500: 500,
+      WeightBold: 'bold',
+    },
+    500,
+    'Theme Props'
+  );
+
+  const customStyle = {
+    '--rex-my-component-theme-text': themeText,
+    '--rex-my-component-theme-link': themeLink,
+    '--rex-my-component-title-weight': themeTitleWeight,
+  };
+
+  return (
+    <MyComponent style={customStyle}>
+      <a href="/" target="_blank">
+        Link
+      </a>
+    </MyComponent>
+  );
+};
+
+export const withThemeHTML = () => {
+  const themeText = color('Text', '#232361', 'Theme Colors');
+  const themeLink = color('Link', '#CC0070', 'Theme Colors');
+  const themeTitleWeight = select(
+    'Title Weight',
+    {
+      Weight300: 300,
+      WeightNormal: 'normal',
+      Weight500: 500,
+      WeightBold: 'bold',
+    },
+    500,
+    'Theme Props'
+  );
+
+  const customStyle = `
+    .rex-my-component {
+      --rex-my-component-theme-text: ${themeText};
+      --rex-my-component-theme-link: ${themeLink};
+      --rex-my-component-title-weight: ${themeTitleWeight};
+    }
+  `;
+
+  return (
+    <>
+      <style>{customStyle}</style>
+      <MyComponent>
+        <a href="/" target="_blank">
+          Link
+        </a>
+      </MyComponent>
+    </>
+  );
 };

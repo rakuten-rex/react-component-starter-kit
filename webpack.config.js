@@ -72,9 +72,9 @@ const config = {
         test: /\.(svg)$/,
         use: ['@svgr/webpack'],
       },
-      // Load Files like WebFonts, SVG, PNG, etc.
+      // Load Files like JPG, PNG, WebFonts, etc.
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader'],
       },
     ],

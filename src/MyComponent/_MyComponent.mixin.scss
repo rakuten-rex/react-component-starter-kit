@@ -1,0 +1,64 @@
+@import './core.mixin';
+
+@mixin rex-my-component-base {
+  @include rex-core();
+  @include rex-my-component-theme();
+  @include rex-my-component-shape();
+  @include rex-my-component-title();
+  @include rex-my-component-text();
+  @include rex-my-component-link();
+  @include rex-my-component-elevation();
+}
+
+@mixin rex-my-component-theme() {
+  // ReX Colors
+  --rex-gray-900: #333333;
+  --rex-blue-700: #134ff3;
+  // Theme
+  --rex-my-component-theme-text: var(--rex-gray-900);
+  --rex-my-component-theme-link: var(--rex-blue-700);
+  // Props
+  --rex-my-component-title-weight: 600;
+}
+
+@mixin rex-my-component-shape {
+  // Static Props
+  width: 280px;
+  height: auto;
+  background-color: #fff;
+  padding-bottom: 1.5rem;
+}
+
+@mixin rex-my-component-title {
+  h3 {
+    line-height: 1.5rem;
+    font-weight: var(--rex-my-component-title-weight);
+    color: var(--rex-my-component-theme-text);
+    padding: 0 1.5rem 0 1.5rem;
+  }
+}
+
+@mixin rex-my-component-text {
+  p {
+    line-height: 1.25rem;
+    color: var(--rex-my-component-theme-text);
+    padding: 0 1.5rem 0 1.5rem;
+  }
+}
+
+@mixin rex-my-component-link {
+  a {
+    line-height: 1.25rem;
+    color: var(--rex-my-component-theme-link);
+    padding: 0 1.5rem 0 1.5rem;
+    text-decoration: none;
+  }
+}
+
+@mixin rex-my-component-elevation {
+  &.elevation {
+    -moz-box-shadow: 0px 1px 3px #00000033, 0px 2px 2px #0000001f, 0px 0px 2px #00000024;
+    -webkit-box-shadow: 0px 1px 3px #00000033, 0px 2px 2px #0000001f, 0px 0px 2px #00000024;
+    box-shadow: 0px 1px 3px #00000033, 0px 2px 2px #0000001f, 0px 0px 2px #00000024;
+  }
+}
