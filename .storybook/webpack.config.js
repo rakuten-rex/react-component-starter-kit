@@ -67,5 +67,15 @@ module.exports = function ({ config, mode }) {
     new DiscardOverriddenCssPropsPlugin(),
   );
 
+  const srcPath = (mode === 'DEVELOPMENT') ? '../src/' : '../node_modules/@rakuten-rex/react-component-starter-kit/';
+  
+  config.resolve = {
+    ...config.resolve,
+    alias: {
+      ...config.resolve.alias,
+      src: path.resolve(__dirname, srcPath),
+    }
+  };
+
   return config;
 };

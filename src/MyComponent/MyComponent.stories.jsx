@@ -1,9 +1,10 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, color, select } from '@storybook/addon-knobs';
+import MyComponent from 'src/MyComponent';
 import withKnobs from '../../.storybook/withKnobs';
-import MyComponent from './MyComponent';
 
 export default {
   title: 'My Component',

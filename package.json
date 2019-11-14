@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 8080 -s ./.storybook/public --ci",
     "build-storybook": "build-storybook -c .storybook -s ./.storybook/public -o docs",
-    "build:component": "NODE_ENV=production webpack --mode=production --config webpack.config.js"
+    "build:component": "NODE_ENV=production webpack --mode=production --config webpack.config.js",
+    "serve": "http-server -p 8081 docs"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "fibers": "^4.0.2",
     "google-closure-compiler-js": "^20180610.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

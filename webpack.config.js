@@ -24,11 +24,11 @@ const config = {
   name: 'production.config',
   // Entry for component under ./src folder
   entry: {
-    index: './src/MyComponent/index.jsx',
+    'MyComponent/index': './src/MyComponent/index.jsx',
   },
   // Output config to build the static assets JavaScript, CSS, etc.
   output: {
-    path: path.resolve(__dirname, `npm/${name}`),
+    path: path.resolve(__dirname, `node_modules/${name}`),
     publicPath: '/',
     filename: '[name].production.min.js',
     chunkFilename: '[name].production.min.js',
