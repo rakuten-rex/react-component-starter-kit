@@ -25,7 +25,7 @@ export default function MyComponent({
 MyComponent.defaultProps = {
   children: null,
   title: 'Hello World',
-  text: 'This is a basic example',
+  text: 'This is a basic example for ReX React Components Starter Kit',
   className: 'rex-my-component',
   onClick: () => null,
 };

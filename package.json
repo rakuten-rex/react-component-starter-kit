@@ -5,9 +5,9 @@
   "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 8080 --ci",
-    "build-storybook": "build-storybook",
-    "build:component": "NODE_ENV=production ./node_modules/.bin/webpack --mode=production --config webpack.config.js"
+    "storybook": "start-storybook -p 8080 -s ./.storybook/public --ci",
+    "build-storybook": "build-storybook -c .storybook -s ./.storybook/public -o docs",
+    "build:component": "NODE_ENV=production webpack --mode=production --config webpack.config.js"
   },
   "repository": {
     "type": "git",
