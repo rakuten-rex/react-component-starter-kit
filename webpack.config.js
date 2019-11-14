@@ -28,7 +28,7 @@ const config = {
   },
   // Output config to build the static assets JavaScript, CSS, etc.
   output: {
-    path: path.resolve(__dirname, `node_modules/${name}`),
+    path: path.resolve(__dirname, `npm/${name}`),
     publicPath: '/',
     filename: '[name].production.min.js',
     chunkFilename: '[name].production.min.js',
