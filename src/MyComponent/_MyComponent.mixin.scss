@@ -1,6 +1,6 @@
 @import './core.mixin';
 
-@mixin rex-my-component-base {
+@mixin rex-my-component {
   @include rex-core();
   @include rex-my-component-shape();
   @include rex-my-component-image();
