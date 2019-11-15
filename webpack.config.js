@@ -8,6 +8,7 @@ const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DiscardOverriddenCssPropsPlugin = require('./webpack-scripts/discard-overridden-css-props');
+const BundleSassMixinPlugin = require('./webpack-scripts/bundle-sass-mixin');
 // Package Information and filenames
 const { name, version } = require('./package.json');
 
@@ -15,7 +16,7 @@ const libraryName = name
   .toLowerCase()
   .replace('@rakuten-rex/', 'rakuten-rex-')
   .replace(/(-)\w/g, m => m.toUpperCase().replace(/-/, ''));
-// const packageName = name.replace('@rakuten-rex/', '');
+const packageName = name.replace('@rakuten-rex/', '');
 
 // Webpack Config for Production mode
 const config = {
@@ -102,6 +103,8 @@ const config = {
     },
   },
   plugins: [
+    // Bundle all Sass mixin files into one mixin
+    new BundleSassMixinPlugin({ packageName, name, version }),
     // Copyright
     new webpack.BannerPlugin({
       banner: `

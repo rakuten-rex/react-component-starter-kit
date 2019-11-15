@@ -8,6 +8,7 @@
     "storybook": "start-storybook -p 8080 -s ./.storybook/public --ci",
     "build-storybook": "build-storybook -c .storybook -s ./.storybook/public -o docs",
     "build:component": "NODE_ENV=production webpack --mode=production --config webpack.config.js",
+    "build:sass": "bundle-scss -m \"./src/**/*.mixin.scss\" -d \"./dist/_MyComponent.mixin.scss\"",
     "serve": "http-server -p 8081 docs"
   },
   "repository": {
@@ -46,6 +47,7 @@
     "babel-plugin-add-react-displayname": "0.0.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "bundle-scss": "^1.4.10",
     "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
     "css2json": "^1.0.0",
@@ -63,8 +65,10 @@
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "prettier": "^1.19.1",
     "sass": "^1.23.3",
     "sass-loader": "^8.0.0",
+    "strip-comments": "^2.0.1",
     "style-loader": "^1.0.0",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
