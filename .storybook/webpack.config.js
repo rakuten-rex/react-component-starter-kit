@@ -17,7 +17,7 @@ module.exports = function ({ config, mode }) {
         },
       },
       'css-loader',
-      'sass-loader',
+      'fast-sass-loader',
     ],
     include: path.resolve(__dirname, '../'),
   });

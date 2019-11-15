@@ -65,7 +65,7 @@ const config = {
           },
           // Compiles Sass to CSS
           {
-            loader: 'sass-loader',
+            loader: 'fast-sass-loader',
           },
         ],
       },
