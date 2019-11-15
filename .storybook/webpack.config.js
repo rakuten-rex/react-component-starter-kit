@@ -1,5 +1,6 @@
 const path = require('path');
 const cssnano = require('cssnano');
+const { name } = require('../package.json');
 // Webpack plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -67,7 +68,9 @@ module.exports = function ({ config, mode }) {
     new DiscardOverriddenCssPropsPlugin(),
   );
 
-  const srcPath = (mode === 'DEVELOPMENT') ? '../src/' : '../node_modules/@rakuten-rex/react-component-starter-kit/';
+  // Resolve components from `src/` folder for development and 
+  // build version from `node_modules` for production
+  const srcPath = (mode === 'DEVELOPMENT') ? '../src/' : `../node_modules/${name}/`;
   
   config.resolve = {
     ...config.resolve,
