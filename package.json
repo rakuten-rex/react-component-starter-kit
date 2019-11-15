@@ -8,7 +8,6 @@
     "storybook": "start-storybook -p 8080 -s ./.storybook/public --ci",
     "build-storybook": "build-storybook -c .storybook -s ./.storybook/public -o docs",
     "build:component": "NODE_ENV=production webpack --mode=production --config webpack.config.js",
-    "build:sass": "bundle-scss -m \"./src/**/*.mixin.scss\" -d \"./dist/_MyComponent.mixin.scss\"",
     "serve": "http-server -p 8081 docs"
   },
   "repository": {
