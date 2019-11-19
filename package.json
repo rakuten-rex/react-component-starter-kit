@@ -1,0 +1,32 @@
+{
+  "name": "@rakuten-rex/react-component-starter-kit",
+  "version": "3.0.0",
+  "description": "ReX React UI Component",
+  "main": "src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 8080 --ci",
+    "build-storybook": "build-storybook -o docs",
+    "serve": "http-server -p 8081 docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rakuten-rex/react-component-starter-kit.git"
+  },
+  "author": "ReX React UI Components Library Authors (https://github.com/rakuten-rex/react-component-starter-kit/graphs/contributors)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rakuten-rex/react-component-starter-kit/issues"
+  },
+  "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
+    "babel-loader": "^8.0.6",
+    "http-server": "^0.11.1"
+  }
+}
