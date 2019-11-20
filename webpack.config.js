@@ -146,95 +146,95 @@ const optimizeCss = new OptimizeCSSAssetsPlugin({
 });
 
 // NPM settings
-const npmIndexList = Object.keys(entry).map(item => {
-  return {
-    from: './npm/index.tpl',
-    to: `${item}.js`,
-    transform(content) {
-      return content.toString().replace(/__COMPONENT_NAME__/g, item);
-    },
-  };
-});
+// const npmIndexList = Object.keys(entry).map(item => {
+//   return {
+//     from: './npm/index.tpl',
+//     to: `${item}.js`,
+//     transform(content) {
+//       return content.toString().replace(/__COMPONENT_NAME__/g, item);
+//     },
+//   };
+// });
 
-const npmIndexJSPlugin = new CopyWebpackPlugin(npmIndexList);
+// const npmIndexJSPlugin = new CopyWebpackPlugin(npmIndexList);
 
-const npmReadmePlugin = new CopyWebpackPlugin([
-  {
-    from: './markdown/README.md',
-    to: `README.md`,
-    transform(content) {
-      return content
-        .toString()
-        .replace(/__INFO_HOW_TO__/g, '')
-        .replace(/__REX_CORE_NAME__/g, 'core')
-        .replace(
-          /__REX_CORE_VERSION__/g,
-          packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
-        )
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version);
-    },
-  },
-]);
+// const npmReadmePlugin = new CopyWebpackPlugin([
+//   {
+//     from: './markdown/README.md',
+//     to: `README.md`,
+//     transform(content) {
+//       return content
+//         .toString()
+//         .replace(/__INFO_HOW_TO__/g, '')
+//         .replace(/__REX_CORE_NAME__/g, 'core')
+//         .replace(
+//           /__REX_CORE_VERSION__/g,
+//           packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
+//         )
+//         .replace(/__COMPONENT_NAME__/g, packageNameOnly)
+//         .replace(/__VERSION__/g, packageInfo.version);
+//     },
+//   },
+// ]);
 
-const npmPackagePlugin = new CopyWebpackPlugin([
-  {
-    from: './npm/package.tpl',
-    to: `package.json`,
-    transform(content) {
-      return content
-        .toString()
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version)
-        .replace(/__DESCRIPTION__/g, packageInfo.description)
-        .replace(/__REACT_VERSION__/g, packageInfo.dependencies.react)
-        .replace(
-          /__REACT_DOM_VERSION__/g,
-          packageInfo.dependencies['react-dom']
-        );
-    },
-  },
-]);
+// const npmPackagePlugin = new CopyWebpackPlugin([
+//   {
+//     from: './npm/package.tpl',
+//     to: `package.json`,
+//     transform(content) {
+//       return content
+//         .toString()
+//         .replace(/__COMPONENT_NAME__/g, packageNameOnly)
+//         .replace(/__VERSION__/g, packageInfo.version)
+//         .replace(/__DESCRIPTION__/g, packageInfo.description)
+//         .replace(/__REACT_VERSION__/g, packageInfo.dependencies.react)
+//         .replace(
+//           /__REACT_DOM_VERSION__/g,
+//           packageInfo.dependencies['react-dom']
+//         );
+//     },
+//   },
+// ]);
 
-const npmCssIndexList = Object.keys(entry).map(item => {
-  return {
-    from: './npm/css/index.tpl',
-    to: `css/${item}.js`,
-    transform(content) {
-      return content.toString().replace(/__COMPONENT_NAME__/g, item);
-    },
-  };
-});
+// const npmCssIndexList = Object.keys(entry).map(item => {
+//   return {
+//     from: './npm/css/index.tpl',
+//     to: `css/${item}.js`,
+//     transform(content) {
+//       return content.toString().replace(/__COMPONENT_NAME__/g, item);
+//     },
+//   };
+// });
 
-const npmCssIndexJSPlugin = new CopyWebpackPlugin(npmCssIndexList);
+// const npmCssIndexJSPlugin = new CopyWebpackPlugin(npmCssIndexList);
 
 // Current project README file
-const readmeHowTo = readFileSync('markdown/INFO_HOW_TO.md', 'utf8');
-const mdReadmePlugin = new CopyWebpackPlugin([
-  {
-    from: './markdown/README.md',
-    to: `${pathRoot}/README.md`,
-    transform(content) {
-      return content
-        .toString()
-        .replace(/__INFO_HOW_TO__/g, readmeHowTo)
-        .replace(/__REX_CORE_NAME__/g, 'core')
-        .replace(
-          /__REX_CORE_VERSION__/g,
-          packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
-        )
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version);
-    },
-  },
-]);
+// const readmeHowTo = readFileSync('markdown/INFO_HOW_TO.md', 'utf8');
+// const mdReadmePlugin = new CopyWebpackPlugin([
+//   {
+//     from: './markdown/README.md',
+//     to: `${pathRoot}/README.md`,
+//     transform(content) {
+//       return content
+//         .toString()
+//         .replace(/__INFO_HOW_TO__/g, readmeHowTo)
+//         .replace(/__REX_CORE_NAME__/g, 'core')
+//         .replace(
+//           /__REX_CORE_VERSION__/g,
+//           packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
+//         )
+//         .replace(/__COMPONENT_NAME__/g, packageNameOnly)
+//         .replace(/__VERSION__/g, packageInfo.version);
+//     },
+//   },
+// ]);
 
-// License
-const npmLicencePlugin = new CopyWebpackPlugin([
-  {
-    from: './LICENSE',
-  },
-]);
+// // License
+// const npmLicencePlugin = new CopyWebpackPlugin([
+//   {
+//     from: './LICENSE',
+//   },
+// ]);
 
 // Copyright
 const copyrightDate = new Date().toISOString().split('T')[0];
@@ -274,12 +274,12 @@ const production = merge(webpackConfig, {
   plugins: [
     cleanBuildPlugin,
     cssExtractPlugin,
-    npmIndexJSPlugin,
-    npmReadmePlugin,
-    npmPackagePlugin,
-    npmLicencePlugin,
-    npmCssIndexJSPlugin,
-    mdReadmePlugin,
+    // npmIndexJSPlugin,
+    // npmReadmePlugin,
+    // npmPackagePlugin,
+    // npmLicencePlugin,
+    // npmCssIndexJSPlugin,
+    // mdReadmePlugin,
   ],
 });
 
