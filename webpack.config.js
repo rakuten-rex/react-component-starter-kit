@@ -21,9 +21,7 @@ const pathRoot = pathResolve('./');
 // Webpack entry and output settings
 const entry = {};
 // Default outputs
-entry.index = './src/index.jsx';
-entry['without-fonts'] = './src/without-fonts.jsx';
-entry['without-core'] = './src/without-core.jsx';
+entry['MyComponent/MyComponent'] = './src/MyComponent/MyComponent.jsx';
 // Custom outputs
 
 // Webpack config
@@ -86,7 +84,7 @@ const stylesLoader = {
 };
 
 const fileLoader = {
-  test: /\.(woff|woff2|eot|ttf|otf)$/,
+  test: /\.(png|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/,
   use: ['file-loader'],
 };
 
