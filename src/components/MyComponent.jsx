@@ -1,11 +1,18 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { string, func, element, oneOfType, arrayOf } from 'prop-types';
 import H1 from '@rakuten-rex/core/h1';
 import './MyComponent.scss';
 
-export default function MyComponent({ children, onClick, text, className }) {
+export default function MyComponent({
+  children,
+  onClick,
+  text,
+  className,
+  ...props
+}) {
   return (
-    <div className={className} onClick={onClick} role="presentation">
+    <div className={className} onClick={onClick} role="presentation" {...props}>
       <H1>{text}</H1>
       {children}
     </div>
