@@ -32,9 +32,9 @@
   "homepage": "https://rakuten-rex.github.io/react-component-starter-kit/",
   "dependencies": {
     "@rakuten-rex/core": "^2.3.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3"
+    "prop-types": "15.7.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
   },
   "devDependencies": {
     "@babel/core": "7.6.4",
