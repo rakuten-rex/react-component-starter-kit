@@ -2,7 +2,7 @@
   "name": "@rakuten-rex/__COMPONENT_NAME__",
   "version": "__VERSION__",
   "description": "__DESCRIPTION__",
-  "main": "src/index.jsx",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/rakuten-rex/__COMPONENT_NAME__.git"
@@ -39,11 +39,7 @@
     "node": ">=10"
   },
   "peerDependencies": {
-    "react": "__REACT_VERSION__",
-    "react-dom": "__REACT_DOM_VERSION__"
-  },
-  "devDependencies": {
-    "react": "__REACT_VERSION__",
-    "react-dom": "__REACT_DOM_VERSION__"
+    "react": "^__REACT_VERSION__",
+    "react-dom": "^__REACT_DOM_VERSION__"
   }
 }

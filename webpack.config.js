@@ -16,7 +16,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DiscardOverriddenCssPropsPlugin = require('./webpack-scripts/discard-overridden-css-props');
 const BundleSassMixinPlugin = require('./webpack-scripts/bundle-sass-mixin');
 // Package Information and filenames
-const { name, version } = require('./package.json');
+const { name, version, description, dependencies } = require('./package.json');
 
 const libraryName = name
   .toLowerCase()
@@ -167,6 +167,22 @@ This source code is licensed under the MIT license found in the LICENSE file in 
         };
       })
     ),
+    // Clear version of package.json for NPM
+    new CopyWebpackPlugin([
+      {
+        from: './webpack-scripts/npm/package.tpl',
+        to: `package.json`,
+        transform(content) {
+          return content
+            .toString()
+            .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__VERSION__/g, version)
+            .replace(/__DESCRIPTION__/g, description)
+            .replace(/__REACT_VERSION__/g, dependencies.react)
+            .replace(/__REACT_DOM_VERSION__/g, dependencies['react-dom']);
+        },
+      },
+    ]),
   ],
   // Build optimizations
   optimization: {
