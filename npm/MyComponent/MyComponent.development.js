@@ -180,9 +180,9 @@ module.exports = _objectWithoutProperties;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "021decdc065f76e2bc404e620eb69250.jpg";
+module.exports = "MyComponent/assets/Image.jpg";
 
 /***/ }),
 /* 5 */

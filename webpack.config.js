@@ -82,7 +82,20 @@ const config = {
       // Load Files like JPG, PNG, WebFonts, etc.
       {
         test: /\.(png|jpg|gif|woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader'],
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: (_url, _resourcePath) => {
+            // eslint-disable-next-line no-unused-vars
+            const [beforeSrc, componentImageSrc] = _resourcePath.split('src/');
+            return componentImageSrc;
+          },
+          publicPath: (_url, _resourcePath) => {
+            // eslint-disable-next-line no-unused-vars
+            const [beforeSrc, componentImageSrc] = _resourcePath.split('src/');
+            return componentImageSrc;
+          },
+        },
       },
     ],
   },
