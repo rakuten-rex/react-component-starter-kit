@@ -168,6 +168,18 @@ This source code is licensed under the MIT license found in the LICENSE file in 
         };
       })
     ),
+    // MyComponent/css/index.js (require .css file only)
+    new CopyWebpackPlugin(
+      npmFiles.components.map(item => {
+        return {
+          from: './webpack-scripts/npm/css/index.tpl',
+          to: `${item}/css/index.js`,
+          transform(content) {
+            return content.toString().replace(/__COMPONENT_NAME__/g, item);
+          },
+        };
+      })
+    ),
     // Clear version of package.json for NPM
     new CopyWebpackPlugin([
       {
