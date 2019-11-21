@@ -48,7 +48,6 @@
     "babel-eslint": "10.0.3",
     "babel-loader": "8.0.6",
     "bundle-scss": "1.4.10",
-    "clean-webpack-plugin": "2.0.2",
     "copy-webpack-plugin": "5.0.5",
     "css-loader": "3.2.0",
     "css2json": "1.0.0",
