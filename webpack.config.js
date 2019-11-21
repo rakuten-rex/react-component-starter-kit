@@ -8,6 +8,7 @@ const webpack = require('webpack');
 const path = require('path');
 const del = require('del');
 const cssnano = require('cssnano');
+const { readFileSync } = require('fs');
 // Webpack Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
@@ -180,6 +181,39 @@ This source code is licensed under the MIT license found in the LICENSE file in 
             .replace(/__DESCRIPTION__/g, description)
             .replace(/__REACT_VERSION__/g, dependencies.react)
             .replace(/__REACT_DOM_VERSION__/g, dependencies['react-dom']);
+        },
+      },
+    ]),
+    // README file for NPM
+    new CopyWebpackPlugin([
+      {
+        from: './webpack-scripts/markdown/README.md',
+        to: `README.md`,
+        transform(content) {
+          return content
+            .toString()
+            .replace(/__INFO_HOW_TO__/g, '')
+            .replace(/__REX_CORE_NAME__/g, 'core')
+            .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__VERSION__/g, version);
+        },
+      },
+    ]),
+    // README file for current project
+    new CopyWebpackPlugin([
+      {
+        from: './webpack-scripts/markdown/README.md',
+        to: `../README.md`,
+        transform(content) {
+          return content
+            .toString()
+            .replace(
+              /__INFO_HOW_TO__/g,
+              readFileSync('webpack-scripts/markdown/INFO_HOW_TO.md', 'utf8')
+            )
+            .replace(/__REX_CORE_NAME__/g, 'core')
+            .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__VERSION__/g, version);
         },
       },
     ]),
