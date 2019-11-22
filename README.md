@@ -6,7 +6,7 @@ This project is part of ReX Design System and it can be used to create React UI 
 |-------------| ------------- | ------------- |
 |<img src="webpack-scripts/markdown/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
 |<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
-|<img src="webpack-scripts/markdown/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
+|<img src="webpack-scripts/markdown/logos/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
 
 **Front-end Stack**  
 
