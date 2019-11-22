@@ -44,6 +44,13 @@ For a complete guide of properties for React and HTML classes please visit the S
 
 https://rakuten-rex.github.io/react-component-starter-kit/
 
+Storybook features
+- [x] Stories by components types
+- [x] HTML raw output
+- [x] JSX output
+- [x] Stories source code
+- [x] Knobs with multiple options
+
 
 # How to integrate ReX in your project
 ## A) JavaScript modules
@@ -53,6 +60,8 @@ https://rakuten-rex.github.io/react-component-starter-kit/
 For plug and play components integration.   
 
 Example: 
+
+`my-component.jsx`
 
 ```js
 import RexComponent from '@rakuten-rex/react-component-starter-kit';
@@ -68,6 +77,8 @@ For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 
 Example: 
 
+`my-component.jsx`
+
 ```js
 import '@rakuten-rex/react-component-starter-kit/css';
 
@@ -82,11 +93,13 @@ For your own customization of styles (React, Vue, Angular, etc.) or Static HTML.
 
 Example: 
 
-```js
-import '@rakuten-rex/react-component-starter-kit/css';
+`my-styles.scss`
 
-function MyComponent() {
-  return <h1 className="rex-core-h1 rex-h1">Hello World</h1>;
+```scss
+@import '@rakuten-rex/react-component-starter-kit/sass/styles.mixin';
+
+.my-component-with-rex-styles {
+  @include react-component-starter-kit();
 }
 ```
 
@@ -99,37 +112,36 @@ You can choose between `development` (dev comments and unminified) or `productio
 
 We recommend to use `production` mode if your build process doesn't support to switch between both.
 
-Development mode URL:  
-`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit.development.css`
+*Production mode URL* (recommended for Static HTML projects):  
+`https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css`
 
-Production mode URL:  
-`https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit.production.min.css`
+
+Development mode URL (for local testing):  
+
+`https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.development.css`
+
 
 ### Single component integration
-Add it from our CDN into your HTML template or HTML static page.
-
-```markdown
-<!-- ReX react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit.production.min.css" rel="stylesheet">
-```
-
-### Multiple component integration
-
-Note: use `react-component-starter-kit-without-core.min.css` version to avoid duplicated code from ReX Core.
-
-```markdown
-<!-- ReX Core -->
-<link href="https://r.r10s.jp/com/rex/core/__REX_CORE_VERSION__/full-version.production.min.css" rel="stylesheet">
-
-<!-- ReX react-component-starter-kit -->
-<link href="https://r.r10s.jp/com/rex/react-component-starter-kit/2.5.2/react-component-starter-kit-without-core.production.min.css" rel="stylesheet">
-```
+Add it from our NPM CDN into your HTML template or HTML static page.
 
 Example: 
 
+`my-page.html`
+
 ```markdown
-<div class="rex-react-component-starter-kit">
-  <h1 class="rex-core-h1 rex-h1">Welcome to React</h1>
-</div>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Page</title>
+  <!-- ReX react-component-starter-kit -->
+  <link href="https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="rex-react-component-starter-kit">
+    <h1 class="rex-core-h1 rex-h1">Welcome to React</h1>
+  </div>
+  </body>
+</html>
 ```
 
