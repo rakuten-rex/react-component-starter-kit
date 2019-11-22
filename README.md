@@ -4,19 +4,19 @@ This project is part of ReX Design System and it can be used to create React UI 
 
 || Site  | URL |
 |-------------| ------------- | ------------- |
-|<img src="https://cdn.svgporn.com/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
-|<img src="https://cdn.svgporn.com/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
+|<img src="docs/public/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
+|<img src="docs/public/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
 |<img src="https://zeroheight.com/images/zhapp/landingv4/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
 
 **Front-end Stack**  
 
-|<img src="https://cdn.svgporn.com/logos/html-5.svg" height="16" />| <img src="https://cdn.svgporn.com/logos/css-3.svg" height="16" /> <img src="https://cdn.svgporn.com/logos/sass.svg" height="16" />  | <img src="https://cdn.svgporn.com/logos/javascript.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/react.svg" height="16" /> |
+|<img src="docs/public/logos/html-5.svg" height="16" />| <img src="docs/public/logos/css-3.svg" height="16" /> <img src="docs/public/logos/sass.svg" height="16" />  | <img src="docs/public/logos/javascript.svg" height="16" /> | <img src="docs/public/logos/react.svg" height="16" /> |
 |:---:|:---: | :---: | :---: |
 | HTML5 |CSS3 & Sass | JavaScript ES6 | React |
 
 **Tools**   
 
-|<img src="https://cdn.svgporn.com/logos/webpack.svg" height="16" />| <img src="https://cdn.svgporn.com/logos/storybook-icon.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/babel.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/eslint.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/prettier.svg" height="16" /> |
+|<img src="docs/public/logos/webpack.svg" height="16" />| <img src="docs/public/logos/storybook-icon.svg" height="16" /> | <img src="docs/public/logos/babel.svg" height="16" /> | <img src="docs/public/logos/eslint.svg" height="16" /> | <img src="docs/public/logos/prettier.svg" height="16" /> |
 |:---:|:---: | :---: | :---: | :---: |
 | webpack 4 | Storybook | Babel | ESLint | Prettier |
 
@@ -46,7 +46,7 @@ For a complete guide of properties for React and HTML classes please visit the S
 
 https://rakuten-rex.github.io/react-component-starter-kit/
 
-Storybook features
+**Storybook features**
 - [x] Stories by components types
 - [x] HTML raw output
 - [x] JSX output
@@ -154,7 +154,7 @@ npm start
 
 ## How to build
 
-The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./node_modules/@rakuten-rex/react-component-starter-kit` and other one for Github pages `./docs`.   
+The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./npm/@rakuten-rex/react-component-starter-kit` and other one for Github pages `./docs`.   
 
 ```
 npm run build
