@@ -14,10 +14,12 @@ Front-end Stack
 |:---:|:---: | :---: | :---: |
 | HTML5 |CSS3 & Sass | JavaScript ES6 | React |
 
-Tools
+Tools   
+
 |<img src="https://cdn.svgporn.com/logos/webpack.svg" height="16" />| <img src="https://cdn.svgporn.com/logos/storybook-icon.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/babel.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/eslint.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/prettier.svg" height="16" /> |
 |:---:|:---: | :---: | :---: | :---: |
 | webpack 4 | Storybook | Babel | ESLint | Prettier |
+
 
 Styles features
 - [x] Theme support via CSS variables
@@ -108,11 +110,7 @@ Example:
 
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
-You can choose between `development` (dev comments and unminified) or `production` (without dev comments and minified) mode.   
-
-We recommend to use `production` mode if your build process doesn't support to switch between both.
-
-*Production mode URL* (recommended for Static HTML projects):  
+**Production mode URL** (recommended for Static HTML projects):  
 `https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.production.min.css`
 
 
@@ -128,7 +126,7 @@ Example:
 
 `my-page.html`
 
-```markdown
+```html
 <!doctype html>
 <html>
 <head>
