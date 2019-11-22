@@ -8,27 +8,27 @@ This project is part of ReX Design System and it can be used to create React UI 
 |<img src="https://cdn.svgporn.com/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
 |<img src="https://zeroheight.com/images/zhapp/landingv4/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
 
-Front-end Stack  
+**Front-end Stack**  
 
 |<img src="https://cdn.svgporn.com/logos/html-5.svg" height="16" />| <img src="https://cdn.svgporn.com/logos/css-3.svg" height="16" /> <img src="https://cdn.svgporn.com/logos/sass.svg" height="16" />  | <img src="https://cdn.svgporn.com/logos/javascript.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/react.svg" height="16" /> |
 |:---:|:---: | :---: | :---: |
 | HTML5 |CSS3 & Sass | JavaScript ES6 | React |
 
-Tools   
+**Tools**   
 
 |<img src="https://cdn.svgporn.com/logos/webpack.svg" height="16" />| <img src="https://cdn.svgporn.com/logos/storybook-icon.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/babel.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/eslint.svg" height="16" /> | <img src="https://cdn.svgporn.com/logos/prettier.svg" height="16" /> |
 |:---:|:---: | :---: | :---: | :---: |
 | webpack 4 | Storybook | Babel | ESLint | Prettier |
 
 
-Styles features
+**Styles features**
 - [x] Theme support via CSS variables
 - [x] Static CSS styles available for HTML/VueJS/AngularJS
 - [x] Sass mixins for custom builds
 - [x] Reset CSS styles already bundled by HTML tags
 - [x] Removed duplicated CSS props 
 
-JavaScript features
+**JavaScript features**
 - [x] React components splitted by type
 - [x] Universal Module Definition support
 
