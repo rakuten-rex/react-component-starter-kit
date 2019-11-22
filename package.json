@@ -11,7 +11,7 @@
     "build:patch": "npm --no-git-tag-version version patch && npm run build:commit",
     "build:minor": "npm --no-git-tag-version version minor && npm run build:commit",
     "build:major": "npm --no-git-tag-version version major && npm run build:commit",
-    "build:storybook": "NODE_ENV=production ./node_modules/.bin/build-storybook -c .storybook -o docs -s ./npm --no-dll",
+    "build:storybook": "NODE_ENV=production ./node_modules/.bin/build-storybook -c .storybook -o docs -s ./npm",
     "build:component": "NODE_ENV=production ./node_modules/.bin/webpack --mode=production --config webpack.config.js",
     "build:commit": "npm run build && npm run commit",
     "commit": "npm run commit:docs && npm run commit:package",

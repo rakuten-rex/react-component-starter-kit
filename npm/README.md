@@ -4,19 +4,19 @@ This project is part of ReX Design System and it can be used to create React UI 
 
 || Site  | URL |
 |-------------| ------------- | ------------- |
-|<img src="docs/public/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
-|<img src="docs/public/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
-|<img src="https://zeroheight.com/images/zhapp/landingv4/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
+|<img src="webpack-scripts/markdown/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
+|<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
+|<img src="webpack-scripts/markdown/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
 
 **Front-end Stack**  
 
-|<img src="docs/public/logos/html-5.svg" height="16" />| <img src="docs/public/logos/css-3.svg" height="16" /> <img src="docs/public/logos/sass.svg" height="16" />  | <img src="docs/public/logos/javascript.svg" height="16" /> | <img src="docs/public/logos/react.svg" height="16" /> |
+|<img src="webpack-scripts/markdown/logos/html-5.svg" height="16" />| <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> <img src="webpack-scripts/markdown/logos/sass.svg" height="16" />  | <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> |
 |:---:|:---: | :---: | :---: |
 | HTML5 |CSS3 & Sass | JavaScript ES6 | React |
 
 **Tools**   
 
-|<img src="docs/public/logos/webpack.svg" height="16" />| <img src="docs/public/logos/storybook-icon.svg" height="16" /> | <img src="docs/public/logos/babel.svg" height="16" /> | <img src="docs/public/logos/eslint.svg" height="16" /> | <img src="docs/public/logos/prettier.svg" height="16" /> |
+|<img src="webpack-scripts/markdown/logos/webpack.svg" height="16" />| <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> |
 |:---:|:---: | :---: | :---: | :---: |
 | webpack 4 | Storybook | Babel | ESLint | Prettier |
 
