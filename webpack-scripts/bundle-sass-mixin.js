@@ -16,10 +16,10 @@ class BundleSassMixinPlugin {
     compiler.hooks.emit.tapAsync(
       { name: 'BundleSassMixinPlugin' },
       async (compilation, callback) => {
-        const { packageName, name, version } = options;
+        const { name, version } = options;
         const { path } = compilation.options.output;
-        const sassFilename = `_${packageName}.mixin.scss`;
-        const outputFilename = `${path}/${sassFilename}`;
+        const sassFilename = `_styles.mixin.scss`;
+        const outputFilename = `${path}/sass/${sassFilename}`;
 
         await bundleScss('./src/**/*.mixin.scss', outputFilename);
 
