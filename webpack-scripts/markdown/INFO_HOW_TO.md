@@ -9,7 +9,7 @@ npm start
 
 ## How to build
 
-The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./node_modules/@rakuten-rex/__COMPONENT_NAME__` and other one for Github pages `./docs`.   
+The build task will generate a NPM package ready to be published and also a static version of Storybook, one folder for NPM `./npm/@rakuten-rex/__COMPONENT_NAME__` and other one for Github pages `./docs`.   
 
 ```
 npm run build

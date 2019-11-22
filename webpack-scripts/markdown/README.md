@@ -46,7 +46,7 @@ For a complete guide of properties for React and HTML classes please visit the S
 
 https://rakuten-rex.github.io/__COMPONENT_NAME__/
 
-Storybook features
+**Storybook features**
 - [x] Stories by components types
 - [x] HTML raw output
 - [x] JSX output
