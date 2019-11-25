@@ -8,17 +8,17 @@ This project is part of ReX Design System and it can be used to create React UI 
 |<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
 |<img src="webpack-scripts/markdown/logos/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
 
-**Front-end Stack**  
+**Project Stack**  
 
-|<img src="webpack-scripts/markdown/logos/html-5.svg" height="16" />| <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> <img src="webpack-scripts/markdown/logos/sass.svg" height="16" />  | <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> |
-|:---:|:---: | :---: | :---: |
-| HTML5 |CSS3 & Sass | JavaScript ES6 | React |
+| Front-end | Tools |
+|-------------|-------------|
+| <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> HTML5 | <img src="webpack-scripts/markdown/logos/webpack.svg" height="16" /> webpack |
+| <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS3 & Sass | <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> Storybook | <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> Babel |
+| <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> JavaScript ES6 | <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> ESLint |
+| <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> React |  <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> Prettier |
 
-**Tools**   
 
-|<img src="webpack-scripts/markdown/logos/webpack.svg" height="16" />| <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> | <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> |
-|:---:|:---: | :---: | :---: | :---: |
-| webpack 4 | Storybook | Babel | ESLint | Prettier |
+**Features**
 
 | Styles features |  JavaScript features |
 |-------------|-------------|
