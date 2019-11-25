@@ -20,7 +20,7 @@ yarn add @rakuten-rex/react-component-starter-kit@2.5.2
 
 ## Storybook Live examples
 
-For a complete guide of properties for React and HTML classes please visit the Storybook site:  
+For a complete guide of properties for React and HTML classes please visit our Storybook page:  
 
 [<img src="webpack-scripts/markdown/logos/storybook.svg" height="16" />](https://rakuten-rex.github.io/react-component-starter-kit/)   
 
@@ -28,7 +28,7 @@ https://rakuten-rex.github.io/react-component-starter-kit/
 
 
 **Storybook features**
-- [x] Stories by components types
+- [x] Stories by component types
 - [x] HTML raw output
 - [x] JSX output
 - [x] Stories source code
@@ -101,19 +101,23 @@ Example:
 
 ## B) Static HTML
 
-Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
+Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles.
 
 **Production mode URL** (recommended for Static HTML projects):  
-`https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css`
+```
+https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css
+```
 
 
 Development mode URL (for local testing):  
 
-`https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.development.css`
+```
+https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.development.css
+```
 
 
 ### <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> Single component integration
-Add it from our NPM CDN into your HTML template or HTML static page.
+Add it from unpkg.com CDN (NPM) into your HTML template or HTML static page.
 
 Example: 
 
@@ -161,6 +165,7 @@ Example:
 | Sass mixins for custom builds |
 | Reset CSS styles already bundled by HTML tags |
 | Removed duplicated CSS props |
+| CSS classes prefix `rex-` |
 
 ## Browser Support
 
