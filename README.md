@@ -20,30 +20,23 @@ This project is part of ReX Design System and it can be used to create React UI 
 |:---:|:---: | :---: | :---: | :---: |
 | webpack 4 | Storybook | Babel | ESLint | Prettier |
 
-
-**Styles features**
-- [x] Theme support via CSS variables
-- [x] Static CSS styles available for HTML/VueJS/AngularJS
-- [x] Sass mixins for custom builds
-- [x] Reset CSS styles already bundled by HTML tags
-- [x] Removed duplicated CSS props 
-
-**JavaScript features**
-- [x] React components splitted by type
-- [x] Universal Module Definition support
+| Styles features |  JavaScript features |
+|-------------|-------------|
+| - [x] Theme support via CSS variables |  - [x] React components splitted by type |
+| - [x] Static CSS styles available for HTML/VueJS/AngularJS | - [x] Universal Module Definition support |
+| - [x] Sass mixins for custom builds |
+| - [x] Reset CSS styles already bundled by HTML tags |
+| - [x] Removed duplicated CSS props |
 
 **Browser Support**
 
-PC
-- [x] <img src="webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+
-- [x] <img src="webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+
-- [x] <img src="webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+
-- [x] <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+
-- [x] <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+
-
-Mobile
-- [x] <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+)
-- [x] <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+)
+| PC | Mobile 
+|-------------|-------------|
+| - [x] <img src="webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+ | - [x] <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+) |
+| - [x] <img src="webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+ | - [x] <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+) |
+| - [x] <img src="webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+ | |
+| - [x] <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+ | |
+| - [x] <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+ | |
 
 
 # How to install
