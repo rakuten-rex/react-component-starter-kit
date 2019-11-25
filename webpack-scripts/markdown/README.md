@@ -1,6 +1,8 @@
 # ReX React UI Component: __COMPONENT_NAME__
 
-This project is part of ReX Design System and it can be used to create React UI Components.   
+This project is part of ReX Design System and it can be used to create UI Components compatible with:
+
+React, HTML/CSS and Vue.js  
 
 # How to install
 
@@ -96,6 +98,33 @@ Example:
 .my-component-with-rex-styles {
   @include rex-my-component();
 }
+```
+
+### <img src="webpack-scripts/markdown/logos/vue.svg" height="16" /> Vue.js
+
+Example: 
+
+`my-component.vue`
+
+```vue
+<template>
+  <div class="rex-my-component" role="presentation">
+    <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
+    <h3>Hello World</h3>
+    <p>This is a basic example for ReX React Components Starter Kit</p>
+  </div>
+</template>
+<script>
+export default {
+  name: 'MyComponent',
+  props: {
+    msg: String
+  }
+}
+</script>
+<style scoped>
+@import "~@rakuten-rex/__COMPONENT_NAME__/css";
+</style>
 ```
 
 
