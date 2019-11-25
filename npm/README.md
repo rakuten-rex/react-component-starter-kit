@@ -16,14 +16,6 @@ This project is part of ReX Design System and it can be used to create React UI 
 | <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> HTML5 <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS3 & Sass  <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> JavaScript ES6 <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> React | <img src="webpack-scripts/markdown/logos/webpack.svg" height="16" /> webpack <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> Storybook <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> Babel <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> ESLint <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> Prettier |
 
 
-| Front-end | Tools |
-|-------------|-------------|
-| <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> HTML5 | <img src="webpack-scripts/markdown/logos/webpack.svg" height="16" /> webpack |
-| <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS3 & Sass | <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> Storybook | <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> Babel |
-| <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> JavaScript ES6 | <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> ESLint |
-| <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> React |  <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> Prettier |
-
-
 **Features**
 
 | Styles features |  JavaScript features |
