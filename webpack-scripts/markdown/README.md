@@ -32,6 +32,20 @@ This project is part of ReX Design System and it can be used to create React UI 
 - [x] React components splitted by type
 - [x] Universal Module Definition support
 
+**Browser Support**
+
+PC
+- [x] <img src="webpack-scripts/markdown/browsers/chrome.svg" height="16" /> Chrome 49+
+- [x] <img src="webpack-scripts/markdown/browsers/safari.svg" height="16" /> Safari 9.1+
+- [x] <img src="webpack-scripts/markdown/browsers/firefox.svg" height="16" /> Firefox 31+
+- [x] <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="16" /> MS Edge 15+
+- [x] <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="16" /> IE 11+
+
+Mobile
+- [x] <img src="webpack-scripts/markdown/browsers/ios.svg" height="16" /> iOS 9+ (Safari 9.3+, Chrome 78+)
+- [x] <img src="webpack-scripts/markdown/browsers/android.svg" height="16" /> Android 6+ (Chrome 78+, Android Browser 76+)
+
+
 # How to install
 
 ```
