@@ -4,13 +4,13 @@ This project is part of ReX Design System and it can be used to create React UI 
 
 # How to install
 
-Using NPM
+<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />
 
 ```
 npm install @rakuten-rex/react-component-starter-kit@2.5.2 --save
 ```
 
-Using Yarn
+<img src="webpack-scripts/markdown/logos/yarn.svg" height="16" />
 
 ```
 yarn add @rakuten-rex/react-component-starter-kit@2.5.2
@@ -38,7 +38,7 @@ https://rakuten-rex.github.io/react-component-starter-kit/
 # How to integrate ReX in your project
 ## A) JavaScript modules
 
-### React component (JavaScript + CSS Styles)
+### <img src="webpack-scripts/markdown/logos/react.svg" height="20" /> React component (JavaScript + CSS Styles)
 
 For plug and play components integration.   
 
@@ -57,7 +57,7 @@ function MyCustomComponent() {
 [Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
 
 
-### CSS Styles only
+### <img src="webpack-scripts/markdown/logos/css-3.svg" height="20" /> CSS Styles only
 
 For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 
@@ -82,7 +82,7 @@ function MyCustomComponent() {
 [Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
 
 
-### Sass mixins
+### <img src="webpack-scripts/markdown/logos/sass.svg" height="20" /> Sass mixins
 
 For your own customization of styles (React, Vue, Angular, etc.) or Static HTML.
 
@@ -112,7 +112,7 @@ Development mode URL (for local testing):
 `https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.development.css`
 
 
-### Single component integration
+### <img src="webpack-scripts/markdown/logos/html-5.svg" height="20" /> Single component integration
 Add it from our NPM CDN into your HTML template or HTML static page.
 
 Example: 
