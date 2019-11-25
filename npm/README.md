@@ -22,21 +22,21 @@ This project is part of ReX Design System and it can be used to create React UI 
 
 | Styles features |  JavaScript features |
 |-------------|-------------|
-| - [x] Theme support via CSS variables |  - [x] React components splitted by type |
-| - [x] Static CSS styles available for HTML/VueJS/AngularJS | - [x] Universal Module Definition support |
-| - [x] Sass mixins for custom builds |
-| - [x] Reset CSS styles already bundled by HTML tags |
-| - [x] Removed duplicated CSS props |
+| Theme support via CSS variables |  React components splitted by type |
+| Static CSS styles available for HTML/VueJS/AngularJS | Universal Module Definition support |
+| Sass mixins for custom builds |
+| Reset CSS styles already bundled by HTML tags |
+| Removed duplicated CSS props |
 
 **Browser Support**
 
 | PC | Mobile 
 |-------------|-------------|
-| - [x] <img src="webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+ | - [x] <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+) |
-| - [x] <img src="webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+ | - [x] <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+) |
-| - [x] <img src="webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+ | |
-| - [x] <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+ | |
-| - [x] <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+ | |
+| <img src="webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+ | <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+) |
+| <img src="webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+ | <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+) |
+| <img src="webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+ | |
+| <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+ | |
+| <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+ | |
 
 
 # How to install
@@ -51,7 +51,10 @@ npm install @rakuten-rex/react-component-starter-kit@2.5.2 --save
 
 For a complete guide of properties for React and HTML classes please visit the Storybook site:  
 
-https://rakuten-rex.github.io/react-component-starter-kit/
+[<img src="webpack-scripts/markdown/logos/storybook.svg" height="16" />](https://rakuten-rex.github.io/react-component-starter-kit/)   
+
+https://rakuten-rex.github.io/react-component-starter-kit/   
+
 
 **Storybook features**
 - [x] Stories by components types
