@@ -42,8 +42,8 @@ PC
 - [x] <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+
 
 Mobile
-- [x] <img src="webpack-scripts/markdown/browsers/ios.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+)
-- [x] <img src="webpack-scripts/markdown/browsers/android.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+)
+- [x] <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+)
+- [x] <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+)
 
 
 # How to install
