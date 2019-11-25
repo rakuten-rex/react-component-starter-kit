@@ -66,12 +66,15 @@ Example:
 `my-component.jsx`
 
 ```js
-import RexComponent from '@rakuten-rex/react-component-starter-kit';
+import MyComponent from '@rakuten-rex/react-component-starter-kit';
 
-function MyComponent() {
-  return <RexComponent>Hello World</RexComponent>;
+function MyCustomComponent() {
+  return <MyComponent />;
 }
 ```
+
+[Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
+
 
 ### CSS Styles only
 
@@ -84,10 +87,19 @@ Example:
 ```js
 import '@rakuten-rex/react-component-starter-kit/css';
 
-function MyComponent() {
-  return <h1 className="rex-core-h1 rex-h1">Hello World</h1>;
+function MyCustomComponent() {
+  return (
+    <div class="rex-my-component" role="presentation">
+      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
+      <h3>Hello World</h3>
+      <p>This is a basic example for ReX React Components Starter Kit</p>
+    </div>
+  );
 }
 ```
+
+[Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
+
 
 ### Sass mixins
 
@@ -129,16 +141,18 @@ Example:
 ```html
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>My Page</title>
-  <!-- ReX react-component-starter-kit -->
-  <link href="https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="rex-react-component-starter-kit">
-    <h1 class="rex-core-h1 rex-h1">Welcome to React</h1>
-  </div>
+  <head>
+    <meta charset="utf-8">
+    <title>My Page</title>
+    <!-- ReX react-component-starter-kit -->
+    <link href="https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="rex-my-component" role="presentation">
+      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
+      <h3>Hello World</h3>
+      <p>This is a basic example for ReX React Components Starter Kit</p>
+    </div>
   </body>
 </html>
 ```

@@ -67,6 +67,21 @@ module.exports = function ({ config, mode }) {
     new DiscardOverriddenCssPropsPlugin(),
   );
 
+  // Remove hash from filenames
+  config.module.rules = config.module.rules.map(rule => {
+    if(rule.test.toString().includes('jpg')) {
+      return {
+        ...rule,
+        query: {
+          name: 'static/media/[name].[ext]',
+        }
+      };
+    }
+    
+    return rule;
+  });
+
+  // Alias to run the component from src (original) or npm (build) folder
   const srcPath = (mode === 'DEVELOPMENT') ? '../src/' : `../npm/`;
 
   config.resolve = {

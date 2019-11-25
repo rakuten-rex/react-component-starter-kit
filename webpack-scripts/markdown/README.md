@@ -66,12 +66,15 @@ Example:
 `my-component.jsx`
 
 ```js
-import RexComponent from '@rakuten-rex/__COMPONENT_NAME__';
+import MyComponent from '@rakuten-rex/__COMPONENT_NAME__';
 
-function MyComponent() {
-  return <RexComponent>Hello World</RexComponent>;
+function MyCustomComponent() {
+  return <MyComponent />;
 }
 ```
+
+[Click here](https://rakuten-rex.github.io/__COMPONENT_NAME__/) to see all working examples in Storybook.
+
 
 ### CSS Styles only
 
@@ -84,10 +87,19 @@ Example:
 ```js
 import '@rakuten-rex/__COMPONENT_NAME__/css';
 
-function MyComponent() {
-  return <h1 className="rex-core-h1 rex-h1">Hello World</h1>;
+function MyCustomComponent() {
+  return (
+    <div class="rex-my-component" role="presentation">
+      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
+      <h3>Hello World</h3>
+      <p>This is a basic example for ReX React Components Starter Kit</p>
+    </div>
+  );
 }
 ```
+
+[Click here](https://rakuten-rex.github.io/__COMPONENT_NAME__/) to see all working examples in Storybook.
+
 
 ### Sass mixins
 
@@ -129,16 +141,18 @@ Example:
 ```html
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>My Page</title>
-  <!-- ReX __COMPONENT_NAME__ -->
-  <link href="https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.production.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="rex-__COMPONENT_NAME__">
-    <h1 class="rex-core-h1 rex-h1">Welcome to React</h1>
-  </div>
+  <head>
+    <meta charset="utf-8">
+    <title>My Page</title>
+    <!-- ReX __COMPONENT_NAME__ -->
+    <link href="https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.production.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="rex-my-component" role="presentation">
+      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
+      <h3>Hello World</h3>
+      <p>This is a basic example for ReX React Components Starter Kit</p>
+    </div>
   </body>
 </html>
 ```
