@@ -2,50 +2,23 @@
 
 This project is part of ReX Design System and it can be used to create React UI Components.   
 
-|| Site  | URL |
-|-------------| ------------- | ------------- |
-|<img src="webpack-scripts/markdown/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
-|<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
-|<img src="webpack-scripts/markdown/logos/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
-
-**Project Stack**  
-
-
-| Front-end | Tools |
-|-------------|-------------|
-| <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> HTML5 <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS3 & Sass  <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> JavaScript ES6 <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> React | <img src="webpack-scripts/markdown/logos/webpack.svg" height="16" /> webpack <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> Storybook <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> Babel <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> ESLint <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> Prettier |
-
-
-**Features**
-
-| Styles features |  JavaScript features |
-|-------------|-------------|
-| Theme support via CSS variables |  React components splitted by type |
-| Static CSS styles available for HTML/VueJS/AngularJS | Universal Module Definition support |
-| Sass mixins for custom builds |
-| Reset CSS styles already bundled by HTML tags |
-| Removed duplicated CSS props |
-
-**Browser Support**
-
-| PC | Mobile 
-|-------------|-------------|
-| <img src="webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+ | <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+) |
-| <img src="webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+ | <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+) |
-| <img src="webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+ | |
-| <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+ | |
-| <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+ | |
-
-
 # How to install
+
+Using NPM
 
 ```
 npm install @rakuten-rex/react-component-starter-kit@2.5.2 --save
 ```
 
+Using Yarn
+
+```
+yarn add @rakuten-rex/react-component-starter-kit@2.5.2
+```
+
 # Getting started
 
-## 1) Storybook Live examples
+## Storybook Live examples
 
 For a complete guide of properties for React and HTML classes please visit the Storybook site:  
 
@@ -164,4 +137,40 @@ Example:
   </body>
 </html>
 ```
+
+## Documentation, source code and distribution
+
+|| Site  | URL |
+|-------------| ------------- | ------------- |
+|<img src="webpack-scripts/markdown/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
+|<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
+|<img src="webpack-scripts/markdown/logos/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
+
+## Project Stack
+
+| Front-end | Tools |
+|-------------|-------------|
+| <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> HTML5 <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS3 & Sass  <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> JavaScript ES6 <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> React | <img src="webpack-scripts/markdown/logos/webpack.svg" height="16" /> webpack <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> Storybook <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> Babel <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> ESLint <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> Prettier |
+
+## Features
+
+| Styles features |  JavaScript features |
+|-------------|-------------|
+| Theme support via CSS variables |  React components splitted by type |
+| Static CSS styles available for HTML/VueJS/AngularJS | Universal Module Definition support |
+| Sass mixins for custom builds |
+| Reset CSS styles already bundled by HTML tags |
+| Removed duplicated CSS props |
+
+## Browser Support
+
+| PC | Mobile 
+|-------------|-------------|
+| <img src="webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+ | <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+) |
+| <img src="webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+ | <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+) |
+| <img src="webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+ | |
+| <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+ | |
+| <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+ | |
+
+
 
