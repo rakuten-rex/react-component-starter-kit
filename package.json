@@ -5,7 +5,7 @@
   "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init:component": "node init.js && npm i && npm start",
+    "init:component": "npm run generate:rex-component",
     "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080 --ci -s ./.storybook/public",
     "build": "npm run build:component && npm run build:storybook",
     "build:patch": "npm --no-git-tag-version version patch && npm run build:commit",
@@ -19,7 +19,8 @@
     "commit:package": "git add package.json package-lock.json && git commit -m 'New version - v'$npm_package_version",
     "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs",
     "publish:component": "cd ./node_modules/$npm_package_name && npm publish",
-    "generate:my-component": "plop --plopfile project-scripts/plop-templates/MyComponent/plop-generator.js"
+    "generate:my-component": "plop --plopfile project-scripts/plop-templates/MyComponent/plop-generator.js",
+    "generate:rex-component": "plop --plopfile project-scripts/plop-templates/RexComponent/plop-generator.js"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,5 @@
+@import './Button.mixin';
+
+.rex-button {
+  @include rex-button();
+}
