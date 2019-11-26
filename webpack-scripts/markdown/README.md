@@ -24,7 +24,7 @@ yarn add @rakuten-rex/__COMPONENT_NAME__@__VERSION__
 
 For a complete guide of properties for React and HTML classes please visit our Storybook page:  
 
-[<img src="webpack-scripts/markdown/logos/storybook.svg" height="16" />](https://rakuten-rex.github.io/__COMPONENT_NAME__/)   
+[<img src="__RAW_GITHUB__webpack-scripts/markdown/logos/storybook.svg" height="16" />](https://rakuten-rex.github.io/__COMPONENT_NAME__/)   
 
 https://rakuten-rex.github.io/__COMPONENT_NAME__/   
 
@@ -40,7 +40,7 @@ https://rakuten-rex.github.io/__COMPONENT_NAME__/
 # How to integrate ReX in your project
 ## A) JavaScript modules
 
-### <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> React component (JavaScript + CSS Styles)
+### <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/react.svg" height="16" /> React component (JavaScript + CSS Styles)
 
 For plug and play components integration.   
 
@@ -48,13 +48,13 @@ Example:
 
 `my-component.jsx`
 
-__JSX_COMPONENT__
+__EXAMPLE_JSX__
 
 
 [Click here](https://rakuten-rex.github.io/__COMPONENT_NAME__/) to see all working examples in Storybook.
 
 
-### <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS Styles only
+### <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS Styles only
 
 For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 
@@ -67,7 +67,7 @@ import '@rakuten-rex/__COMPONENT_NAME__/css';
 
 function MyCustomComponent() {
   return (
-    __HTML_COMPONENT__
+    __EXAMPLE_HTML__
   );
 }
 ```
@@ -75,7 +75,7 @@ function MyCustomComponent() {
 [Click here](https://rakuten-rex.github.io/__COMPONENT_NAME__/) to see all working examples in Storybook.
 
 
-### <img src="webpack-scripts/markdown/logos/sass.svg" height="16" /> Sass mixins
+### <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/sass.svg" height="16" /> Sass mixins
 
 For your own customization of styles (React, Vue, Angular, etc.) or Static HTML.
 
@@ -83,15 +83,9 @@ Example:
 
 `my-styles.scss`
 
-```scss
-@import '@rakuten-rex/__COMPONENT_NAME__/sass/styles.mixin';
+__EXAMPLE_SASS__
 
-.my-component-with-rex-styles {
-  @include rex-my-component();
-}
-```
-
-### <img src="webpack-scripts/markdown/logos/vue.svg" height="16" /> Vue.js
+### <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/vue.svg" height="16" /> Vue.js
 
 Example: 
 
@@ -99,7 +93,7 @@ Example:
 
 ```vue
 <template>
-    __HTML_COMPONENT__
+    __EXAMPLE_HTML__
 </template>
 <script>
 export default {
@@ -129,7 +123,7 @@ https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.development.
 ```
 
 
-### <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> Single component integration
+### <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/html-5.svg" height="16" /> Single component integration
 Add it from unpkg.com CDN (NPM) into your HTML template or HTML static page.
 
 Example: 
@@ -146,7 +140,7 @@ Example:
     <link href="https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.production.min.css" rel="stylesheet">
   </head>
   <body>
-    __HTML_COMPONENT__
+    __EXAMPLE_HTML__
   </body>
 </html>
 ```
@@ -155,15 +149,15 @@ Example:
 
 || Site  | URL |
 |-------------| ------------- | ------------- |
-|<img src="webpack-scripts/markdown/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
-|<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
-|<img src="webpack-scripts/markdown/logos/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
+|<img src="__RAW_GITHUB__webpack-scripts/markdown/logos/github-icon.svg" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
+|<img src="__RAW_GITHUB__webpack-scripts/markdown/logos/npm.svg" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
+|<img src="__RAW_GITHUB__webpack-scripts/markdown/logos/zh_logo.svg" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
 
 ## Project Stack
 
 | Front-end | Tools |
 |-------------|-------------|
-| <img src="webpack-scripts/markdown/logos/html-5.svg" height="16" /> HTML5 <img src="webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS3 & Sass  <img src="webpack-scripts/markdown/logos/javascript.svg" height="16" /> JavaScript ES6 <img src="webpack-scripts/markdown/logos/react.svg" height="16" /> React | <img src="webpack-scripts/markdown/logos/webpack.svg" height="16" /> webpack <img src="webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> Storybook <img src="webpack-scripts/markdown/logos/babel.svg" height="16" /> Babel <img src="webpack-scripts/markdown/logos/eslint.svg" height="16" /> ESLint <img src="webpack-scripts/markdown/logos/prettier.svg" height="16" /> Prettier |
+| <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/html-5.svg" height="16" /> HTML5 <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/css-3.svg" height="16" /> CSS3 & Sass  <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/javascript.svg" height="16" /> JavaScript ES6 <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/react.svg" height="16" /> React | <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/webpack.svg" height="16" /> webpack <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/storybook-icon.svg" height="16" /> Storybook <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/babel.svg" height="16" /> Babel <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/eslint.svg" height="16" /> ESLint <img src="__RAW_GITHUB__webpack-scripts/markdown/logos/prettier.svg" height="16" /> Prettier |
 
 ## Features
 
@@ -180,11 +174,11 @@ Example:
 
 | PC | Mobile 
 |-------------|-------------|
-| <img src="webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+ | <img src="webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+) |
-| <img src="webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+ | <img src="webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+) |
-| <img src="webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+ | |
-| <img src="webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+ | |
-| <img src="webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+ | |
+| <img src="__RAW_GITHUB__webpack-scripts/markdown/browsers/chrome.svg" height="14" /> Chrome 49+ | <img src="__RAW_GITHUB__webpack-scripts/markdown/browsers/apple.svg" height="14" /> iOS 9+ (Safari 9.3+, Chrome 78+) |
+| <img src="__RAW_GITHUB__webpack-scripts/markdown/browsers/safari.svg" height="14" /> Safari 9.1+ | <img src="__RAW_GITHUB__webpack-scripts/markdown/browsers/android-icon.svg" height="14" /> Android 6+ (Chrome 78+, Android Browser 76+) |
+| <img src="__RAW_GITHUB__webpack-scripts/markdown/browsers/firefox.svg" height="14" /> Firefox 31+ | |
+| <img src="__RAW_GITHUB__webpack-scripts/markdown/browsers/microsoft-edge.svg" height="14" /> MS Edge 15+ | |
+| <img src="__RAW_GITHUB__webpack-scripts/markdown/browsers/internetexplorer.svg" height="14" /> IE 11+ | |
 
 
 
