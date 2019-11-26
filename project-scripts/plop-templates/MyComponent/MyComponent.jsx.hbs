@@ -2,9 +2,9 @@
 import React from 'react';
 import { string, func, element, oneOfType, arrayOf } from 'prop-types';
 import MyImage from './assets/Image.jpg';
-import './MyComponent.scss';
+import './{{pascalCase name}}.scss';
 
-export default function MyComponent({
+export default function {{pascalCase name}}({
   children,
   onClick,
   title,
@@ -26,15 +26,15 @@ export default function MyComponent({
   );
 }
 
-MyComponent.defaultProps = {
+{{pascalCase name}}.defaultProps = {
   children: null,
   title: 'Hello World',
   text: 'This is a basic example for ReX React Components Starter Kit',
-  className: 'rex-my-component',
+  className: 'rex-{{dashCase name}}',
   onClick: () => null,
 };
 
-MyComponent.propTypes = {
+{{pascalCase name}}.propTypes = {
   children: oneOfType([string, element, arrayOf(element)]),
   title: string,
   text: string,
