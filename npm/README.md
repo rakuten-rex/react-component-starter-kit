@@ -48,13 +48,8 @@ Example:
 
 `my-component.jsx`
 
-```js
-import MyComponent from '@rakuten-rex/react-component-starter-kit';
+__JSX_COMPONENT__
 
-function MyCustomComponent() {
-  return <MyComponent />;
-}
-```
 
 [Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
 
@@ -72,11 +67,7 @@ import '@rakuten-rex/react-component-starter-kit/css';
 
 function MyCustomComponent() {
   return (
-    <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
-    </div>
+    __HTML_COMPONENT__
   );
 }
 ```
@@ -108,18 +99,11 @@ Example:
 
 ```vue
 <template>
-  <div class="rex-my-component" role="presentation">
-    <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-    <h3>Hello World</h3>
-    <p>This is a basic example for ReX React Components Starter Kit</p>
-  </div>
+    __HTML_COMPONENT__
 </template>
 <script>
 export default {
   name: 'MyComponent',
-  props: {
-    msg: String
-  }
 }
 </script>
 <style scoped>
@@ -162,11 +146,7 @@ Example:
     <link href="https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
-    </div>
+    __HTML_COMPONENT__
   </body>
 </html>
 ```

@@ -48,13 +48,16 @@ Example:
 
 `my-component.jsx`
 
-```js
+```jsx
 import MyComponent from '@rakuten-rex/react-component-starter-kit';
 
 function MyCustomComponent() {
-  return <MyComponent />;
+  return (
+    <MyComponent />
+  );
 }
 ```
+
 
 [Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
 
@@ -108,18 +111,15 @@ Example:
 
 ```vue
 <template>
-  <div class="rex-my-component" role="presentation">
-    <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-    <h3>Hello World</h3>
-    <p>This is a basic example for ReX React Components Starter Kit</p>
-  </div>
+    <div class="rex-my-component" role="presentation">
+      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
+      <h3>Hello World</h3>
+      <p>This is a basic example for ReX React Components Starter Kit</p>
+    </div>
 </template>
 <script>
 export default {
   name: 'MyComponent',
-  props: {
-    msg: String
-  }
 }
 </script>
 <style scoped>

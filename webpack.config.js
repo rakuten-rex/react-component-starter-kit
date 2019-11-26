@@ -223,6 +223,16 @@ This source code is licensed under the MIT license found in the LICENSE file in 
               /__INFO_HOW_TO__/g,
               readFileSync('webpack-scripts/markdown/INFO_HOW_TO.md', 'utf8')
             )
+            .replace(
+              /__JSX_COMPONENT__/g,
+              readFileSync('webpack-scripts/markdown/JSX_COMPONENT.md', 'utf8')
+            )
+            .replace(
+              /__HTML_COMPONENT__/g,
+              readFileSync('webpack-scripts/markdown/HTML_COMPONENT.md', 'utf8')
+                .trim()
+                .replace(/(\n)/gm, '\n    ')
+            )
             .replace(/__REX_CORE_NAME__/g, 'core')
             .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
             .replace(/__VERSION__/g, version);
