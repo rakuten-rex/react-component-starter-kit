@@ -204,6 +204,13 @@ This source code is licensed under the MIT license found in the LICENSE file in 
         transform(content) {
           return content
             .toString()
+            .replace(
+              /__RAW_GITHUB__/g,
+              `https://raw.githubusercontent.com/rakuten-rex/${name.replace(
+                '@rakuten-rex/',
+                ''
+              )}/master/`
+            )
             .replace(/__INFO_HOW_TO__/g, '')
             .replace(/__REX_CORE_NAME__/g, 'core')
             .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
@@ -219,6 +226,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
         transform(content) {
           return content
             .toString()
+            .replace(/__RAW_GITHUB__/g, '')
             .replace(
               /__INFO_HOW_TO__/g,
               readFileSync('webpack-scripts/markdown/INFO_HOW_TO.md', 'utf8')

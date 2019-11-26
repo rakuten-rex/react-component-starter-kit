@@ -70,7 +70,7 @@ Example:
 
 `my-component.jsx`
 
-```js
+```jsx
 import '@rakuten-rex/react-component-starter-kit/css';
 
 function MyCustomComponent() {

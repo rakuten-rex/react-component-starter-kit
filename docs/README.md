@@ -6,13 +6,13 @@ React, HTML/CSS and Vue.js
 
 # How to install
 
-<img src="webpack-scripts/markdown/logos/npm.svg" height="16" />
+<img src="https://raw.githubusercontent.com/rakuten-rex/react-component-starter-kit/master/webpack-scripts/markdown/logos/npm.svg" height="16" />
 
 ```
 npm install @rakuten-rex/react-component-starter-kit@2.5.2 --save
 ```
 
-<img src="webpack-scripts/markdown/logos/yarn.svg" height="16" />
+<img src="https://raw.githubusercontent.com/rakuten-rex/react-component-starter-kit/master/webpack-scripts/markdown/logos/yarn.svg" height="16" />
 
 ```
 yarn add @rakuten-rex/react-component-starter-kit@2.5.2
@@ -62,7 +62,7 @@ Example:
 
 `my-component.jsx`
 
-```js
+```jsx
 import '@rakuten-rex/react-component-starter-kit/css';
 
 function MyCustomComponent() {
