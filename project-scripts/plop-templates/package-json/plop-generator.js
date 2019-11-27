@@ -27,6 +27,7 @@ module.exports = plop => {
         path: '../../../package.json',
         // Handlebars template used to generate content of new file
         template,
+        force: true,
       },
     ],
   });
