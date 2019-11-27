@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/react-component-starter-kit v2.5.2 2019-11-27
+ * @license @rakuten-rex/react-component-starter-kit v3.0.0 2019-11-27
  * MyComponent/MyComponent.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.

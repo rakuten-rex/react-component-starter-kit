@@ -9,13 +9,13 @@ React, HTML/CSS and Vue.js
 <img src="project-scripts/webpack/markdown/logos/npm.svg" height="16" />
 
 ```
-npm install @rakuten-rex/react-component-starter-kit@2.5.2 --save
+npm install @rakuten-rex/react-component-starter-kit@3.0.0 --save
 ```
 
 <img src="project-scripts/webpack/markdown/logos/yarn.svg" height="16" />
 
 ```
-yarn add @rakuten-rex/react-component-starter-kit@2.5.2
+yarn add @rakuten-rex/react-component-starter-kit@3.0.0
 ```
 
 # Getting started
@@ -134,14 +134,14 @@ Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles
 
 **Production mode URL** (recommended for Static HTML projects):  
 ```
-https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css
+https://unpkg.com/react-component-starter-kit@3.0.0/react-component-starter-kit.production.min.css
 ```
 
 
 Development mode URL (for local testing):  
 
 ```
-https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.development.css
+https://unpkg.com/react-component-starter-kit@3.0.0/react-component-starter-kit.development.css
 ```
 
 
@@ -159,7 +159,7 @@ Example:
     <meta charset="utf-8">
     <title>My Page</title>
     <!-- ReX react-component-starter-kit -->
-    <link href="https://unpkg.com/react-component-starter-kit@2.5.2/react-component-starter-kit.production.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/react-component-starter-kit@3.0.0/react-component-starter-kit.production.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="rex-my-component" role="presentation">
