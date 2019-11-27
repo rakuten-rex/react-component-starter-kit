@@ -1,4 +1,16 @@
 # Development environment
+## How to initialize the project for a new repository
+
+```
+npm run setup
+```
+
+## How to add a new ReX Component to the project
+
+```
+npm run generate:rex-component
+```
+
 ## How to start the project
 
 The development environment is based on Storybook, for more info visit https://storybook.js.org/ .   
