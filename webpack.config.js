@@ -14,8 +14,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const DiscardOverriddenCssPropsPlugin = require('./webpack-scripts/discard-overridden-css-props');
-const BundleSassMixinPlugin = require('./webpack-scripts/bundle-sass-mixin');
+const DiscardOverriddenCssPropsPlugin = require('./project-scripts/webpack/discard-overridden-css-props');
+const BundleSassMixinPlugin = require('./project-scripts/webpack/bundle-sass-mixin');
 // Package Information and filenames
 const { name, version, description, dependencies } = require('./package.json');
 
@@ -147,7 +147,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     // index.js (require only .js files)
     new CopyWebpackPlugin([
       {
-        from: './webpack-scripts/npm/indexJS.tpl',
+        from: './project-scripts/webpack/npm/indexJS.tpl',
         to: 'index.js',
         transform(content) {
           return content
@@ -160,7 +160,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     new CopyWebpackPlugin(
       npmFiles.components.map(item => {
         return {
-          from: './webpack-scripts/npm/index.tpl',
+          from: './project-scripts/webpack/npm/index.tpl',
           to: `${item}/index.js`,
           transform(content) {
             return content.toString().replace(/__COMPONENT_NAME__/g, item);
@@ -172,7 +172,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     new CopyWebpackPlugin(
       npmFiles.components.map(item => {
         return {
-          from: './webpack-scripts/npm/css/index.tpl',
+          from: './project-scripts/webpack/npm/css/index.tpl',
           to: `${item}/css/index.js`,
           transform(content) {
             return content.toString().replace(/__COMPONENT_NAME__/g, item);
@@ -183,7 +183,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     // Clear version of package.json for NPM
     new CopyWebpackPlugin([
       {
-        from: './webpack-scripts/npm/package.tpl',
+        from: './project-scripts/webpack/npm/package.tpl',
         to: `package.json`,
         transform(content) {
           return content
@@ -199,7 +199,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     // README file for NPM
     new CopyWebpackPlugin([
       {
-        from: './webpack-scripts/markdown/README.md',
+        from: './project-scripts/webpack/markdown/README.md',
         to: `README.md`,
         transform(content) {
           return content
@@ -214,15 +214,24 @@ This source code is licensed under the MIT license found in the LICENSE file in 
             .replace(/__INFO_HOW_TO__/g, '')
             .replace(
               /__EXAMPLE_SASS__/g,
-              readFileSync('webpack-scripts/markdown/EXAMPLE_SASS.md', 'utf8')
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_SASS.md',
+                'utf8'
+              )
             )
             .replace(
               /__EXAMPLE_JSX__/g,
-              readFileSync('webpack-scripts/markdown/EXAMPLE_JSX.md', 'utf8')
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_JSX.md',
+                'utf8'
+              )
             )
             .replace(
               /__EXAMPLE_HTML__/g,
-              readFileSync('webpack-scripts/markdown/EXAMPLE_HTML.md', 'utf8')
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_HTML.md',
+                'utf8'
+              )
                 .trim()
                 .replace(/(\n)/gm, '\n    ')
             )
@@ -234,7 +243,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     // README file for current project
     new CopyWebpackPlugin([
       {
-        from: './webpack-scripts/markdown/README.md',
+        from: './project-scripts/webpack/markdown/README.md',
         to: `../README.md`,
         transform(content) {
           return content
@@ -242,19 +251,31 @@ This source code is licensed under the MIT license found in the LICENSE file in 
             .replace(/__RAW_GITHUB__/g, '')
             .replace(
               /__INFO_HOW_TO__/g,
-              readFileSync('webpack-scripts/markdown/INFO_HOW_TO.md', 'utf8')
+              readFileSync(
+                'project-scripts/webpack/markdown/INFO_HOW_TO.md',
+                'utf8'
+              )
             )
             .replace(
               /__EXAMPLE_SASS__/g,
-              readFileSync('webpack-scripts/markdown/EXAMPLE_SASS.md', 'utf8')
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_SASS.md',
+                'utf8'
+              )
             )
             .replace(
               /__EXAMPLE_JSX__/g,
-              readFileSync('webpack-scripts/markdown/EXAMPLE_JSX.md', 'utf8')
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_JSX.md',
+                'utf8'
+              )
             )
             .replace(
               /__EXAMPLE_HTML__/g,
-              readFileSync('webpack-scripts/markdown/EXAMPLE_HTML.md', 'utf8')
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_HTML.md',
+                'utf8'
+              )
                 .trim()
                 .replace(/(\n)/gm, '\n    ')
             )

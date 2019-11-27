@@ -3,7 +3,7 @@ const cssnano = require('cssnano');
 // Webpack plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const DiscardOverriddenCssPropsPlugin = require('../webpack-scripts/discard-overridden-css-props');
+const DiscardOverriddenCssPropsPlugin = require('../project-scripts/webpack/discard-overridden-css-props');
 
 module.exports = function ({ config, mode }) {
   config.module.rules.push({

@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/react-component-starter-kit v2.5.2 2019-11-26
+ * @license @rakuten-rex/react-component-starter-kit v2.5.2 2019-11-27
  * MyComponent/MyComponent.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -198,6 +198,9 @@ function MyComponent(_ref) {
       className = _ref.className,
       props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["children", "onClick", "title", "text", "className"]);
 
+  var style = {
+    width: '100%'
+  };
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: className,
     onClick: onClick,
@@ -205,9 +208,7 @@ function MyComponent(_ref) {
   }, props), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
     src: _assets_Image_jpg__WEBPACK_IMPORTED_MODULE_3___default.a,
     alt: "Basic example",
-    style: {
-      width: '100%'
-    }
+    style: style
   }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", null, title), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, text), children);
 }
 MyComponent.displayName = "MyComponent";
