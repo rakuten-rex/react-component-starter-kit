@@ -1,316 +1,410 @@
+/**
+ * ReX React Components Starter kit
+ * webpack configuration
+ */
+
+// webpack and native nodejs libs
 const webpack = require('webpack');
-const merge = require('webpack-merge');
-const pathResolve = require('path').resolve;
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
+const del = require('del');
+const cssnano = require('cssnano');
+const { readFileSync } = require('fs');
+// Webpack Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { readFileSync } = require('fs');
-const packageInfo = require('./package.json');
+const DiscardOverriddenCssPropsPlugin = require('./project-scripts/webpack/discard-overridden-css-props');
+const BundleSassMixinPlugin = require('./project-scripts/webpack/bundle-sass-mixin');
+// Package Information and filenames
+const { name, version, description, dependencies } = require('./package.json');
 
-const libraryName = packageInfo.name
+const libraryName = name
   .toLowerCase()
   .replace('@rakuten-rex/', 'rakuten-rex-')
   .replace(/(-)\w/g, m => m.toUpperCase().replace(/-/, ''));
-const packageNameOnly = packageInfo.name.replace('@rakuten-rex/', '');
-const pathSrc = pathResolve('./src');
-const pathNodeModules = pathResolve('./node_modules');
-const pathRoot = pathResolve('./');
+const packageName = name.replace('@rakuten-rex/', '');
 
-// Webpack entry and output settings
-const entry = {};
-// Default outputs
-entry.index = './src/index.jsx';
-entry['without-fonts'] = './src/without-fonts.jsx';
-entry['without-core'] = './src/without-core.jsx';
-// Custom outputs
+// Webpack Config for Production mode
+const { entry, npmFiles } = require('./rexconfig');
 
-// Webpack config
-const mode = 'production';
-const name = 'production.config';
-const filename = `[name].production.min`;
-const filenameJS = `${filename}.js`;
-const filenameCSS = `${filename}.css`;
-
-const output = {
-  path: pathResolve(__dirname, `node_modules/${packageInfo.name}`),
-  publicPath: '/',
-  filename: filenameJS,
-  chunkFilename: filenameJS,
-  library: libraryName,
-  libraryTarget: 'umd',
-  umdNamedDefine: true,
-  jsonpFunction: `${libraryName}OnDemand`,
-};
-
-// Eslint
-const eslintLoader = {
-  enforce: 'pre',
-  test: /\.(js|jsx)$/,
-  exclude: /node_modules/,
-  loader: 'eslint-loader',
-  options: {
-    fix: true,
+const config = {
+  // Build mode
+  mode: 'production',
+  name: 'production.config',
+  // Entry for component under ./src folder
+  entry,
+  // Output config to build the static assets JavaScript, CSS, etc.
+  output: {
+    path: path.resolve(__dirname, `npm`),
+    publicPath: '/',
+    filename: '[name].production.min.js',
+    chunkFilename: '[name].production.min.js',
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+    jsonpFunction: `${libraryName}OnDemand`,
   },
-};
-
-// Babel support for ES6+
-const babelLoader = {
-  test: /\.(js|jsx)$/,
-  exclude: /node_modules/,
-  use: {
-    loader: 'babel-loader',
+  // Loaders for Babel, CSS, SASS, Files (SVG, PNG, etc.)
+  module: {
+    rules: [
+      // ESlint
+      {
+        enforce: 'pre',
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+        },
+      },
+      // Styles loader for Css and Sass
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          // Creates style nodes from JS strings and extract content to .css file
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          // Translates CSS into CommonJS
+          {
+            loader: 'css-loader',
+          },
+          // Compiles Sass to CSS
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(svg)$/,
+        use: ['@svgr/webpack'],
+      },
+      // Load Files like JPG, PNG, WebFonts, etc.
+      {
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|otf)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: (_url, _resourcePath) => {
+            // eslint-disable-next-line no-unused-vars
+            const [beforeSrc, componentImageSrc] = _resourcePath.split('src/');
+            return componentImageSrc;
+          },
+          publicPath: (_url, _resourcePath) => {
+            // eslint-disable-next-line no-unused-vars
+            const [beforeSrc, componentImageSrc] = _resourcePath.split('src/');
+            return componentImageSrc;
+          },
+        },
+      },
+    ],
   },
-};
-
-// Creates style nodes from JS strings
-const extracCssLoader = {
-  loader: MiniCssExtractPlugin.loader,
-};
-
-// Translates CSS into CommonJS
-const cssLoader = {
-  loader: 'css-loader',
-};
-
-// Compiles Sass to CSS
-const sassLoader = {
-  loader: 'sass-loader',
-};
-
-// Styles loader for Css and Sass
-const stylesLoader = {
-  test: /\.(css|scss)$/,
-  use: [extracCssLoader, cssLoader, sassLoader],
-};
-
-const fileLoader = {
-  test: /\.(woff|woff2|eot|ttf|otf)$/,
-  use: ['file-loader'],
-};
-
-// Resolve extenstions for JS and JSX
-const resolve = {
-  extensions: ['*', '.js', '.jsx'],
-  modules: [pathSrc, pathNodeModules],
-};
-
-// Use React as external library from CDN
-const externals = {
-  react: {
-    root: 'React',
-    commonjs2: 'react',
-    commonjs: 'react',
-    amd: 'react',
-    umd: 'react',
+  // Resolve extenstions for JS and JSX
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+    modules: [path.resolve('./src'), path.resolve('./node_modules')],
   },
-  'react-dom': {
-    root: 'ReactDOM',
-    commonjs2: 'react-dom',
-    commonjs: 'react-dom',
-    amd: 'react-dom',
-    umd: 'react-dom',
-  },
-};
-
-// Webpack Plugins:
-// Clean build folder
-const cleanBuildPlugin = new CleanWebpackPlugin();
-
-// Extract CSS from javascript bundle
-const cssExtractPlugin = new MiniCssExtractPlugin({
-  filename: filenameCSS,
-  chunkFilename: filenameCSS,
-});
-
-// Google Closure compiler instead of uglify
-const googleClosureCompiler = new ClosureCompiler({
-  options: {
-    compilationLevel: 'SIMPLE',
-    languageIn: 'ECMASCRIPT5_STRICT',
-    languageOut: 'ECMASCRIPT5_STRICT',
-    warningLevel: 'QUIET',
-    applyInputSourceMaps: false,
-    useTypesForOptimization: false,
-    processCommonJsModules: false,
-    rewritePolyfills: false,
-  },
-});
-
-// Optimize css output
-const optimizeCss = new OptimizeCSSAssetsPlugin({
-  cssProcessorOptions: {
-    discardComments: {
-      removeAll: false,
+  // Use React as external library from CDN or Global Window object
+  externals: {
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+      umd: 'react',
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
+      umd: 'react-dom',
     },
   },
-});
-
-// NPM settings
-const npmIndexList = Object.keys(entry).map(item => {
-  return {
-    from: './npm/index.tpl',
-    to: `${item}.js`,
-    transform(content) {
-      return content.toString().replace(/__COMPONENT_NAME__/g, item);
-    },
-  };
-});
-
-const npmIndexJSPlugin = new CopyWebpackPlugin(npmIndexList);
-
-const npmReadmePlugin = new CopyWebpackPlugin([
-  {
-    from: './markdown/README.md',
-    to: `README.md`,
-    transform(content) {
-      return content
-        .toString()
-        .replace(/__INFO_HOW_TO__/g, '')
-        .replace(/__REX_CORE_NAME__/g, 'core')
-        .replace(
-          /__REX_CORE_VERSION__/g,
-          packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
-        )
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version);
-    },
-  },
-]);
-
-const npmPackagePlugin = new CopyWebpackPlugin([
-  {
-    from: './npm/package.tpl',
-    to: `package.json`,
-    transform(content) {
-      return content
-        .toString()
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version)
-        .replace(/__DESCRIPTION__/g, packageInfo.description)
-        .replace(/__REACT_VERSION__/g, packageInfo.dependencies.react)
-        .replace(
-          /__REACT_DOM_VERSION__/g,
-          packageInfo.dependencies['react-dom']
-        );
-    },
-  },
-]);
-
-const npmCssIndexList = Object.keys(entry).map(item => {
-  return {
-    from: './npm/css/index.tpl',
-    to: `css/${item}.js`,
-    transform(content) {
-      return content.toString().replace(/__COMPONENT_NAME__/g, item);
-    },
-  };
-});
-
-const npmCssIndexJSPlugin = new CopyWebpackPlugin(npmCssIndexList);
-
-// Current project README file
-const readmeHowTo = readFileSync('markdown/INFO_HOW_TO.md', 'utf8');
-const mdReadmePlugin = new CopyWebpackPlugin([
-  {
-    from: './markdown/README.md',
-    to: `${pathRoot}/README.md`,
-    transform(content) {
-      return content
-        .toString()
-        .replace(/__INFO_HOW_TO__/g, readmeHowTo)
-        .replace(/__REX_CORE_NAME__/g, 'core')
-        .replace(
-          /__REX_CORE_VERSION__/g,
-          packageInfo.dependencies['@rakuten-rex/core'].replace('^', '')
-        )
-        .replace(/__COMPONENT_NAME__/g, packageNameOnly)
-        .replace(/__VERSION__/g, packageInfo.version);
-    },
-  },
-]);
-
-// License
-const npmLicencePlugin = new CopyWebpackPlugin([
-  {
-    from: './LICENSE',
-  },
-]);
-
-// Copyright
-const copyrightDate = new Date().toISOString().split('T')[0];
-const copyright = `
-@license ${packageInfo.name} v${packageInfo.version} ${copyrightDate}
+  plugins: [
+    // Bundle all Sass mixin files into one mixin
+    new BundleSassMixinPlugin({ packageName, name, version }),
+    // Copyright
+    new webpack.BannerPlugin({
+      banner: `
+@license ${name} v${version} ${new Date().toISOString().split('T')[0]}
 [file]
 
 Copyright (c) 2018-present, Rakuten, Inc.
 
-This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.`;
-
-const bannerPlugin = new webpack.BannerPlugin({
-  banner: copyright,
-});
-
-// Webpack common config
-const webpackConfig = {
-  mode,
-  name,
-  entry,
-  output,
-  module: {
-    rules: [babelLoader, eslintLoader, stylesLoader, fileLoader],
-  },
-  resolve,
-  externals,
-  plugins: [bannerPlugin],
+This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.`,
+    }),
+    // Extract CSS from javascript bundle
+    new MiniCssExtractPlugin({
+      filename: '[name].production.min.css',
+      chunkFilename: '[name].production.min.css',
+    }),
+    new DiscardOverriddenCssPropsPlugin(),
+    // NPM package distribution
+    // License
+    new CopyWebpackPlugin([{ from: './LICENSE' }]),
+    // index.js (require only .js files)
+    new CopyWebpackPlugin([
+      {
+        from: './project-scripts/webpack/npm/indexJS.tpl',
+        to: 'index.js',
+        transform(content) {
+          return content
+            .toString()
+            .replace(/__COMPONENT_NAME__/g, npmFiles.index);
+        },
+      },
+    ]),
+    // MyComponent/index.js (require .css + .js files)
+    new CopyWebpackPlugin(
+      npmFiles.components.map(item => {
+        return {
+          from: './project-scripts/webpack/npm/index.tpl',
+          to: `${item}/index.js`,
+          transform(content) {
+            return content.toString().replace(/__COMPONENT_NAME__/g, item);
+          },
+        };
+      })
+    ),
+    // MyComponent/css/index.js (require .css file only)
+    new CopyWebpackPlugin(
+      npmFiles.components.map(item => {
+        return {
+          from: './project-scripts/webpack/npm/css/index.tpl',
+          to: `${item}/css/index.js`,
+          transform(content) {
+            return content.toString().replace(/__COMPONENT_NAME__/g, item);
+          },
+        };
+      })
+    ),
+    // Clear version of package.json for NPM
+    new CopyWebpackPlugin([
+      {
+        from: './project-scripts/webpack/npm/package.tpl',
+        to: `package.json`,
+        transform(content) {
+          return content
+            .toString()
+            .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__VERSION__/g, version)
+            .replace(/__DESCRIPTION__/g, description)
+            .replace(/__REACT_VERSION__/g, dependencies.react)
+            .replace(/__REACT_DOM_VERSION__/g, dependencies['react-dom']);
+        },
+      },
+    ]),
+    // README file for NPM
+    new CopyWebpackPlugin([
+      {
+        from: './project-scripts/webpack/markdown/README.md',
+        to: `README.md`,
+        transform(content) {
+          return content
+            .toString()
+            .replace(
+              /__RAW_GITHUB__/g,
+              `https://raw.githubusercontent.com/rakuten-rex/${name.replace(
+                '@rakuten-rex/',
+                ''
+              )}/master/`
+            )
+            .replace(/__INFO_HOW_TO__/g, '')
+            .replace(
+              /__EXAMPLE_SASS__/g,
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_SASS.md',
+                'utf8'
+              )
+            )
+            .replace(
+              /__EXAMPLE_JSX__/g,
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_JSX.md',
+                'utf8'
+              )
+            )
+            .replace(
+              /__EXAMPLE_HTML__/g,
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_HTML.md',
+                'utf8'
+              )
+                .trim()
+                .replace(/(\n)/gm, '\n    ')
+            )
+            .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__VERSION__/g, version);
+        },
+      },
+    ]),
+    // README file for current project
+    new CopyWebpackPlugin([
+      {
+        from: './project-scripts/webpack/markdown/README.md',
+        to: `../README.md`,
+        transform(content) {
+          return content
+            .toString()
+            .replace(/__RAW_GITHUB__/g, '')
+            .replace(
+              /__INFO_HOW_TO__/g,
+              readFileSync(
+                'project-scripts/webpack/markdown/INFO_HOW_TO.md',
+                'utf8'
+              )
+            )
+            .replace(
+              /__EXAMPLE_SASS__/g,
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_SASS.md',
+                'utf8'
+              )
+            )
+            .replace(
+              /__EXAMPLE_JSX__/g,
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_JSX.md',
+                'utf8'
+              )
+            )
+            .replace(
+              /__EXAMPLE_HTML__/g,
+              readFileSync(
+                'project-scripts/webpack/markdown/EXAMPLE_HTML.md',
+                'utf8'
+              )
+                .trim()
+                .replace(/(\n)/gm, '\n    ')
+            )
+            .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__VERSION__/g, version);
+        },
+      },
+    ]),
+  ],
+  // Build optimizations
   optimization: {
     concatenateModules: true,
     minimize: true,
-    minimizer: [googleClosureCompiler, optimizeCss],
+    minimizer: [
+      // Google Closure compiler instead of TerserJS
+      new ClosureCompiler({
+        options: {
+          compilationLevel: 'SIMPLE',
+          languageIn: 'ECMASCRIPT5_STRICT',
+          languageOut: 'ECMASCRIPT5_STRICT',
+          warningLevel: 'QUIET',
+          applyInputSourceMaps: false,
+          useTypesForOptimization: false,
+          processCommonJsModules: false,
+          rewritePolyfills: false,
+        },
+      }),
+      // Optimize css output
+      new OptimizeCSSAssetsPlugin({
+        cssProcessor: cssnano,
+        cssProcessorPluginOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: {
+                removeAllButFirst: true,
+              },
+              cssDeclarationSorter: {
+                order: 'alphabetically',
+              },
+            },
+          ],
+        },
+      }),
+    ],
   },
 };
 
-// Webpack production config for NPM
-const production = merge(webpackConfig, {
-  plugins: [
-    cleanBuildPlugin,
-    cssExtractPlugin,
-    npmIndexJSPlugin,
-    npmReadmePlugin,
-    npmPackagePlugin,
-    npmLicencePlugin,
-    npmCssIndexJSPlugin,
-    mdReadmePlugin,
-  ],
-});
-
-// Webpack development config for NPM
-const modeDev = 'development';
-const nameDev = 'development.config';
-const filenameDev = `[name].development`;
-const filenameJSDev = `${filenameDev}.js`;
-const filenameCSSDev = `${filenameDev}.css`;
-const outputDev = {
-  filename: filenameJSDev,
-  chunkFilename: filenameJSDev,
+const configProd = {
+  ...config,
+  module: {
+    rules: [
+      // Babel support for ES6+
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      ...config.module.rules,
+    ],
+  },
 };
 
-const cssExtractPluginDev = new MiniCssExtractPlugin({
-  filename: filenameCSSDev,
-  chunkFilename: filenameCSSDev,
-});
-
-const development = merge(webpackConfig, {
-  mode: modeDev,
-  name: nameDev,
-  output: outputDev,
-  externals,
-  plugins: [cssExtractPluginDev],
+const configDev = {
+  ...config,
+  mode: 'development',
+  name: 'development.config',
+  output: {
+    ...config.output,
+    filename: '[name].development.js',
+    chunkFilename: '[name].development.js',
+  },
+  module: {
+    rules: [
+      // Babel support for ES6+
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      ...config.module.rules,
+    ],
+  },
   optimization: {
     minimize: false,
   },
-});
+  plugins: [
+    // Copyright
+    new webpack.BannerPlugin({
+      banner: `
+@license ${name} v${version} ${new Date().toISOString().split('T')[0]}
+[file]
 
-// Webpack export config
-module.exports = [production, development];
+Copyright (c) 2018-present, Rakuten, Inc.
+
+This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.`,
+    }),
+    // Extract CSS from javascript bundle
+    new MiniCssExtractPlugin({
+      filename: '[name].development.css',
+      chunkFilename: '[name].development.css',
+    }),
+    new DiscardOverriddenCssPropsPlugin(),
+    // Optimize css output
+    new OptimizeCSSAssetsPlugin({
+      cssProcessor: cssnano,
+      cssProcessorPluginOptions: {
+        preset: [
+          'default',
+          {
+            cssDeclarationSorter: {
+              order: 'alphabetically',
+            },
+          },
+        ],
+      },
+    }),
+  ],
+};
+
+// Clean build folder for multiple webpack configs (dev, prod) instead of CleanWebpackPlugin
+del.sync([
+  path.resolve(config.output.path, '**/*'),
+  path.resolve('docs', '**/*'),
+]);
+
+// Export webpack config (prod, dev)
+module.exports = [configProd, configDev];
