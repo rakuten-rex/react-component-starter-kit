@@ -21,33 +21,39 @@ module.exports = plop => {
           type: 'add',
           path: '../../../src/{{pascalCase name}}/index.jsx',
           templateFile: 'index.jsx.hbs',
+          force: true,
         },
         {
           type: 'add',
           path: '../../../src/{{pascalCase name}}/{{pascalCase name}}.jsx',
           templateFile: 'MyComponent.jsx.hbs',
+          force: true,
         },
         {
           type: 'add',
           path: '../../../src/{{pascalCase name}}/{{pascalCase name}}.scss',
           templateFile: 'MyComponent.scss.hbs',
+          force: true,
         },
         {
           type: 'add',
           path:
             '../../../src/{{pascalCase name}}/_{{pascalCase name}}.mixin.scss',
           templateFile: '_MyComponent.mixin.scss.hbs',
+          force: true,
         },
         {
           type: 'add',
           path:
             '../../../src/{{pascalCase name}}/{{pascalCase name}}.stories.jsx',
           templateFile: 'MyComponent.stories.jsx.hbs',
+          force: true,
         },
         {
           type: 'add',
           path: '../../../src/{{pascalCase name}}/_core.mixin.scss',
           templateFile: '_core.mixin.scss',
+          force: true,
         },
       ];
 
