@@ -20,6 +20,7 @@ module.exports = plop => {
         path: '../../../src/index.jsx',
         // Handlebars template used to generate content of new file
         templateFile: 'index.jsx.hbs',
+        force: true,
       },
       {
         // Add a new file
@@ -28,6 +29,7 @@ module.exports = plop => {
         path: '../../../src/{{pascalCase name}}/index.jsx',
         // Handlebars template used to generate content of new file
         templateFile: 'index.jsx.hbs',
+        force: true,
       },
       {
         // Add a new file
@@ -36,6 +38,7 @@ module.exports = plop => {
         path: '../../../src/{{pascalCase name}}/{{pascalCase name}}.jsx',
         // Handlebars template used to generate content of new file
         templateFile: 'MyComponent.jsx.hbs',
+        force: true,
       },
       {
         // Add a new file
@@ -44,6 +47,7 @@ module.exports = plop => {
         path: '../../../src/{{pascalCase name}}/{{pascalCase name}}.scss',
         // Handlebars template used to generate content of new file
         templateFile: 'MyComponent.scss.hbs',
+        force: true,
       },
       {
         // Add a new file
@@ -53,6 +57,7 @@ module.exports = plop => {
           '../../../src/{{pascalCase name}}/_{{pascalCase name}}.mixin.scss',
         // Handlebars template used to generate content of new file
         templateFile: '_MyComponent.mixin.scss.hbs',
+        force: true,
       },
       {
         // Add a new file
@@ -62,6 +67,7 @@ module.exports = plop => {
           '../../../src/{{pascalCase name}}/{{pascalCase name}}.stories.jsx',
         // Handlebars template used to generate content of new file
         templateFile: 'MyComponent.stories.jsx.hbs',
+        force: true,
       },
       {
         // Add a new file
@@ -70,6 +76,7 @@ module.exports = plop => {
         path: '../../../src/{{pascalCase name}}/assets/Image.jpg',
         // Handlebars template used to generate content of new file
         templateFile: 'assets/Image.jpg',
+        force: true,
       },
       {
         // Add a new file
@@ -78,6 +85,7 @@ module.exports = plop => {
         path: '../../../src/{{pascalCase name}}/_core.mixin.scss',
         // Handlebars template used to generate content of new file
         templateFile: '_core.mixin.scss',
+        force: true,
       },
     ],
   });
