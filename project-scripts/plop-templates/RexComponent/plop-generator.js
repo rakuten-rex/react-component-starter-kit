@@ -10,7 +10,8 @@ module.exports = plop => {
       {
         type: 'confirm',
         name: 'isDefaultExport',
-        message: 'Is default?',
+        message: 'Is main component? (default: No)',
+        default: false,
       },
     ],
     actions(data) {
