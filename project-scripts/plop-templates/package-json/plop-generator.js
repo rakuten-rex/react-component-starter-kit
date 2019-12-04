@@ -2,6 +2,7 @@ const packageJson = require('../../../package.json');
 
 const { name } = packageJson;
 const componentName = name.replace('@rakuten-rex/', '');
+packageJson.version = '0.0.1';
 
 const template = `${JSON.stringify(packageJson, null, 2)}\n`.replace(
   new RegExp(componentName, 'g'),
