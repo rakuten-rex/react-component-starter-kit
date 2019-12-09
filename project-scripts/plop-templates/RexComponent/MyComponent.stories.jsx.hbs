@@ -4,17 +4,35 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, color, select } from '@storybook/addon-knobs';
 import {{pascalCase name}} from 'src/{{pascalCase name}}';
-import withKnobs from '../../.storybook/withKnobs';
+import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
 
+/**
+ * Main story
+ * */
 export default {
   title: '{{titleCase name}}',
   decorators: withKnobs,
 };
 
-export const defaultView = () => <{{pascalCase name}} />;
+/**
+ * Stories
+ * */
+export const DefaultView = () => <{{pascalCase name}} />;
 
-export const withThemeReact = () => {
-  const themeText = color('Text', '#232361', 'Theme Colors');
+export const WithDynamicProps = () => {
+  const sampleTitle = text('title', 'Dynamic Title');
+  const sampleText = text('text', 'Dynamic Text');
+
+  return <{{pascalCase name}} title={sampleTitle} text={sampleText} />;
+};
+
+/**
+ * Custom Theme support
+ * */
+
+function Theme() {
+  const themeText = color('Text', 'crimson', 'Theme Colors');
+  const themeLink = color('Link', '#CC0070', 'Theme Colors');
   const themeTitleWeight = select(
     'Title Weight',
     {
@@ -28,43 +46,39 @@ export const withThemeReact = () => {
   );
 
   const customStyle = {
-    '--rex-{{dashCase name}}-theme-text': themeText,
-    '--rex-{{dashCase name}}-title-weight': themeTitleWeight,
+    '--rex-my-component-theme-text': themeText,
+    '--rex-my-component-theme-link': themeLink,
+    '--rex-my-component-title-weight': themeTitleWeight,
   };
+
+  return {
+    customStyle,
+    customStyleHtml: cssVarsToLegacy(customStyle),
+  };
+}
+
+export const WithThemeReactAndCSSVars = () => {
+  const { customStyle } = Theme();
 
   return (
     <{{pascalCase name}} style={customStyle}>
-      This is an example of Theme in React
+      <a href="/" target="_blank">
+        Link
+      </a>
     </{{pascalCase name}}>
   );
 };
 
-export const withThemeHTML = () => {
-  const themeText = color('Text', '#232361', 'Theme Colors');
-  const themeTitleWeight = select(
-    'Title Weight',
-    {
-      Weight300: 300,
-      WeightNormal: 'normal',
-      Weight500: 500,
-      WeightBold: 'bold',
-    },
-    500,
-    'Theme Props'
-  );
-
-  const customStyle = `
-    .rex-{{dashCase name}} {
-      --rex-{{dashCase name}}-theme-text: ${themeText};
-      --rex-{{dashCase name}}-title-weight: ${themeTitleWeight};
-    }
-  `;
+export const WithThemeHTMLAndLegacyCSS = () => {
+  const { customStyleHtml } = Theme();
 
   return (
     <>
-      <style>{customStyle}</style>
+      <style>{customStyleHtml}</style>
       <{{pascalCase name}}>
-        This is an example of Theme in HTML
+        <a href="/" target="_blank">
+          Link
+        </a>
       </{{pascalCase name}}>
     </>
   );

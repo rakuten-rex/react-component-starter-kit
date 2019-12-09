@@ -1,7 +1,6 @@
 const path = require('path');
 const cssnano = require('cssnano');
 // Webpack plugins
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const DiscardOverriddenCssPropsPlugin = require('../project-scripts/webpack/discard-overridden-css-props');
 
@@ -9,16 +8,37 @@ module.exports = function ({ config, mode }) {
   config.module.rules.push({
     test: /\.scss$/,
     use: [
-      {
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          hmr: true,
-        },
-      },
+      { loader: 'style-loader', options: { attributes: { id: 'rex-styles-storybook' } } },
       'css-loader',
       'sass-loader',
     ],
     include: path.resolve(__dirname, '../'),
+  });
+
+  config.module.rules = config.module.rules.map(rule => {
+    if (rule.test.toString().includes('.css')) {
+      const rexRuleUse = rule.use.map(item => {
+        if (item.toString().includes('style-loader')) {
+          return {
+            loader: 'style-loader',
+            options: {
+              attributes: {
+                id: 'rex-styles-storybook'
+              },
+            },
+          };
+        }
+
+        return item;
+      });
+
+      return {
+        ...rule,
+        use: rexRuleUse,
+      };
+    }
+
+    return rule;
   });
 
   config.module.rules.push({
@@ -36,13 +56,6 @@ module.exports = function ({ config, mode }) {
   config.performance = {
     hints: false
   };
-
-  config.plugins.push(
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
-  );
 
   config.plugins.push(
     new OptimizeCSSAssetsPlugin({
@@ -69,7 +82,7 @@ module.exports = function ({ config, mode }) {
 
   // Remove hash from filenames
   config.module.rules = config.module.rules.map(rule => {
-    if(rule.test.toString().includes('jpg')) {
+    if (rule.test.toString().includes('jpg')) {
       return {
         ...rule,
         query: {
@@ -77,7 +90,7 @@ module.exports = function ({ config, mode }) {
         }
       };
     }
-    
+
     return rule;
   });
 
