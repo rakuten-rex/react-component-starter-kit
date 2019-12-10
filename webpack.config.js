@@ -15,7 +15,6 @@ const ClosureCompiler = require('google-closure-compiler-js').webpack;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DiscardOverriddenCssPropsPlugin = require('./project-scripts/webpack/discard-overridden-css-props');
-const BundleSassMixinPlugin = require('./project-scripts/webpack/bundle-sass-mixin');
 // Package Information and filenames
 const { name, version, description, dependencies } = require('./package.json');
 
@@ -123,8 +122,6 @@ const config = {
     },
   },
   plugins: [
-    // Bundle all Sass mixin files into one mixin
-    new BundleSassMixinPlugin({ packageName, name, version }),
     // Copyright
     new webpack.BannerPlugin({
       banner: `
@@ -169,17 +166,17 @@ This source code is licensed under the MIT license found in the LICENSE file in 
       })
     ),
     // MyComponent/css/index.js (require .css file only)
-    new CopyWebpackPlugin(
-      npmFiles.components.map(item => {
-        return {
-          from: './project-scripts/webpack/npm/css/index.tpl',
-          to: `${item}/css/index.js`,
-          transform(content) {
-            return content.toString().replace(/__COMPONENT_NAME__/g, item);
-          },
-        };
-      })
-    ),
+    // new CopyWebpackPlugin(
+    //   npmFiles.components.map(item => {
+    //     return {
+    //       from: './project-scripts/webpack/npm/css/index.tpl',
+    //       to: `${item}/css/index.js`,
+    //       transform(content) {
+    //         return content.toString().replace(/__COMPONENT_NAME__/g, item);
+    //       },
+    //     };
+    //   })
+    // ),
     // Clear version of package.json for NPM
     new CopyWebpackPlugin([
       {
