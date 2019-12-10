@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { string, func, element, oneOfType, arrayOf } from 'prop-types';
-import './{{pascalCase name}}.scss';
+import './Search.scss';
 
-export default function {{pascalCase name}}({
+export default function Search({
   children,
   onClick,
   title,
@@ -18,14 +18,14 @@ export default function {{pascalCase name}}({
   );
 }
 
-{{pascalCase name}}.defaultProps = {
+Search.defaultProps = {
   children: null,
   title: 'Hello World',
-  className: 'rex-{{dashCase name}}',
+  className: 'rex-search',
   onClick: () => null,
 };
 
-{{pascalCase name}}.propTypes = {
+Search.propTypes = {
   children: oneOfType([string, element, arrayOf(element)]),
   title: string,
   className: string,

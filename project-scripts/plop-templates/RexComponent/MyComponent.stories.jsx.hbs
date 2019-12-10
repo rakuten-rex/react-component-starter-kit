@@ -23,7 +23,11 @@ export const WithDynamicProps = () => {
   const sampleTitle = text('title', 'Dynamic Title');
   const sampleText = text('text', 'Dynamic Text');
 
-  return <{{pascalCase name}} title={sampleTitle} text={sampleText} />;
+  return (
+    <{{pascalCase name}} title={sampleTitle} text={sampleText}>
+      <p>{sampleText}</p>
+    </{{pascalCase name}}>
+  );
 };
 
 /**
@@ -32,7 +36,6 @@ export const WithDynamicProps = () => {
 
 function Theme() {
   const themeText = color('Text', 'crimson', 'Theme Colors');
-  const themeLink = color('Link', '#CC0070', 'Theme Colors');
   const themeTitleWeight = select(
     'Title Weight',
     {
@@ -47,26 +50,19 @@ function Theme() {
 
   const customStyle = {
     '--rex-{{dashCase name}}-theme-text': themeText,
-    '--rex-{{dashCase name}}-theme-link': themeLink,
     '--rex-{{dashCase name}}-title-weight': themeTitleWeight,
   };
 
   return {
     customStyle,
-    customStyleHtml: cssVarsToLegacy(customStyle),
+    customStyleHtml: cssVarsToLegacy(customStyle, {{pascalCase name}}),
   };
 }
 
 export const WithThemeReactAndCSSVars = () => {
   const { customStyle } = Theme();
 
-  return (
-    <{{pascalCase name}} style={customStyle}>
-      <a href="/" target="_blank">
-        Link
-      </a>
-    </{{pascalCase name}}>
-  );
+  return <{{pascalCase name}} style={customStyle} />;
 };
 
 export const WithThemeHTMLAndLegacyCSS = () => {
@@ -75,11 +71,7 @@ export const WithThemeHTMLAndLegacyCSS = () => {
   return (
     <>
       <style>{customStyleHtml}</style>
-      <{{pascalCase name}}>
-        <a href="/" target="_blank">
-          Link
-        </a>
-      </{{pascalCase name}}>
+      <{{pascalCase name}} />
     </>
   );
 };

@@ -8,7 +8,14 @@ module.exports = function ({ config, mode }) {
   config.module.rules.push({
     test: /\.scss$/,
     use: [
-      { loader: 'style-loader', options: { attributes: { id: 'rex-styles-storybook' } } },
+      {
+        loader: 'style-loader',
+        options: {
+          attributes: {
+            class: 'rex-styles-storybook'
+          },
+        },
+      },
       'css-loader',
       'sass-loader',
     ],
@@ -23,7 +30,7 @@ module.exports = function ({ config, mode }) {
             loader: 'style-loader',
             options: {
               attributes: {
-                id: 'rex-styles-storybook'
+                class: 'rex-styles-storybook'
               },
             },
           };

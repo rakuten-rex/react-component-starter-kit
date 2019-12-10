@@ -71,7 +71,7 @@ function Theme() {
 
   return {
     customStyle,
-    customStyleHtml: cssVarsToLegacy(customStyle),
+    customStyleHtml: cssVarsToLegacy(customStyle, {{pascalCase name}}),
   };
 }
 
