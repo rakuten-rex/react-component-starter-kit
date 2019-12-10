@@ -4,13 +4,19 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, color, select } from '@storybook/addon-knobs';
 import {{pascalCase name}} from 'src/{{pascalCase name}}';
-import withKnobs from '../../.storybook/withKnobs';
+import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
 
+/**
+ * Main story
+ * */
 export default {
   title: '{{titleCase name}}',
   decorators: withKnobs,
 };
 
+/**
+ * Stories
+ * */
 export const defaultView = () => <{{pascalCase name}} />;
 
 export const withLink = () => (
@@ -38,8 +44,12 @@ export const withDynamicProps = () => {
   return <{{pascalCase name}} title={sampleTitle} text={sampleText} />;
 };
 
-export const withThemeReact = () => {
-  const themeText = color('Text', '#232361', 'Theme Colors');
+/**
+ * Custom Theme support
+ * */
+
+function Theme() {
+  const themeText = color('Text', 'crimson', 'Theme Colors');
   const themeLink = color('Link', '#CC0070', 'Theme Colors');
   const themeTitleWeight = select(
     'Title Weight',
@@ -59,6 +69,15 @@ export const withThemeReact = () => {
     '--rex-{{dashCase name}}-title-weight': themeTitleWeight,
   };
 
+  return {
+    customStyle,
+    customStyleHtml: cssVarsToLegacy(customStyle),
+  };
+}
+
+export const WithThemeReactAndCSSVars = () => {
+  const { customStyle } = Theme();
+
   return (
     <{{pascalCase name}} style={customStyle}>
       <a href="/" target="_blank">
@@ -68,32 +87,12 @@ export const withThemeReact = () => {
   );
 };
 
-export const withThemeHTML = () => {
-  const themeText = color('Text', '#232361', 'Theme Colors');
-  const themeLink = color('Link', '#CC0070', 'Theme Colors');
-  const themeTitleWeight = select(
-    'Title Weight',
-    {
-      Weight300: 300,
-      WeightNormal: 'normal',
-      Weight500: 500,
-      WeightBold: 'bold',
-    },
-    500,
-    'Theme Props'
-  );
-
-  const customStyle = `
-    .rex-{{dashCase name}} {
-      --rex-{{dashCase name}}-theme-text: ${themeText};
-      --rex-{{dashCase name}}-theme-link: ${themeLink};
-      --rex-{{dashCase name}}-title-weight: ${themeTitleWeight};
-    }
-  `;
+export const WithThemeHTMLAndLegacyCSS = () => {
+  const { customStyleHtml } = Theme();
 
   return (
     <>
-      <style>{customStyle}</style>
+      <style>{customStyleHtml}</style>
       <{{pascalCase name}}>
         <a href="/" target="_blank">
           Link

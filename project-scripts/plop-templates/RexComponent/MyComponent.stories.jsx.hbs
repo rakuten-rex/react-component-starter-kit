@@ -46,9 +46,9 @@ function Theme() {
   );
 
   const customStyle = {
-    '--rex-my-component-theme-text': themeText,
-    '--rex-my-component-theme-link': themeLink,
-    '--rex-my-component-title-weight': themeTitleWeight,
+    '--rex-{{dashCase name}}-theme-text': themeText,
+    '--rex-{{dashCase name}}-theme-link': themeLink,
+    '--rex-{{dashCase name}}-title-weight': themeTitleWeight,
   };
 
   return {
