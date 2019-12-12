@@ -2,9 +2,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import addons from '@storybook/addons';
-import InspectHtml from './InspectHtml';
+import InspectHtml from '../storybook-inspect-html/InspectHtml';
 
-addons.register('storybook/inspecthtml', api => {
+export default addons.register('storybook/inspecthtml', api => {
   addons.addPanel('storybook/inspecthtml/panel', {
     title: 'Inspect HTML',
     render: ({ active }) => {

@@ -3,12 +3,8 @@
 import React from 'react';
 import { bool, shape, func } from 'prop-types';
 import { STORY_CHANGED } from '@storybook/core-events';
-// import { languages, highlight } from 'prismjs/components/prism-core';
-// import Prism from 'prismjs/components/prism-core';
-// import 'prismjs/components/prism-markup';
-// import 'prismjs/themes/prism.css';
-import { languages, highlight } from 'prismjs';
 import pretty from 'pretty';
+import { highlight, languages } from 'prismjs';
 
 export default class InspectHtml extends React.Component {
   constructor(...args) {
@@ -76,13 +72,17 @@ export default class InspectHtml extends React.Component {
     const { active } = this.props;
     const { html } = this.state;
 
-    return (
-      <Panel
-        className="addon-inspecthtml-container"
-        html={html}
-        active={active}
-      />
-    );
+    if (active) {
+      return (
+        <div style={{ paddingLeft: '20px' }}>
+          <pre>
+            <code dangerouslySetInnerHTML={{ __html: html }} />
+          </pre>
+        </div>
+      );
+    }
+
+    return null;
   }
 }
 
@@ -96,18 +96,3 @@ InspectHtml.propTypes = {
     onStory: func,
   }).isRequired,
 };
-
-// eslint-disable-next-line react/prop-types
-function Panel({ html, active }) {
-  if (active) {
-    return (
-      <div style={{ paddingLeft: '20px' }}>
-        <pre>
-          <code dangerouslySetInnerHTML={{ __html: html }} />
-        </pre>
-      </div>
-    );
-  }
-
-  return null;
-}

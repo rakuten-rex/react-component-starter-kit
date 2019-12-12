@@ -22,7 +22,6 @@ const libraryName = name
   .toLowerCase()
   .replace('@rakuten-rex/', 'rakuten-rex-')
   .replace(/(-)\w/g, m => m.toUpperCase().replace(/-/, ''));
-const packageName = name.replace('@rakuten-rex/', '');
 
 // Webpack Config for Production mode
 const { entry, npmFiles } = require('./rexconfig');
@@ -120,6 +119,34 @@ const config = {
       amd: 'react-dom',
       umd: 'react-dom',
     },
+    'react-dom/server': {
+      root: 'ReactDOMServer',
+      commonjs2: 'react-dom/server',
+      commonjs: 'react-dom/server',
+      amd: 'react-dom/server',
+      umd: 'react-dom/server',
+    },
+    '@storybook/addons': {
+      root: 'StorybookAddons',
+      commonjs2: '@storybook/addons',
+      commonjs: '@storybook/addons',
+      amd: '@storybook/addons',
+      umd: '@storybook/addons',
+    },
+    pretty: {
+      root: 'pretty',
+      commonjs2: 'pretty',
+      commonjs: 'pretty',
+      amd: 'pretty',
+      umd: 'pretty',
+    },
+    prismjs: {
+      root: 'prismjs',
+      commonjs2: 'prismjs',
+      commonjs: 'prismjs',
+      amd: 'prismjs',
+      umd: 'prismjs',
+    },
   },
   plugins: [
     // Copyright
@@ -153,30 +180,33 @@ This source code is licensed under the MIT license found in the LICENSE file in 
         },
       },
     ]),
-    // MyComponent/index.js (require .css + .js files)
-    new CopyWebpackPlugin(
-      npmFiles.components.map(item => {
-        return {
-          from: './project-scripts/webpack/npm/index.tpl',
-          to: `${item}/index.js`,
-          transform(content) {
-            return content.toString().replace(/__COMPONENT_NAME__/g, item);
-          },
-        };
-      })
-    ),
-    // MyComponent/css/index.js (require .css file only)
-    // new CopyWebpackPlugin(
-    //   npmFiles.components.map(item => {
-    //     return {
-    //       from: './project-scripts/webpack/npm/css/index.tpl',
-    //       to: `${item}/css/index.js`,
-    //       transform(content) {
-    //         return content.toString().replace(/__COMPONENT_NAME__/g, item);
-    //       },
-    //     };
-    //   })
-    // ),
+    new CopyWebpackPlugin([
+      {
+        from: './project-scripts/webpack/npm/index.tpl',
+        to: 'storybook-inspect-html/index.js',
+        transform(content) {
+          return content
+            .toString()
+            .replace(/__COMPONENT_NAME__/g, 'storybook-inspect-html');
+        },
+      },
+      {
+        from: './project-scripts/webpack/npm/index.tpl',
+        to: 'register/index.js',
+        transform(content) {
+          return content.toString().replace(/__COMPONENT_NAME__/g, 'register');
+        },
+      },
+      {
+        from: './project-scripts/webpack/npm/indexCss.tpl',
+        to: 'MyComponent/index.js',
+        transform(content) {
+          return content
+            .toString()
+            .replace(/__COMPONENT_NAME__/g, 'MyComponent');
+        },
+      },
+    ]),
     // Clear version of package.json for NPM
     new CopyWebpackPlugin([
       {
