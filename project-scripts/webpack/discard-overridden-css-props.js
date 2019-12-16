@@ -23,7 +23,14 @@ class DiscardOverriddenCssPropsPlugin {
             isMinified
           );
 
-          compilation.assets[name]._value = cleanedCSS;
+          compilation.assets[name] = {
+            source() {
+              return cleanedCSS;
+            },
+            size() {
+              return cleanedCSS.length;
+            },
+          };
         });
 
         callback();
@@ -35,7 +42,7 @@ class DiscardOverriddenCssPropsPlugin {
     const cssFileList = [];
 
     for (const key in assets) {
-      if (key.includes('.css')) {
+      if (key.includes('.css') && !key.includes('static.css')) {
         cssFileList.push({
           name: key,
           content: assets[key]._value,
