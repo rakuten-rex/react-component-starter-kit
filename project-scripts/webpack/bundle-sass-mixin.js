@@ -5,6 +5,7 @@ const bundleScss = require('bundle-scss');
 const strip = require('strip-comments');
 const fs = require('fs');
 const prettier = require('prettier');
+const globby = require('globby');
 
 class BundleSassMixinPlugin {
   constructor(options) {
@@ -19,19 +20,27 @@ class BundleSassMixinPlugin {
         const { name, version } = options;
         const { path } = compilation.options.output;
         const sassFilename = `_styles.mixin.scss`;
-        const outputFilename = `${path}/sass/${sassFilename}`;
+        const pathList = await globby(['./src/**/*.mixin.scss']);
 
-        await bundleScss('./src/**/*.mixin.scss', outputFilename);
+        await Promise.all(
+          pathList.map(async scssPath => {
+            // eslint-disable-next-line no-unused-vars
+            const [dot, src, componentName] = scssPath.split('/');
+            const outputFilename = `${path}/${componentName}/sass/${sassFilename}`;
+            await bundleScss(
+              `./src/${componentName}/*.mixin.scss`,
+              outputFilename
+            );
 
-        const original = fs.readFileSync(outputFilename, 'utf8');
+            const original = fs.readFileSync(outputFilename, 'utf8');
 
-        const sassOnlycontent = strip.block(original);
+            const sassOnlycontent = strip.block(original);
 
-        const content = prettier.format(sassOnlycontent, {
-          parser: 'scss',
-        });
+            const content = prettier.format(sassOnlycontent, {
+              parser: 'scss',
+            });
 
-        const banner = `/*!
+            const banner = `/*!
 * @license ${name} v${version} ${new Date().toISOString().split('T')[0]}
 * ${sassFilename}
 *
@@ -40,9 +49,13 @@ class BundleSassMixinPlugin {
 * This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.
 */
 `;
-        const sassFileContent = `${banner}${content}`;
+            const sassFileContent = `${banner}${content}`;
 
-        fs.writeFileSync(outputFilename, sassFileContent);
+            fs.writeFileSync(outputFilename, sassFileContent);
+
+            return componentName;
+          })
+        );
 
         callback();
       }
