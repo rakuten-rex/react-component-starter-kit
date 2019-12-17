@@ -105,6 +105,8 @@ __EXAMPLE_SASS__
 
 ### <img src="__RAW_GITHUB__project-scripts/webpack/markdown/logos/vue.svg?sanitize=true" height="16" /> Vue.js
 
+A basic implementation based on HTML structure and import CSS styles into your component.
+
 Example: 
 
 `my-component.vue`
