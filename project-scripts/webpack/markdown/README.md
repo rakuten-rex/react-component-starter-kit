@@ -58,12 +58,30 @@ __EXAMPLE_JSX__
 
 For your own JavaScript integration (React, Vue, Angular, etc.) or Static HTML.
 
+#### Using CSS Variables (Modern Websites and WebApps)
+
 Example: 
 
 `my-component.jsx`
 
 ```jsx
 import '@rakuten-rex/__COMPONENT_NAME__/css';
+
+function MyCustomComponent() {
+  return (
+    __EXAMPLE_HTML__
+  );
+}
+```
+
+#### Using Static CSS (Legacy Websites)
+
+Example: 
+
+`my-component.jsx`
+
+```jsx
+import '@rakuten-rex/__COMPONENT_NAME__/css/static';
 
 function MyCustomComponent() {
   return (
@@ -110,6 +128,7 @@ export default {
 
 Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles.
 
+### Using CSS Variables (Modern Websites and WebApps)
 **Production mode URL** (recommended for Static HTML projects):  
 ```
 https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.production.min.css
@@ -122,6 +141,12 @@ Development mode URL (for local testing):
 https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.development.css
 ```
 
+
+### Using Static CSS (Legacy Websites)
+
+```
+https://unpkg.com/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME__.static.css
+```
 
 ### <img src="__RAW_GITHUB__project-scripts/webpack/markdown/logos/html-5.svg?sanitize=true" height="16" /> Single component integration
 Add it from unpkg.com CDN (NPM) into your HTML template or HTML static page.
