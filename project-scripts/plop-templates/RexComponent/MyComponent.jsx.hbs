@@ -10,11 +10,10 @@ export default function {{pascalCase name}}({
   className,
   ...props
 }) {
-
   return (
     <div className={className} onClick={onClick} role="presentation" {...props}>
       <h3>{title}</h3>
-      <p>{children}</p>
+      {children}
     </div>
   );
 }

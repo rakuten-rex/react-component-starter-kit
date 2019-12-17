@@ -4,16 +4,22 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, color, select } from '@storybook/addon-knobs';
 import MyComponent from 'src/MyComponent';
-import withKnobs from '../../.storybook/withKnobs';
+import { cssVarsToLegacy, withKnobs } from '../../.storybook/helper';
 
+/**
+ * Main story
+ * */
 export default {
   title: 'My Component',
   decorators: withKnobs,
 };
 
-export const defaultView = () => <MyComponent />;
+/**
+ * Stories
+ * */
+export const DefaultView = () => <MyComponent />;
 
-export const withLink = () => (
+export const WithLink = () => (
   <MyComponent>
     <a href="/" target="_blank">
       Link
@@ -21,25 +27,29 @@ export const withLink = () => (
   </MyComponent>
 );
 
-export const withCustomClassname = () => (
+export const WithCustomClassname = () => (
   <MyComponent className="rex-my-component elevation" />
 );
 
-export const withClickEvent = () => {
+export const WithClickEvent = () => {
   const onClickSample = action('clicked');
 
   return <MyComponent onClick={onClickSample} />;
 };
 
-export const withDynamicProps = () => {
+export const WithDynamicProps = () => {
   const sampleTitle = text('title', 'Dynamic Title');
   const sampleText = text('text', 'Dynamic Text');
 
   return <MyComponent title={sampleTitle} text={sampleText} />;
 };
 
-export const withThemeReact = () => {
-  const themeText = color('Text', '#232361', 'Theme Colors');
+/**
+ * Custom Theme support
+ * */
+
+function Theme() {
+  const themeText = color('Text', 'crimson', 'Theme Colors');
   const themeLink = color('Link', '#CC0070', 'Theme Colors');
   const themeTitleWeight = select(
     'Title Weight',
@@ -59,6 +69,15 @@ export const withThemeReact = () => {
     '--rex-my-component-title-weight': themeTitleWeight,
   };
 
+  return {
+    customStyle,
+    customStyleHtml: cssVarsToLegacy(customStyle, MyComponent),
+  };
+}
+
+export const WithThemeReactAndCSSVars = () => {
+  const { customStyle } = Theme();
+
   return (
     <MyComponent style={customStyle}>
       <a href="/" target="_blank">
@@ -68,32 +87,12 @@ export const withThemeReact = () => {
   );
 };
 
-export const withThemeHTML = () => {
-  const themeText = color('Text', '#232361', 'Theme Colors');
-  const themeLink = color('Link', '#CC0070', 'Theme Colors');
-  const themeTitleWeight = select(
-    'Title Weight',
-    {
-      Weight300: 300,
-      WeightNormal: 'normal',
-      Weight500: 500,
-      WeightBold: 'bold',
-    },
-    500,
-    'Theme Props'
-  );
-
-  const customStyle = `
-    .rex-my-component {
-      --rex-my-component-theme-text: ${themeText};
-      --rex-my-component-theme-link: ${themeLink};
-      --rex-my-component-title-weight: ${themeTitleWeight};
-    }
-  `;
+export const WithThemeHTMLAndLegacyCSS = () => {
+  const { customStyleHtml } = Theme();
 
   return (
     <>
-      <style>{customStyle}</style>
+      <style>{customStyleHtml}</style>
       <MyComponent>
         <a href="/" target="_blank">
           Link
