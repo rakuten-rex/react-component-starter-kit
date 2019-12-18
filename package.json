@@ -1,15 +1,15 @@
 {
   "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "ReX React UI Component",
   "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080 --ci -s ./.storybook/public",
     "build": "npm run build:component && npm run build:storybook",
-    "build:patch": "npm run reinstall:packages && npm --no-git-tag-version version patch && npm run build:commit && npm run publish:component",
-    "build:minor": "npm run reinstall:packages && npm --no-git-tag-version version minor && npm run build:commit && npm run publish:component",
-    "build:major": "npm run reinstall:packages && npm --no-git-tag-version version major && npm run build:commit && npm run publish:component",
+    "build:patch": "npm ci && npm --no-git-tag-version version patch && npm run build:commit && npm run publish:component",
+    "build:minor": "npm ci && npm --no-git-tag-version version minor && npm run build:commit && npm run publish:component",
+    "build:major": "npm ci && npm --no-git-tag-version version major && npm run build:commit && npm run publish:component",
     "build:storybook": "NODE_ENV=production ./node_modules/.bin/build-storybook -c .storybook -o docs -s ./npm,./.storybook/public",
     "build:component": "NODE_ENV=production ./node_modules/.bin/webpack --mode=production --config webpack.config.js",
     "build:commit": "npm run build && npm run commit",
@@ -19,11 +19,9 @@
     "commit:package": "git add package.json package-lock.json && git commit -m 'New version - v'$npm_package_version",
     "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs",
     "publish:component": "cd ./npm && npm publish",
-    "setup": "npm run generate:package-json && npm run generate:rex-component && npm run reinstall",
+    "setup": "npm ci && npm run generate:package-json && npm run generate:rex-component && npm ci",
     "generate:package-json": "plop --plopfile project-scripts/plop-templates/package-json/plop-generator.js",
-    "generate:rex-component": "plop --plopfile project-scripts/plop-templates/RexComponent/plop-generator.js",
-    "reinstall": "rm -rf node_modules && rm -rf package-lock.json && npm i",
-    "reinstall:packages": "rm -rf node_modules && npm i"
+    "generate:rex-component": "plop --plopfile project-scripts/plop-templates/RexComponent/plop-generator.js"
   },
   "repository": {
     "type": "git",

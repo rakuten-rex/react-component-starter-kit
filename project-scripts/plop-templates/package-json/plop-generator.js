@@ -1,11 +1,19 @@
 const packageJson = require('../../../package.json');
+const packageLockJson = require('../../../package-lock.json');
 
 const { name } = packageJson;
 const componentName = name.replace('@rakuten-rex/', '');
 packageJson.version = '0.0.1';
 packageJson.description = '{{description}}';
 
+packageLockJson.version = '0.0.1';
+
 const template = `${JSON.stringify(packageJson, null, 2)}\n`.replace(
+  new RegExp(componentName, 'g'),
+  '{{dashCase name}}'
+);
+
+const templateLock = `${JSON.stringify(packageLockJson, null, 2)}\n`.replace(
   new RegExp(componentName, 'g'),
   '{{dashCase name}}'
 );
@@ -30,6 +38,12 @@ module.exports = plop => {
         type: 'add',
         path: '../../../package.json',
         template,
+        force: true,
+      },
+      {
+        type: 'add',
+        path: '../../../package-lock.json',
+        template: templateLock,
         force: true,
       },
     ],
