@@ -43,7 +43,7 @@ module.exports = plop => {
       {
         type: 'add',
         path: '../../../package-lock.json',
-        templateLock,
+        template: templateLock,
         force: true,
       },
     ],
