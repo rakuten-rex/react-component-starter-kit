@@ -331,6 +331,9 @@ This source code is licensed under the MIT license found in the LICENSE file in 
               cssDeclarationSorter: {
                 order: 'alphabetically',
               },
+              minifyFontValues: {
+                removeQuotes: false,
+              },
             },
           ],
         },
@@ -407,6 +410,9 @@ This source code is licensed under the MIT license found in the LICENSE file in 
           {
             cssDeclarationSorter: {
               order: 'alphabetically',
+            },
+            minifyFontValues: {
+              removeQuotes: false,
             },
           },
         ],
