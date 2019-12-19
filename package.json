@@ -3,6 +3,9 @@
   "version": "3.2.4",
   "description": "ReX React UI Component",
   "main": "src/index.jsx",
+  "bin": {
+    "create": "./create.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080 --ci -s ./.storybook/public",
