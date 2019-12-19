@@ -146,6 +146,8 @@ This source code is licensed under the MIT license found in the LICENSE file in 
     new DiscardOverriddenCssPropsPlugin(),
     // NPM package distribution
     // License
+    new CopyWebpackPlugin([{ from: './create.js' }]),
+    // License
     new CopyWebpackPlugin([{ from: './LICENSE' }]),
     // index.js (require only .js files)
     new CopyWebpackPlugin([
