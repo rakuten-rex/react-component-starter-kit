@@ -1,11 +1,8 @@
 {
   "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "description": "ReX React UI Component",
   "main": "src/index.jsx",
-  "bin": {
-    "create": "./create.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development ./node_modules/.bin/start-storybook -p 8080 --ci -s ./.storybook/public",
@@ -22,7 +19,7 @@
     "commit:package": "git add package.json package-lock.json && git commit -m 'New version - v'$npm_package_version",
     "serve": "NODE_ENV=production ./node_modules/.bin/http-server -p 8081 docs",
     "publish:component": "cd ./npm && npm publish",
-    "setup": "npm ci && npm run generate:package-json && npm run generate:rex-component && npm ci",
+    "setup": "npm ci && npm run generate:package-json && npm run generate:rex-component",
     "generate:package-json": "plop --plopfile project-scripts/plop-templates/package-json/plop-generator.js",
     "generate:rex-component": "plop --plopfile project-scripts/plop-templates/RexComponent/plop-generator.js"
   },
