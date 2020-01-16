@@ -9,13 +9,13 @@ React, HTML/CSS and Vue.js
 <img src="project-scripts/webpack/markdown/logos/npm.svg?sanitize=true" height="16" />
 
 ```
-npm install @rakuten-rex/react-component-starter-kit@3.2.7 --save
+npm install @rakuten-rex/react-component-starter-kit@3.2.8 --save
 ```
 
 <img src="project-scripts/webpack/markdown/logos/yarn.svg?sanitize=true" height="16" />
 
 ```
-yarn add @rakuten-rex/react-component-starter-kit@3.2.7
+yarn add @rakuten-rex/react-component-starter-kit@3.2.8
 ```
 
 # Getting started
@@ -118,7 +118,7 @@ Example:
 `my-styles.scss`
 
 ```scss
-@import '@rakuten-rex/react-component-starter-kit/MyComponent/sass/styles.mixin';
+@import '~@rakuten-rex/react-component-starter-kit/MyComponent/sass/styles.mixin';
 
 .my-component-with-rex-styles {
   @include rex-my-component();
@@ -159,21 +159,21 @@ Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles
 ### Using CSS Variables (Modern Websites and WebApps)
 **Production mode URL** (recommended for Static HTML projects):  
 ```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.7/MyComponent/MyComponent.production.min.css
+https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.8/MyComponent/MyComponent.production.min.css
 ```
 
 
 Development mode URL (for local testing):  
 
 ```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.7/MyComponent/MyComponent.development.css
+https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.8/MyComponent/MyComponent.development.css
 ```
 
 
 ### Using Static CSS (Legacy Websites)
 
 ```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.7/MyComponent/MyComponent.static.css
+https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.8/MyComponent/MyComponent.static.css
 ```
 
 ### <img src="project-scripts/webpack/markdown/logos/html-5.svg?sanitize=true" height="16" /> Single component integration
@@ -190,7 +190,7 @@ Example:
     <meta charset="utf-8">
     <title>My Page</title>
     <!-- ReX react-component-starter-kit -->
-    <link href="https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.7/MyComponent/MyComponent.production.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.2.8/MyComponent/MyComponent.production.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="rex-my-component" role="presentation">
