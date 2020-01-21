@@ -1,11 +1,8 @@
 {
   "name": "@rakuten-rex/react-component-starter-kit",
-  "version": "3.2.9",
+  "version": "3.3.0",
   "description": "ReX React UI Component",
   "main": "index.js",
-  "bin": {
-    "create": "./create.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rakuten-rex/react-component-starter-kit.git"
