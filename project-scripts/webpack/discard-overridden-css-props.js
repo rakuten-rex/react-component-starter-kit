@@ -20,9 +20,17 @@ function getUniqueCssProps(props) {
   const propsSorted = [];
   const objProps = {};
 
-  for (const key in propsList) {
-    const propWithValue = propsList[key];
-    const [prop, value] = propWithValue.trim().split(':');
+  for (let x = 0; x < propsList.length; x++) {
+    const propWithValue = propsList[x].trim();
+    // eslint-disable-next-line prefer-const
+    let [prop, value, dataUrl] = propWithValue.split(':');
+
+    // check if data url
+    if (typeof dataUrl !== 'undefined') {
+      const dataUrlValue = propsList[x + 1];
+      value = `${value}:${dataUrl};${dataUrlValue}`;
+      x++;
+    }
 
     if (typeof prop !== 'undefined' && typeof value !== 'undefined') {
       const keyProp = prop.trim();
@@ -133,11 +141,8 @@ class DiscardOverriddenCssPropsPlugin {
     compiler.hooks.emit.tap(
       { name: 'DiscardOverriddenCssPropsPlugin' },
       compilation => {
-        console.log('DiscardOverriddenCssPropsPlugin');
         const { assets } = compilation;
         const cssFileList = getCssFileList(assets);
-
-        // console.log('cssFileList', cssFileList);
 
         cssFileList.forEach(({ name, content, isMinified }) => {
           const cleanedCSS = convertCssToJson(content, isMinified);
