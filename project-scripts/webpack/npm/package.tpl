@@ -3,9 +3,6 @@
   "version": "__VERSION__",
   "description": "__DESCRIPTION__",
   "main": "index.js",
-  "bin": {
-    "create": "./create.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rakuten-rex/__COMPONENT_NAME__.git"
