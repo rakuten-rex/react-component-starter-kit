@@ -248,6 +248,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
                 .replace(/(\n)/gm, '\n    ')
             )
             .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__COMPONENT_NAME_INDEX__/g, npmFiles.index)
             .replace(/__VERSION__/g, version);
         },
       },
@@ -292,6 +293,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
                 .replace(/(\n)/gm, '\n    ')
             )
             .replace(/__COMPONENT_NAME__/g, name.replace('@rakuten-rex/', ''))
+            .replace(/__COMPONENT_NAME_INDEX__/g, npmFiles.index)
             .replace(/__VERSION__/g, version);
         },
       },
