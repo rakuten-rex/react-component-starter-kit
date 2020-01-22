@@ -73,7 +73,7 @@ Example:
 `my-component.jsx`
 
 ```jsx
-import '@rakuten-rex/__COMPONENT_NAME__/MyComponent/css';
+import '@rakuten-rex/__COMPONENT_NAME__/__COMPONENT_NAME_INDEX__/css';
 
 function MyCustomComponent() {
   return (
@@ -89,7 +89,7 @@ Example:
 `my-component.jsx`
 
 ```jsx
-import '@rakuten-rex/__COMPONENT_NAME__/MyComponent/css/static';
+import '@rakuten-rex/__COMPONENT_NAME__/__COMPONENT_NAME_INDEX__/css/static';
 
 function MyCustomComponent() {
   return (
@@ -129,7 +129,7 @@ export default {
 }
 </script>
 <style scoped>
-@import "~@rakuten-rex/__COMPONENT_NAME__/css";
+@import "~@rakuten-rex/__COMPONENT_NAME__/__COMPONENT_NAME_INDEX__/css";
 </style>
 ```
 
@@ -141,21 +141,21 @@ Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles
 ### Using CSS Variables (Modern Websites and WebApps)
 **Production mode URL** (recommended for Static HTML projects):  
 ```
-https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/MyComponent/MyComponent.production.min.css
+https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME_INDEX__/__COMPONENT_NAME_INDEX__.production.min.css
 ```
 
 
 Development mode URL (for local testing):  
 
 ```
-https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/MyComponent/MyComponent.development.css
+https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME_INDEX__/__COMPONENT_NAME_INDEX__.development.css
 ```
 
 
 ### Using Static CSS (Legacy Websites)
 
 ```
-https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/MyComponent/MyComponent.static.css
+https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME_INDEX__/__COMPONENT_NAME_INDEX__.static.css
 ```
 
 ### <img src="__RAW_GITHUB__project-scripts/webpack/markdown/logos/html-5.svg?sanitize=true" height="16" /> Single component integration
@@ -172,7 +172,7 @@ Example:
     <meta charset="utf-8">
     <title>My Page</title>
     <!-- ReX __COMPONENT_NAME__ -->
-    <link href="https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/MyComponent/MyComponent.production.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/@rakuten-rex/__COMPONENT_NAME__@__VERSION__/__COMPONENT_NAME_INDEX__/__COMPONENT_NAME_INDEX__.production.min.css" rel="stylesheet">
   </head>
   <body>
     __EXAMPLE_HTML__
