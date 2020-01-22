@@ -45,7 +45,6 @@ For a complete Documentation including all ReX Design System Components, Live HT
 https://rakuten-rex.github.io/   
 
 
-
 # How to integrate ReX in your project
 ## A) JavaScript modules
 
