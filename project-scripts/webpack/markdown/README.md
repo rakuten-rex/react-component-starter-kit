@@ -36,6 +36,13 @@ https://rakuten-rex.github.io/__COMPONENT_NAME__/
 - [x] Stories source code
 - [x] Knobs with multiple options
 
+## ZeroHeight Documentation
+
+For a complete Documentation including all ReX Design System Components, Live HTML/React examples and Demos please visit:
+
+[<img src="__RAW_GITHUB__project-scripts/webpack/markdown/logos/zh_logo.svg?sanitize=true" height="16" />](https://rakuten-rex.github.io/)   
+
+
 
 # How to integrate ReX in your project
 ## A) JavaScript modules
