@@ -5,7 +5,7 @@ const { name, version } = packageJson;
 const componentName = name.replace('@rakuten-rex/', '');
 packageJson.version = '0.0.1';
 packageJson.description = '{{description}}';
-packageJson['react-component-starter-kit'] = version;
+packageJson['rex-starter-kit'] = version;
 
 packageLockJson.version = '0.0.1';
 
