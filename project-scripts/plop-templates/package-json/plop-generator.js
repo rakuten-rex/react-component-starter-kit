@@ -1,10 +1,11 @@
 const packageJson = require('../../../package.json');
 const packageLockJson = require('../../../package-lock.json');
 
-const { name } = packageJson;
+const { name, version } = packageJson;
 const componentName = name.replace('@rakuten-rex/', '');
 packageJson.version = '0.0.1';
 packageJson.description = '{{description}}';
+packageJson['rex-starter-kit'] = version;
 
 packageLockJson.version = '0.0.1';
 
