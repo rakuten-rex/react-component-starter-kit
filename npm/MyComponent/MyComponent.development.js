@@ -1,6 +1,6 @@
 /*!
  * 
- * @license @rakuten-rex/react-component-starter-kit v3.4.8 2020-01-24
+ * @license @rakuten-rex/react-component-starter-kit v3.5.0 2020-06-30
  * MyComponent/MyComponent.development.js
  * 
  * Copyright (c) 2018-present, Rakuten, Inc.
@@ -201,15 +201,15 @@ function MyComponent(_ref) {
   var style = {
     width: '100%'
   };
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: className,
     onClick: onClick,
     role: "presentation"
-  }, props), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
     src: _assets_Image_jpg__WEBPACK_IMPORTED_MODULE_3___default.a,
     alt: "Basic example",
     style: style
-  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", null, title), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, text), children);
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, text), children);
 }
 MyComponent.displayName = "MyComponent";
 MyComponent.defaultProps = {
