@@ -421,10 +421,7 @@ This source code is licensed under the MIT license found in the LICENSE file in 
 };
 
 // Clean build folder for multiple webpack configs (dev, prod) instead of CleanWebpackPlugin
-del.sync([
-  path.resolve(config.output.path, '**/*'),
-  path.resolve('docs', '**/*'),
-]);
+del.sync(['npm/**/*', 'docs/**', '!docs/v']);
 
 // Export webpack config (prod, dev)
 module.exports = [configProd, configDev];
