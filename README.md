@@ -2,20 +2,20 @@
 
 This project is part of ReX Design System and it can be used to create UI Components compatible with:
 
-React, HTML/CSS and Vue.js  
+React, HTML/CSS
 
 # How to install
 
 <img src="project-scripts/webpack/markdown/logos/npm.svg?sanitize=true" height="16" />
 
 ```
-npm install @rakuten-rex/react-component-starter-kit@3.6.0 --save
+npm install @rakuten-rex/react-component-starter-kit@3.6.1 --save
 ```
 
 <img src="project-scripts/webpack/markdown/logos/yarn.svg?sanitize=true" height="16" />
 
 ```
-yarn add @rakuten-rex/react-component-starter-kit@3.6.0
+yarn add @rakuten-rex/react-component-starter-kit@3.6.1
 ```
 
 # Getting started
@@ -35,14 +35,6 @@ https://rakuten-rex.github.io/react-component-starter-kit/
 - [x] JSX output
 - [x] Stories source code
 - [x] Knobs with multiple options
-
-## ZeroHeight Documentation
-
-For a complete Documentation including all ReX Design System Components, Live HTML/React examples and Demos please visit:
-
-[<img src="project-scripts/webpack/markdown/logos/zh_logo.svg?sanitize=true" height="16" />](https://rakuten-rex.github.io/)   
-
-https://rakuten-rex.github.io/   
 
 
 # How to integrate ReX in your project
@@ -94,121 +86,6 @@ function MyCustomComponent() {
 }
 ```
 
-#### Using Static CSS (Legacy Websites)
-
-Example: 
-
-`my-component.jsx`
-
-```jsx
-import '@rakuten-rex/react-component-starter-kit/MyComponent/css/static';
-
-function MyCustomComponent() {
-  return (
-    <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
-    </div>
-  );
-}
-```
-
-[Click here](https://rakuten-rex.github.io/react-component-starter-kit/) to see all working examples in Storybook.
-
-
-### <img src="project-scripts/webpack/markdown/logos/sass.svg?sanitize=true" height="16" /> Sass mixins
-
-For your own customization of styles (React, Vue, Angular, etc.) or Static HTML.
-
-Example: 
-
-`my-styles.scss`
-
-```scss
-@import '~@rakuten-rex/react-component-starter-kit/MyComponent/sass/styles.mixin';
-
-.my-component-with-rex-styles {
-  @include rex-my-component();
-}
-```
-
-### <img src="project-scripts/webpack/markdown/logos/vue.svg?sanitize=true" height="16" /> Vue.js
-
-A basic implementation based on HTML structure and import CSS styles into your component.
-
-Example: 
-
-`my-component.vue`
-
-```vue
-<template>
-    <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
-    </div>
-</template>
-<script>
-export default {
-  name: 'MyComponent',
-}
-</script>
-<style scoped>
-@import "~@rakuten-rex/react-component-starter-kit/MyComponent/css";
-</style>
-```
-
-
-## B) Static HTML
-
-Copy-paste the stylesheet `<link>` into your `<head>` tag to load our CSS styles.
-
-### Using CSS Variables (Modern Websites and WebApps)
-**Production mode URL** (recommended for Static HTML projects):  
-```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.6.0/MyComponent/MyComponent.production.min.css
-```
-
-
-Development mode URL (for local testing):  
-
-```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.6.0/MyComponent/MyComponent.development.css
-```
-
-
-### Using Static CSS (Legacy Websites)
-
-```
-https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.6.0/MyComponent/MyComponent.static.css
-```
-
-### <img src="project-scripts/webpack/markdown/logos/html-5.svg?sanitize=true" height="16" /> Single component integration
-Add it from unpkg.com CDN (NPM) into your HTML template or HTML static page.
-
-Example: 
-
-`my-page.html`
-
-```html
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My Page</title>
-    <!-- ReX react-component-starter-kit -->
-    <link href="https://unpkg.com/@rakuten-rex/react-component-starter-kit@3.6.0/MyComponent/MyComponent.production.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="rex-my-component" role="presentation">
-      <img src="static/media/Image.jpg" alt="Basic example" style="width:100%" />
-      <h3>Hello World</h3>
-      <p>This is a basic example for ReX React Components Starter Kit</p>
-    </div>
-  </body>
-</html>
-```
 
 ## Documentation, source code and distribution
 
@@ -216,7 +93,6 @@ Example:
 |-------------| ------------- | ------------- |
 |<img src="project-scripts/webpack/markdown/logos/github-icon.svg?sanitize=true" height="16" />| Github (Source Code) | https://github.com/rakuten-rex |
 |<img src="project-scripts/webpack/markdown/logos/npm.svg?sanitize=true" height="16" />| NPM (Package distribution)  | https://www.npmjs.com/org/rakuten-rex  |
-|<img src="project-scripts/webpack/markdown/logos/zh_logo.svg?sanitize=true" height="16" />| ZeroHeight (Documentation)  | https://zeroheight.com/390c074f3 |
 
 ## Project Stack
 
@@ -233,7 +109,7 @@ Example:
 | Styles features |  JavaScript features |
 |-------------|-------------|
 | Theme support via CSS variables |  React components splitted by type |
-| Static CSS styles available for HTML/VueJS/AngularJS | Universal Module Definition support |
+| Universal Module Definition support |
 | Sass mixins for custom builds |
 | Reset CSS styles already bundled by HTML tags |
 | Removed duplicated CSS props |
